@@ -10,7 +10,7 @@ zip_code VARCHAR(10),
 country VARCHAR(100),
 image VARCHAR(500),
 description VARCHAR(1000),
-is_artiste BOOLEAN NOT NULL DEFAULT FALSE,
+is_artist BOOLEAN NOT NULL DEFAULT FALSE,
 is_admin BOOLEAN NOT NULL DEFAULT FALSE
 );
 INSERT INTO user_account (name, email, password, street, city, zip_code, country, image, description)
