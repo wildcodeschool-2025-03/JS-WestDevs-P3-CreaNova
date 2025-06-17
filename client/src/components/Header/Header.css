@@ -1,0 +1,24 @@
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+.bm-burger-bars {
+  background: #373a47;
+}
+
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+.menu-item {
+  display: block;
+  color: white;
+  padding: 0.5em 0;
+  text-decoration: none;
+}
