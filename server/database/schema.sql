@@ -13,7 +13,7 @@ description VARCHAR(1000),
 is_artist BOOLEAN NOT NULL DEFAULT FALSE,
 is_admin BOOLEAN NOT NULL DEFAULT FALSE
 );
-INSERT INTO user_account (name, email, password, street, city, zip_code, country, image, description)
+INSERT INTO user_account (name, email, password, street, city, zip_code, country, image, description, is_artist, is_admin)
 VALUES 
 ("Abolfazl Eslami", "abolfazl@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "10 rue des Arts", "Paris", "75001", "France", "http://localhost:3310/abolfazl-eslami.webp", "Artiste peintre contemporain, Abolfazl Eslami explore les émotions humaines à travers des toiles vibrantes et colorées. Son travail, influencé par la dualité des tons chauds et froids, invite le spectateur à une réflexion profonde sur la condition humaine et la beauté de l’instant présent. Passionné par l’expérimentation, il mêle techniques traditionnelles et approches modernes pour créer des œuvres uniques et expressives.
 ", TRUE, FALSE),
@@ -27,7 +27,7 @@ VALUES
 ", TRUE, FALSE),
 ("Sema Martin", "sema@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "7 allée des Cyprès", "Toulouse", "31000", "France", "http://localhost:3310/sema-martin.webp", "Dessin = ma passion. Sema Martin est une artiste dont le trait délicat et précis donne vie à des univers empreints de poésie. Inspirée par la nature et les émotions humaines, elle réalise des dessins qui racontent des histoires et suscitent l’imaginaire. Son style, à la fois doux et expressif, séduit par sa capacité à transmettre des sentiments profonds à travers la simplicité du crayon.
 ", TRUE, FALSE),
-("Gisèle Thomas", "gisele@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "3 impasse des Érables", "Bordeaux", "33000", "France", NULL, NULL);
+("Gisèle Thomas", "gisele@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "3 impasse des Érables", "Bordeaux", "33000", "France", NULL, NULL, FALSE, FALSE);
 
 
 CREATE TABLE artwork (
@@ -104,7 +104,7 @@ VALUES
 (2, 11), (11, 11),
 (2, 12), (11, 12),
 (2, 13), (11, 13),
-(2, 14), (11, 13),
+(2, 14), (11, 14),
 (2, 15), (11, 15),
 (3, 16), (5, 16),
 (3, 17), (4, 17),

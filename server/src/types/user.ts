@@ -1,0 +1,10 @@
+interface User {
+  name: string;
+  email: string;
+  password: string;
+  street: string;
+  city: string;
+  zip_code: number;
+  country: string;
+  is_artist?: boolean;
+}
