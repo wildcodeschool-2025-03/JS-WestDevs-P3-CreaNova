@@ -1,5 +1,11 @@
+import Footer from "./components/Footer";
+
 function App() {
-  return <h1>Coucou</h1>;
+  return (
+    <>
+      <Footer />
+    </>
+  );
 }
 
 export default App;
