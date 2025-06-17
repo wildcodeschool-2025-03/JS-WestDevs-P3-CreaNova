@@ -1,5 +1,12 @@
+import { Outlet } from "react-router";
+import "./global.css";
+
 function App() {
-  return <h1>Coucou</h1>;
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 }
 
 export default App;
