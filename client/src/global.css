@@ -34,8 +34,9 @@
 }
 
 body {
+  background-color: var(--primary-color);
   font-family: "Cairo", sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
   color: var(--text-color);
   margin: 0;
@@ -49,7 +50,7 @@ h4,
 h5,
 h6 {
   font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 ul {
