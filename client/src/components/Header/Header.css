@@ -4,26 +4,26 @@ header {
   width: 100%;
 }
 
-.droite {
+.menu-et-logo {
   border: 2px, solid, greenyellow;
   flex-basis: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-img {
+.logo {
   border: 2px, solid, orange;
   width: 35px;
   height: 35px;
 }
 
 .bm-burger-button {
-  padding: 12px;
   border: 2px, solid, darkorchid;
   position: fixed;
   width: 35px;
-  height: 25px;
+  height: 35px;
   left: 10px;
   top: 10px;
 }
@@ -45,12 +45,17 @@ img {
   text-decoration: none;
 }
 
+/* Couleur/forme de la croix du bouton de fermeture */
+.bm-cross {
+  background: #bdc3c7;
+}
+
 .nav_menu {
   border: 2px, solid, blue;
   margin: 0 5px;
   display: flex;
   flex-basis: 100%;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 5px;
 }

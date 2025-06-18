@@ -1,6 +1,6 @@
-import { useState } from "react";
-import "./Header.css";
 import { slide as Menu } from "react-burger-menu";
+import "./Header.css";
+import { useState } from "react";
 import { Link } from "react-router";
 
 const Header = () => {
@@ -8,22 +8,68 @@ const Header = () => {
   return (
     <>
       <header>
-        <section className="droite">
+        <section className="menu-et-logo">
           <Menu
             isOpen={isOpen}
             onOpen={() => setIsOpen(!isOpen)}
             onClose={() => setIsOpen(!isOpen)}
           >
             <Link
-              id="home"
+              id="artistes"
               className="menu-item"
-              to="/"
+              to="/artistes"
               onClick={() => setIsOpen(false)}
             >
-              Home
+              Artistes
+            </Link>
+
+            <Link
+              id="peintures"
+              className="menu-item"
+              to="/peintures"
+              onClick={() => setIsOpen(false)}
+            >
+              Peintures
+            </Link>
+
+            <Link
+              id="photographies"
+              className="menu-item"
+              to="/photographies"
+              onClick={() => setIsOpen(false)}
+            >
+              Photographies
+            </Link>
+
+            <Link
+              id="dessins"
+              className="menu-item"
+              to="/dessins"
+              onClick={() => setIsOpen(false)}
+            >
+              Dessins
+            </Link>
+
+            <Link
+              id="newsletter"
+              className="menu-item"
+              to="/newsletter"
+              onClick={() => setIsOpen(false)}
+            >
+              Newsletters
+            </Link>
+
+            <Link
+              id="a propos"
+              className="menu-item"
+              to="/a propos"
+              onClick={() => setIsOpen(false)}
+            >
+              A propos
             </Link>
           </Menu>
-          <img src="./img/black_logo.png" alt="logo-black" />
+
+          <img className="logo" src="./img/black_logo.png" alt="logo-black" />
         </section>
         <nav className="nav_menu">
           <Link to="/dark_mode">
