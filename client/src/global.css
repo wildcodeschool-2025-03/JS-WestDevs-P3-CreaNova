@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("./assets/fonts/CormorantGaramond-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cairo";
+  src: url("./assets/fonts/Cairo-VariableFont_slnt\,wght.ttf");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* Styles par défaut (light mode) */
+:root {
+  --primary-color: #f9f9f9;
+  --color-component: #f0f0f0;
+  --color-border: #bbbbbb;
+  --text-color: #202020;
+}
+
+/* Dark mode */
+.dark-mode {
+  --primary-color: #191919;
+  --color-component: #222222;
+  --color-border: #606060;
+  --text-color: #eeeeee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
