@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import "./HomePage.css";
 
 function HomePage() {
@@ -25,14 +26,20 @@ function HomePage() {
       </p>
       <section className="artiste">
         <h2>Artistes</h2>
-        <p>
-          Découvrez les talents qui donnent vie à notre galerie. Qu'il s'agisse
-          de peinture ou de photographie, chaque artiste explore des univers
-          uniques. Leurs œuvres sont des invitations à la réflexion et à
-          l'émotion. Laissez-vous transporter par leurs visions singulières.
-        </p>
-        <img src="artiste-homepage.webp" alt="Bertrand Rogon" />
-        <figcaption>Accéder aux aristes</figcaption>
+        <div className="artiste-flex">
+          <p>
+            Découvrez les talents qui donnent vie à notre galerie. Qu'il
+            s'agisse de peinture ou de photographie, chaque artiste explore des
+            univers uniques. Leurs œuvres sont des invitations à la réflexion et
+            à l'émotion. Laissez-vous transporter par leurs visions singulières.
+          </p>
+          <a href="/">
+            <figure>
+              <img src="artiste-homepage.webp" alt="Bertrand Rogon" />
+              <figcaption>Accéder aux artistes</figcaption>
+            </figure>
+          </a>
+        </div>
       </section>
     </main>
   );
