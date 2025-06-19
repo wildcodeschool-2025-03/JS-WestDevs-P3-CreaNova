@@ -1,5 +1,6 @@
 interface User {
-  name: string;
+  firstname: string;
+  lastname: string;
   email: string;
   password: string;
   street: string;

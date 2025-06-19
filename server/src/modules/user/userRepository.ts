@@ -11,9 +11,10 @@ class userRepository {
 
   async create(body: User) {
     const [user] = await databaseClient.query<Result>(
-      "INSERT INTO user_account (name, email, password, street, city, zip_code, country, is_artist) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+      "INSERT INTO user_account (firstname, lastname, email, password, street, city, zip_code, country, is_artist) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
       [
-        body.name,
+        body.firstname,
+        body.lastname,
         body.email,
         body.password,
         body.street,
