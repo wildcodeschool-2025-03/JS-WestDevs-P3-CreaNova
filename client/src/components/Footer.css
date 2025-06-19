@@ -2,26 +2,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid black;
+  border-top: 1px solid #606060;
   padding-top: 16px;
 }
 
 .banner-footer figure {
   display: flex;
-  margin: 0;
-  gap: 5px;
+  margin: 10px;
+  gap: 10px;
 }
 
 .banner-footer a {
   text-decoration: none;
-  border: solid 1px rgb(176, 126, 126);
+}
+
+.banner-footer a p {
+  border: solid 1px #606060;
   border-radius: 20px;
   padding-left: 8px;
   padding-right: 8px;
   margin-left: 20px;
+  color: #191919;
 }
 
 .banner-footer img {
-height: 35px;
-
+  height: 30px;
 }
