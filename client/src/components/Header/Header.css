@@ -1,68 +1,106 @@
-header {
-  border: 2px solid red;
-  display: flex;
-  width: 100%;
-}
+.header {
+  header {
+    /*border: 2px, solid, red;*/
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+  }
 
-.menu-et-logo {
-  border: 2px, solid, greenyellow;
-  flex-basis: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+  .menu-et-logo {
+    /*border: 2px, solid, greenyellow;*/
+    flex-basis: 100%;
+    display: auto;
+    justify-content: center;
+  }
 
-.logo {
-  border: 2px, solid, orange;
-  width: 35px;
-  height: 35px;
-}
+  .logo {
+    /*border: 2px, solid, orange;*/
+    width: 35px;
+    height: 35px;
+    margin: 5px 0 0 45px;
+  }
 
-.bm-burger-button {
-  border: 2px, solid, darkorchid;
-  position: fixed;
-  width: 35px;
-  height: 35px;
-  left: 10px;
-  top: 10px;
-}
+  .bm-burger-button {
+    /*border: 2px, solid, darkorchid;*/
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    left: 10px;
+    top: 9px;
+  }
 
-.bm-burger-bars {
-  background: #373a47;
-}
+  .bm-burger-bars {
+    background: #373a47;
+  }
 
-.bm-menu {
-  background: #373a47;
-  padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
-}
+  .bm-menu {
+    background: #373a47;
+    padding: 2.5em 2.5em 0;
+    font-size: 1.20em;
+  }
 
-.menu-item {
-  display: block;
-  color: white;
-  padding: 0.5em 0;
-  text-decoration: none;
-}
+  .menu-item {
+    display: block;
+    color: white;
+    padding: 0.5em 0;
+    text-decoration: none;
+  }
 
-/* Couleur/forme de la croix du bouton de fermeture */
-.bm-cross {
-  background: #bdc3c7;
-}
+  /* Couleur/forme de la croix du bouton de fermeture */
+  .bm-cross {
+    background: #bdc3c7;
+  }
 
-.nav_menu {
-  border: 2px, solid, blue;
-  margin: 0 5px;
-  display: flex;
-  flex-basis: 100%;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 5px;
-}
+  .nav_categories {
+    border: 2px, solid, red;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    height: 25px;
+    a {
+      font-size: 0.5rem;
+    }
+    button {
+      text-align: center;
+    }
+  }
 
-.nav_menu img {
-  margin: 5px;
-  border: 2px, solid, yellow;
-  width: 35px;
-  height: 35px;
+  .left_nav {
+    border: 2px, solid, blue;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav_menu {
+    /*border: 2px, solid, blue;*/
+    display: flex;
+    flex-basis: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin: 6px;
+  }
+
+  .nav_menu img {
+    /*border: 2px, solid, yellow;*/
+    width: 30px;
+    height: 30px;
+    top: 10px;
+  }
+
+  @media screen and (min-width: 600px) {
+    .bm-burger-button {
+      display: none;
+    }
+    .logo {
+      border: 2px, solid, blue;
+      margin: 10px 0 0 10px;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .nav_categories {
+      display: none;
+    }
+  }
 }

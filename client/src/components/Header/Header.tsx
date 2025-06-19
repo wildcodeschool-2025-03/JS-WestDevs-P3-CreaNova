@@ -5,20 +5,27 @@ import { Link } from "react-router";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const handleOpenMenu = () => {
+    setIsOpen(true);
+  };
+
+  const handleCloseMenu = () => {
+    setIsOpen(false);
+  };
   return (
     <>
-      <header>
+      <header className="header">
         <section className="menu-et-logo">
           <Menu
             isOpen={isOpen}
-            onOpen={() => setIsOpen(!isOpen)}
-            onClose={() => setIsOpen(!isOpen)}
+            onOpen={handleOpenMenu}
+            onClose={handleCloseMenu}
           >
             <Link
               id="artistes"
               className="menu-item"
               to="/artistes"
-              onClick={() => setIsOpen(false)}
+              onClick={handleCloseMenu}
             >
               Artistes
             </Link>
@@ -27,7 +34,7 @@ const Header = () => {
               id="peintures"
               className="menu-item"
               to="/peintures"
-              onClick={() => setIsOpen(false)}
+              onClick={handleCloseMenu}
             >
               Peintures
             </Link>
@@ -36,7 +43,7 @@ const Header = () => {
               id="photographies"
               className="menu-item"
               to="/photographies"
-              onClick={() => setIsOpen(false)}
+              onClick={handleCloseMenu}
             >
               Photographies
             </Link>
@@ -45,7 +52,7 @@ const Header = () => {
               id="dessins"
               className="menu-item"
               to="/dessins"
-              onClick={() => setIsOpen(false)}
+              onClick={handleCloseMenu}
             >
               Dessins
             </Link>
@@ -54,7 +61,7 @@ const Header = () => {
               id="newsletter"
               className="menu-item"
               to="/newsletter"
-              onClick={() => setIsOpen(false)}
+              onClick={handleCloseMenu}
             >
               Newsletters
             </Link>
@@ -63,28 +70,53 @@ const Header = () => {
               id="a propos"
               className="menu-item"
               to="/a propos"
-              onClick={() => setIsOpen(false)}
+              onClick={handleCloseMenu}
             >
               A propos
             </Link>
           </Menu>
+          <section className="left_nav">
+            <img className="logo" src="./img/black_logo.png" alt="logo-black" />
+            <nav className="nav_categories">
+              <button type="button">
+                <Link to="/artistes">Artistes</Link>
+              </button>
 
-          <img className="logo" src="./img/black_logo.png" alt="logo-black" />
+              <button type="button">
+                <Link to="/peintures">Peintures</Link>
+              </button>
+              <button type="button">
+                <Link to="/photographies">Photographies</Link>
+              </button>
+
+              <button type="button">
+                <Link to="/dessins">Dessins</Link>
+              </button>
+
+              <button type="button">
+                <Link to="/newsletter">Newsletter</Link>
+              </button>
+              <button type="button">
+                <Link to="/a propos"> A propos</Link>
+              </button>
+            </nav>
+
+            <nav className="nav_menu">
+              <Link to="/dark_mode">
+                <img src="./img/soleil.png" alt="dark_mode" />
+              </Link>
+              <Link to="/favoris">
+                <img src="./img/amour-du-coeur.png" alt="coeur" />
+              </Link>
+              <Link to="/panier">
+                <img src="./img/panier.png" alt="panier" />
+              </Link>
+              <Link to="/contact">
+                <img src="./img/contact.png" alt="contact" />
+              </Link>
+            </nav>
+          </section>
         </section>
-        <nav className="nav_menu">
-          <Link to="/dark_mode">
-            <img src="./img/soleil.png" alt="dark_mode" />
-          </Link>
-          <Link to="/favoris">
-            <img src="./img/amour-du-coeur.png" alt="coeur" />
-          </Link>
-          <Link to="/panier">
-            <img src="./img/panier.png" alt="panier" />
-          </Link>
-          <Link to="/contact">
-            <img src="./img/contact.png" alt="contact" />
-          </Link>
-        </nav>
       </header>
       <hr />
     </>
