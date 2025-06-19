@@ -2,7 +2,7 @@
   .title {
     text-align: center;
     h1 {
-      font-size: 63px;
+      font-size: 4rem;
       line-height: 0.6;
       margin: 20px 0 0 0;
       padding: 0;
@@ -11,7 +11,7 @@
     p {
       font-family: " GaramCormorantond", serif;
       font-weight: 500;
-      font-size: 14px;
+      font-size: 0.9rem;
       line-height: 0.2;
       margin-bottom: 30px;
     }
@@ -24,20 +24,20 @@
       border-radius: 40px;
     }
     p {
-      font-size: 14px;
+      font-size: 0.9rem;
       width: 85vw;
       margin: 0 auto 20px auto;
     }
   }
 
-  .site-intro {
-    font-size: 14px;
+  .intro-text {
+    font-size: 0.9rem;
     width: 85vw;
     margin: 0 auto;
     margin-top: 20px;
   }
 
-  .artiste {
+  .artist {
     text-align: center;
     h2 {
       font-size: 2rem;
@@ -45,7 +45,7 @@
     }
 
     p {
-      font-size: 14px;
+      font-size: 0.9rem;
       margin: 0 auto;
       width: 85vw;
       margin-bottom: 20px;
@@ -73,14 +73,14 @@
     .title {
       text-align: center;
       h1 {
-        font-size: 152px;
+        font-size: 9.5rem;
         line-height: 0.6;
         margin: 50px 0 0 0;
         padding: 0;
       }
 
       p {
-        font-size: 34px;
+        font-size: 2.1rem;
         line-height: 0.2;
       }
     }
@@ -99,23 +99,23 @@
         border-radius: 40px;
       }
       p {
-        font-size: 24px;
+        font-size: 1.5rem;
       }
     }
 
-    .site-intro {
-      font-size: 28px;
+    .intro-text {
+      font-size: 1.5rem;
       width: 70vw;
       margin: 0 auto;
       margin-top: 40px;
     }
 
-    .artiste {
+    .artist {
       h2 {
-        font-size: 56px;
+        font-size: 3.5rem;
       }
 
-      .artiste-flex {
+      .artist-flex {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -123,7 +123,7 @@
         margin: 0 auto;
       }
       p {
-        font-size: 20px;
+        font-size: 1.2rem;
         width: 30vw;
         margin: 0 0 40px 0;
       }
@@ -136,7 +136,7 @@
         }
 
         figcaption {
-          font-size: 21px;
+          font-size: 1.3rem;
         }
       }
     }

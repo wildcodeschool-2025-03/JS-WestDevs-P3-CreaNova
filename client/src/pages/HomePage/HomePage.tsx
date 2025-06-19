@@ -15,7 +15,7 @@ function HomePage() {
         </p>
         <img src="Oeuvre-homePage.webp" alt="Le vent souffle" />
       </section>
-      <p className="site-intro">
+      <p className="intro-text">
         CreaNova est une galerie d’art en ligne qui réunit photos, peintures et
         dessins d’artistes passionnés. Chaque créateur peut ajouter ses œuvres,
         enrichissant ainsi la collection avec des pièces uniques. Que vous soyez
@@ -23,9 +23,9 @@ function HomePage() {
         personnaliser votre intérieur. CreaNova, une galerie vivante où l’art
         s’invite chez vous en toute simplicité.
       </p>
-      <section className="artiste">
+      <section className="artist">
         <h2>Artistes</h2>
-        <div className="artiste-flex">
+        <div className="artist-flex">
           <p>
             Découvrez les talents qui donnent vie à notre galerie. Qu'il
             s'agisse de peinture ou de photographie, chaque artiste explore des
