@@ -8,7 +8,7 @@ const userValidation: RequestHandler = (req, res, next) => {
     const isEmailValid = email.match(mailRegex);
     const isPasswordValid = password.match(passwordRegex);
 
-    if (!email || !password || !firstname || lastname) {
+    if (!email || !password || !firstname || !lastname) {
       res.status(400).json("Fields are empty");
     } else if (!isEmailValid) {
       res.status(400).json("Invalid email");
