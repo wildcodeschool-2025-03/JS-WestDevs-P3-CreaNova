@@ -55,7 +55,6 @@
     figure {
       position: relative;
       background-color: var(--color-component);
-      transition: filter 0.3s ease;
       border-radius: 10px;
       height: 220px;
       width: 275px;
