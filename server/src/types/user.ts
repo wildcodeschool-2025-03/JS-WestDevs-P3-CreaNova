@@ -7,5 +7,6 @@ interface User {
   city: string;
   zip_code: number;
   country: string;
-  is_artist?: boolean;
+  is_artist: boolean;
+  confidentiality: boolean;
 }
