@@ -1,9 +1,21 @@
 .registration-main {
-  /* height: 100vh; */
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+
+  > img {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    > img {
+      display: block;
+      width: 50%;
+      height: 100vh;
+      object-fit: cover;
+    }
+  }
 
   section {
     width: 100%;
@@ -12,44 +24,41 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
 
-  .registration-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
+    img {
+      width: 80px;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
 
-  form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
+      input {
+        padding: 1rem 1rem;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        background: #f5f8fa;
+      }
 
-  input {
-    padding: 1rem 1rem;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    background: #f5f8fa;
-  }
+      button {
+        padding: 0.8rem 0;
+        background: var(--button-reg-log);
+        color: var(--primary-color);
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        margin-top: 0.5rem;
+        transition: background 0.2s;
 
-  button {
-    width: 100%;
-    padding: 0.8rem 0;
-    background: #2d4a5c;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-family: inherit;
-    cursor: pointer;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    transition: background 0.2s;
-
-    &:hover {
-      background: #183040;
+        &:hover {
+          background: #183040;
+        }
+      }
     }
   }
 }

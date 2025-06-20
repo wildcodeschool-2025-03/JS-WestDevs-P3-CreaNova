@@ -7,18 +7,16 @@ function RegistrationPage() {
       alert("Les mots de passe ne correspondent pas !");
       return;
     }
-    const formData = JSON.stringify({
+    const formData = {
       ...values,
-      zip_code: Number(values.zip_code),
       is_artist: values.is_artist === "on",
-    });
-    console.log(formData);
+    };
     fetch("http://localhost:3310/api/user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: formData,
+      body: JSON.stringify(formData),
     });
   };
 
@@ -29,46 +27,43 @@ function RegistrationPage() {
         <img src="/black_logo.png" alt="logo of CreaNova" />
         <h1>Créer mon compte</h1>
         <form action={handleSubmit}>
-          <label htmlFor="firstname">prénom</label>
-          <input name="firstname" type="text" placeholder="Prénom" />
+          <label htmlFor="firstname">Prénom</label>
+          <input name="firstname" type="text" placeholder="ex: Jean" />
           <label htmlFor="lastname">Nom</label>
-          <input type="text" placeholder="nom" name="lastname" />
-          <label htmlFor="email">email</label>
-          <input type="email" placeholder="Email" name="email" />
-          <label htmlFor="password">mot de passe</label>
-          <input type="password" name="password" placeholder="mot de passe" />
-          <label htmlFor="confirmPassword">passwordconfirm</label>
+          <input type="text" placeholder="ex: Dupont" name="lastname" />
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            placeholder="ex: jeanDupont@gmail.com"
+            name="email"
+          />
+          <label htmlFor="password">Mot de passe</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Votre mot de passe"
+          />
+          <label htmlFor="confirmPassword">Confirmez votre mot de passe</label>
           <input
             type="password"
             id="confirmPassword"
             name="confirmPassword"
-            placeholder="confirmez mdp"
+            placeholder="Confirmez votre mot de passe"
           />
-          <label htmlFor="street">street</label>
-          <input type="text" name="street" placeholder="street" />
-          <label htmlFor="city">city</label>
-          <input type="text" name="city" placeholder="city" />
-          <label htmlFor="zip_code">zip code</label>
-          <input type="text" name="zip_code" placeholder="zipcode" />
-          <label htmlFor="country">country</label>
-          <input type="text" name="country" placeholder="country" />
+
           <div>
             <label htmlFor="is_artist">
               Veuillez cocher si vous êtes un artiste
             </label>
             <input type="checkbox" id="is_artist" name="is_artist" />
           </div>
-          <button type="submit">Créer un compte</button>
-          {/* <div className="registration-policy">
-            <input
-              type="checkbox"
-              id="policy"
-              className="registration-policy-checkbox"
-            />
-            <label htmlFor="policy" className="registration-policy">
+          <div>
+            <label htmlFor="policy">
               accepter la politique de confidentialité
             </label>
-          </div> */}
+            <input id="policy" type="checkbox" />
+          </div>
+          <button type="submit">Créer un compte</button>
         </form>
       </section>
     </main>
