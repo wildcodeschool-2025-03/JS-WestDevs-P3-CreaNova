@@ -111,9 +111,21 @@ const Header = () => {
               <Link to="/panier">
                 <img src="./img/panier.png" alt="panier" />
               </Link>
-              <Link to="/contact">
+
+              <button type="button" popoverTarget="contact_modal">
                 <img src="./img/contact.png" alt="contact" />
-              </Link>
+              </button>
+              <dialog popover="auto" id="contact_modal">
+                <div id="contact_logo">
+                  <img src="./img/contact.png" alt="contact" />
+                </div>
+
+                <Link to="/ma collection">Ma collection</Link>
+                <hr />
+                <Link to="/favoris">Favoris</Link>
+                <hr />
+                <Link to="/connexion">Connexion</Link>
+              </dialog>
             </nav>
           </section>
         </section>

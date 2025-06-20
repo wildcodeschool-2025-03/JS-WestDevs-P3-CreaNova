@@ -15,8 +15,8 @@
 
   .logo {
     /*border: 2px, solid, orange;*/
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
     margin: 5px 0 0 45px;
   }
 
@@ -26,7 +26,7 @@
     width: 25px;
     height: 25px;
     left: 10px;
-    top: 9px;
+    top: 16px;
   }
 
   .bm-burger-bars {
@@ -52,33 +52,42 @@
   }
 
   .nav_categories {
-    border: 2px, solid, red;
-    width: 70%;
+    /*border: 2px, solid, red;*/
+    width: 80%;
     display: flex;
     justify-content: center;
-    gap: 7px;
+    gap: 25px;
     height: 25px;
+
     a {
       font-size: 0.5rem;
     }
+
     button {
       text-align: center;
+      box-shadow: rgba(205, 204, 204, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px
+        3px 6px;
+      background-color: var(--color-component);
+      border-radius: 50px;
+      border: none;
+      width: 100px;
     }
   }
 
   .left_nav {
-    border: 2px, solid, blue;
+    /*border: 2px, solid, blue;*/
     display: flex;
     align-items: center;
+    width: 100%;
   }
 
   .nav_menu {
-    /*border: 2px, solid, blue;*/
+    /*border: 2px, solid, pink;*/
     display: flex;
-    flex-basis: 100%;
-    justify-content: flex-end;
+    flex-basis: 15%;
+    justify-content: right;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin: 6px;
   }
 
@@ -89,18 +98,63 @@
     top: 10px;
   }
 
-  @media screen and (min-width: 600px) {
+  button {
+    border: 2px, solid, darkred;
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
+  #contact_modal {
+    inset: auto;
+    right: 32px;
+    top: 70px;
+    width: 350px;
+    height: 350px;
+    border-radius: 15px;
+    box-shadow: rgba(205, 204, 204, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px
+      3px 6px;
+    background-color: var(--color-component);
+    border: none;
+
+    #contact_logo {
+      /*border: 2px, solid, purple;*/
+      display: flex;
+      justify-content: center;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    a {
+      /*border: 2px, solid, green;*/
+      margin: 30px;
+      font-size: 1.2rem;
+    }
+  }
+  /*DESKTOP*/
+  @media screen and (min-width: 992px) {
     .bm-burger-button {
       display: none;
     }
     .logo {
-      border: 2px, solid, blue;
-      margin: 10px 0 0 10px;
+      /*border: 2px, solid, blue;*/
+      margin: 0px 0 0 6px;
     }
   }
-  @media screen and (max-width: 600px) {
+  /*MOBILE*/
+  @media screen and (max-width: 992px) {
     .nav_categories {
       display: none;
+    }
+    .nav_menu {
+      flex-basis: 100%;
+    }
+    #contact_modal {
+      right: 20px;
+      top: 70px;
+      width: 250px;
+      height: 250px;
     }
   }
 }
