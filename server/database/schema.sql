@@ -15,7 +15,7 @@ is_artist BOOLEAN NOT NULL DEFAULT FALSE,
 is_admin BOOLEAN NOT NULL DEFAULT FALSE,
 confidentiality BOOLEAN NOT NULL DEFAULT TRUE
 );
-INSERT INTO user_account (firstname, lastname, email, password, street, city, zip_code, country, image, description, is_artist, is_admin)
+INSERT INTO user_account (firstname, lastname, email, password, street, city, zip_code, country, image, description, is_artist, is_admin, confidentiality)
 VALUES 
 ("Abolfazl", "Eslami", "abolfazl@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "10 rue des Arts", "Paris", "75001", "France", "http://localhost:3310/abolfazl-eslami.webp", "Artiste peintre contemporain, Abolfazl Eslami explore les émotions humaines à travers des toiles vibrantes et colorées. Son travail, influencé par la dualité des tons chauds et froids, invite le spectateur à une réflexion profonde sur la condition humaine et la beauté de l’instant présent. Passionné par l’expérimentation, il mêle techniques traditionnelles et approches modernes pour créer des œuvres uniques et expressives.
 ", TRUE, FALSE, TRUE),
