@@ -1,7 +1,12 @@
 import { useRef } from "react";
 import "./Carousel.css";
 
-function Carousel() {
+interface CarouselProps {
+  title: string;
+  items: { id: string; src: string; caption: string }[];
+}
+
+function Carousel({ title, items }: CarouselProps) {
   const carouselRef = useRef<HTMLUListElement | null>(null);
 
   const scrollLeft = () => {
@@ -17,32 +22,18 @@ function Carousel() {
   };
   return (
     <div className="carousel-container">
-      <h2>Peintures</h2>
+      <h2>{title}</h2>
       <button type="button" className="arrow left" onClick={scrollLeft}>
         ⬅
       </button>
 
       <ul className="carousel" ref={carouselRef}>
-        <li>
-          <img src="claudio-schwarz.webp" alt="" />
-          <figcaption>Sport</figcaption>
-        </li>
-        <li>
-          <img src="boston-public.webp" alt="" />
-          <figcaption>Sport</figcaption>
-        </li>
-        <li>
-          <img src="240_F2.webp" alt="" />
-          <figcaption>Sport</figcaption>
-        </li>
-        <li>
-          <img src="illustrated-watercolor.webp" alt="" />
-          <figcaption>Sport</figcaption>
-        </li>
-        <li>
-          <img src="pexels-christian.webp" alt="" />
-          <figcaption>Sport</figcaption>
-        </li>
+        {items.map((el) => (
+          <li key={el.id}>
+            <img src={el.src} alt={el.caption} />
+            <figcaption>{el.caption}</figcaption>
+          </li>
+        ))}
       </ul>
 
       <button type="button" className="arrow right" onClick={scrollRight}>

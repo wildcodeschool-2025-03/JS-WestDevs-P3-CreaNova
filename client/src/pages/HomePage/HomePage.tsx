@@ -1,6 +1,60 @@
 import Carousel from "../../components/Carousel/Carousel";
 import "./HomePage.css";
 
+const photos = [
+  {
+    id: "ph1",
+    src: "surf.webp",
+    caption: "Sports",
+  },
+  {
+    id: "ph2",
+    src: "pexels-christian.webp",
+    caption: "Paysages",
+  },
+  {
+    id: "ph3",
+    src: "pexels-caiquethecreator.webp",
+    caption: "Portraits",
+  },
+];
+
+const dessins = [
+  {
+    id: "d1",
+    src: "claudio-schwarz.webp",
+    caption: "Abstraits",
+  },
+  {
+    id: "d2",
+    src: "illustrated-watercolor.webp",
+    caption: "Villes",
+  },
+  {
+    id: "d3",
+    src: "jakub-durian.webp",
+    caption: "Portraits",
+  },
+];
+
+const peintures = [
+  {
+    id: "p1",
+    src: "240_F2.webp",
+    caption: "Portraits",
+  },
+  {
+    id: "p2",
+    src: "Oeuvre-homePage.webp",
+    caption: "Abstraits",
+  },
+  {
+    id: "p1",
+    src: "240_F2.webp",
+    caption: "Portraits",
+  },
+];
+
 function HomePage() {
   return (
     <main className="main-home">
@@ -24,9 +78,9 @@ function HomePage() {
         personnaliser votre intérieur. CreaNova, une galerie vivante où l’art
         s’invite chez vous en toute simplicité.
       </p>
-      <Carousel />
-      <Carousel />
-      <Carousel />
+      <Carousel title="Photos" items={photos} />
+      <Carousel title="Dessins" items={dessins} />
+      <Carousel title="Peintures" items={peintures} />
       <section className="artist">
         <h2>Artistes</h2>
         <div className="artist-flex">
