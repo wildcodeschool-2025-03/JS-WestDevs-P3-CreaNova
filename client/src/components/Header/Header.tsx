@@ -14,7 +14,7 @@ const Header = () => {
   };
   return (
     <>
-      <header className="header">
+      <header>
         <section className="menu-et-logo">
           <Menu
             isOpen={isOpen}
@@ -76,7 +76,7 @@ const Header = () => {
             </Link>
           </Menu>
           <section className="left_nav">
-            <img className="logo" src="./img/black_logo.png" alt="logo-black" />
+            <img className="logo" src="/img/black_logo.png" alt="logo-black" />
             <nav className="nav_categories">
               <button type="button">
                 <Link to="/artistes">
@@ -115,21 +115,21 @@ const Header = () => {
 
             <nav className="nav_menu">
               <Link to="/dark_mode">
-                <img src="./img/soleil.png" alt="dark_mode" />
+                <img src="/img/soleil.png" alt="dark_mode" />
               </Link>
               <Link to="/favoris">
-                <img src="./img/amour-du-coeur.png" alt="coeur" />
+                <img src="/img/amour-du-coeur.png" alt="coeur" />
               </Link>
               <Link to="/panier">
-                <img src="./img/panier.png" alt="panier" />
+                <img src="/img/panier.png" alt="panier" />
               </Link>
 
               <button type="button" popoverTarget="contact_modal">
-                <img src="./img/contact.png" alt="contact" />
+                <img src="/img/contact.png" alt="contact" />
               </button>
               <dialog popover="auto" id="contact_modal">
                 <div id="contact_logo">
-                  <img src="./img/contact.png" alt="contact" />
+                  <img src="/img/contact.png" alt="contact" />
                 </div>
                 <br />
                 <Link to="/ma collection">Ma collection</Link>
@@ -142,7 +142,7 @@ const Header = () => {
           </section>
         </section>
       </header>
-      <hr />
+      <hr className="line" />
     </>
   );
 };

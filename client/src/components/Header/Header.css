@@ -1,182 +1,181 @@
-.header {
-  header {
-    display: flex;
+header {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+}
+
+.menu-et-logo {
+  flex-basis: 100%;
+  justify-content: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin: 5px 0 0 45px;
+}
+
+.bm-burger-button {
+  position: fixed;
+  width: 25px;
+  height: 25px;
+  left: 10px;
+  top: 16px;
+}
+
+.bm-burger-bars {
+  background: #373a47;
+}
+
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 2.5em 0;
+  font-size: 1.20em;
+}
+
+.menu-item {
+  display: block;
+  color: white;
+  padding: 0.5em 0;
+  text-decoration: none;
+}
+
+/* Color/shape of the cross on the closing button */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+.nav_categories {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  height: 15px;
+
+  span {
+    /*features under navbar*/
+    position: relative;
+    padding-bottom: .7rem;
+  }
+
+  span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
     width: 100%;
-    cursor: pointer;
+    height: 2px;
+    background-color: #373a47;
+    transition: transform 250ms;
+  }
+  :hover span:after {
+    transform: translateX(0%) scaleX(1);
   }
 
-  .menu-et-logo {
-    flex-basis: 100%;
-    justify-content: center;
-  }
-
-  .logo {
-    width: 50px;
-    height: 50px;
-    margin: 5px 0 0 45px;
-  }
-
-  .bm-burger-button {
-    position: fixed;
-    width: 25px;
-    height: 25px;
-    left: 10px;
-    top: 16px;
-  }
-
-  .bm-burger-bars {
-    background: #373a47;
-  }
-
-  .bm-menu {
-    background: #373a47;
-    padding: 2.5em 2.5em 0;
-    font-size: 1.20em;
-  }
-
-  .menu-item {
-    display: block;
-    color: white;
-    padding: 0.5em 0;
-    text-decoration: none;
-  }
-
-  /* Couleur/forme de la croix du bouton de fermeture */
-  .bm-cross {
-    background: #bdc3c7;
-  }
-
-  .nav_categories {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    height: 15px;
-
-    span {
-      /*traits sous navbar*/
-      position: relative;
-      padding-bottom: .7rem;
-    }
-
-    span:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      transform: translateX(-50%) scaleX(0);
-      width: 100%;
-      height: 2px;
-      background-color: #373a47;
-      transition: transform 250ms;
-    }
-    :hover span:after {
-      transform: translateX(0%) scaleX(1);
-    }
-
-    a {
-      font-size: 0.8rem;
-    }
-
-    button {
-      text-align: center;
-      box-shadow: #cdcccc29 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-      background-color: var(--color-component);
-      border-radius: 30px;
-      border: none;
-      width: 90px;
-    }
-  }
-
-  .left_nav {
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-
-  .nav_menu {
-    display: flex;
-    flex-basis: 15%;
-    justify-content: right;
-    gap: 12px;
-    margin: 6px;
-  }
-
-  .nav_menu img {
-    width: 30px;
-    height: 30px;
-    margin-top: 6px;
+  a {
+    font-size: 0.8rem;
   }
 
   button {
-    border: none;
-    background: none;
-    padding: 0;
-  }
-
-  #contact_modal {
-    inset: auto;
-    right: 32px;
-    top: 70px;
-    width: 350px;
-    height: 350px;
-    border-radius: 15px;
-    box-shadow: rgba(205, 204, 204, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px
-      3px 6px;
+    text-align: center;
+    box-shadow: #cdcccc29 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     background-color: var(--color-component);
+    border-radius: 30px;
     border: none;
-    opacity: 1; /*popover fondu*/
-    transition: opacity 0.7s ease-in-out;
-    @starting-style {
-      opacity: 0;
-    }
-
-    #contact_logo {
-      display: flex;
-      justify-content: center;
-      img {
-        width: 60px;
-        height: 60px;
-      }
-    }
-    a {
-      margin: 30px;
-      font-size: 1.2rem;
-    }
-
-    hr {
-      width: 85%;
-    }
-
-    @starting-style {
-      opacity: 0;
-    }
-  }
-  /*DESKTOP*/
-  @media screen and (min-width: 992px) {
-    .bm-burger-button {
-      display: none;
-    }
-    .logo {
-      margin: 0px 0 0 6px;
-    }
-  }
-  /*MOBILE*/
-  @media screen and (max-width: 992px) {
-    .nav_categories {
-      display: none;
-    }
-    .nav_menu {
-      flex-basis: 100%;
-    }
-    #contact_modal {
-      right: 20px;
-      top: 70px;
-      width: 250px;
-      height: 250px;
-    }
+    width: 90px;
   }
 }
-hr {
+
+.left_nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.nav_menu {
+  display: flex;
+  flex-basis: 15%;
+  justify-content: right;
+  gap: 12px;
+  margin: 6px;
+}
+
+.nav_menu img {
+  width: 30px;
+  height: 30px;
+  margin-top: 6px;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+#contact_modal {
+  inset: auto;
+  right: 32px;
+  top: 70px;
+  width: 350px;
+  height: 350px;
+  border-radius: 15px;
+  box-shadow: rgba(205, 204, 204, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px
+    6px;
+  background-color: var(--color-component);
+  border: none;
+  opacity: 1; /*faded popover*/
+  transition: opacity 0.7s ease-in-out;
+  @starting-style {
+    opacity: 0;
+  }
+
+  #contact_logo {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  a {
+    margin: 30px;
+    font-size: 1.2rem;
+  }
+
+  hr {
+    width: 85%;
+  }
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+/*DESKTOP*/
+@media screen and (min-width: 992px) {
+  .bm-burger-button {
+    display: none;
+  }
+  .logo {
+    margin: 0px 0 0 6px;
+  }
+}
+/*MOBILE*/
+@media screen and (max-width: 992px) {
+  .nav_categories {
+    display: none;
+  }
+  .nav_menu {
+    flex-basis: 100%;
+  }
+  #contact_modal {
+    right: 20px;
+    top: 70px;
+    width: 250px;
+    height: 250px;
+  }
+}
+
+.line {
   width: 98%;
 }
