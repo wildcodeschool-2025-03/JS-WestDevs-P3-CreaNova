@@ -79,25 +79,37 @@ const Header = () => {
             <img className="logo" src="./img/black_logo.png" alt="logo-black" />
             <nav className="nav_categories">
               <button type="button">
-                <Link to="/artistes">Artistes</Link>
+                <Link to="/artistes">
+                  <span>Artistes</span>
+                </Link>
               </button>
 
               <button type="button">
-                <Link to="/peintures">Peintures</Link>
+                <Link to="/peintures">
+                  <span>Peintures</span>
+                </Link>
               </button>
               <button type="button">
-                <Link to="/photographies">Photographies</Link>
+                <Link to="/photographies">
+                  <span>Photographies</span>
+                </Link>
               </button>
 
               <button type="button">
-                <Link to="/dessins">Dessins</Link>
+                <Link to="/dessins">
+                  <span>Dessins</span>
+                </Link>
               </button>
 
               <button type="button">
-                <Link to="/newsletter">Newsletter</Link>
+                <Link to="/newsletter">
+                  <span>Newsletter</span>
+                </Link>
               </button>
               <button type="button">
-                <Link to="/a propos"> A propos</Link>
+                <Link to="/a propos">
+                  <span>A propos</span>
+                </Link>
               </button>
             </nav>
 
@@ -119,7 +131,7 @@ const Header = () => {
                 <div id="contact_logo">
                   <img src="./img/contact.png" alt="contact" />
                 </div>
-
+                <br />
                 <Link to="/ma collection">Ma collection</Link>
                 <hr />
                 <Link to="/favoris">Favoris</Link>

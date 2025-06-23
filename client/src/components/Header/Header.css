@@ -1,27 +1,22 @@
 .header {
   header {
-    /*border: 2px, solid, red;*/
     display: flex;
     width: 100%;
     cursor: pointer;
   }
 
   .menu-et-logo {
-    /*border: 2px, solid, greenyellow;*/
     flex-basis: 100%;
-    display: auto;
     justify-content: center;
   }
 
   .logo {
-    /*border: 2px, solid, orange;*/
     width: 50px;
     height: 50px;
     margin: 5px 0 0 45px;
   }
 
   .bm-burger-button {
-    /*border: 2px, solid, darkorchid;*/
     position: fixed;
     width: 25px;
     height: 25px;
@@ -52,54 +47,68 @@
   }
 
   .nav_categories {
-    /*border: 2px, solid, red;*/
     width: 80%;
     display: flex;
     justify-content: center;
     gap: 25px;
-    height: 25px;
+    height: 15px;
+
+    span {
+      /*traits sous navbar*/
+      position: relative;
+      padding-bottom: .7rem;
+    }
+
+    span:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform: translateX(-50%) scaleX(0);
+      width: 100%;
+      height: 2px;
+      background-color: #373a47;
+      transition: transform 250ms;
+    }
+    :hover span:after {
+      transform: translateX(0%) scaleX(1);
+    }
 
     a {
-      font-size: 0.5rem;
+      font-size: 0.8rem;
     }
 
     button {
       text-align: center;
-      box-shadow: rgba(205, 204, 204, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px
-        3px 6px;
+      box-shadow: #cdcccc29 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
       background-color: var(--color-component);
-      border-radius: 50px;
+      border-radius: 30px;
       border: none;
-      width: 100px;
+      width: 90px;
     }
   }
 
   .left_nav {
-    /*border: 2px, solid, blue;*/
     display: flex;
     align-items: center;
     width: 100%;
   }
 
   .nav_menu {
-    /*border: 2px, solid, pink;*/
     display: flex;
     flex-basis: 15%;
     justify-content: right;
-    align-items: center;
     gap: 12px;
     margin: 6px;
   }
 
   .nav_menu img {
-    /*border: 2px, solid, yellow;*/
     width: 30px;
     height: 30px;
-    top: 10px;
+    margin-top: 6px;
   }
 
   button {
-    border: 2px, solid, darkred;
     border: none;
     background: none;
     padding: 0;
@@ -116,9 +125,13 @@
       3px 6px;
     background-color: var(--color-component);
     border: none;
+    opacity: 1; /*popover fondu*/
+    transition: opacity 0.7s ease-in-out;
+    @starting-style {
+      opacity: 0;
+    }
 
     #contact_logo {
-      /*border: 2px, solid, purple;*/
       display: flex;
       justify-content: center;
       img {
@@ -127,9 +140,16 @@
       }
     }
     a {
-      /*border: 2px, solid, green;*/
       margin: 30px;
       font-size: 1.2rem;
+    }
+
+    hr {
+      width: 85%;
+    }
+
+    @starting-style {
+      opacity: 0;
     }
   }
   /*DESKTOP*/
@@ -138,7 +158,6 @@
       display: none;
     }
     .logo {
-      /*border: 2px, solid, blue;*/
       margin: 0px 0 0 6px;
     }
   }
@@ -157,4 +176,7 @@
       height: 250px;
     }
   }
+}
+hr {
+  width: 98%;
 }
