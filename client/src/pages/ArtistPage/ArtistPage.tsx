@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ArtistPage.css";
 
-interface Artist {
-  id: number;
-  firstname: string;
-  lastname: string;
-  image: string;
-}
-
 function ArtistPage() {
   const [artists, setArtists] = useState<Artist[]>([]);
   useEffect(() => {
