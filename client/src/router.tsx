@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
+import ArtistPage from "./pages/ArtistPage/ArtistPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         element: <LoginPage />,
         path: "/login",
+      },
+      {
+        element: <ArtistPage />,
+        path: "/artist",
       },
     ],
   },
