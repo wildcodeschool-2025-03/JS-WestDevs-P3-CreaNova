@@ -9,6 +9,14 @@ const browse: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
+const browseArtists: RequestHandler = async (req, res, next) => {
+  try {
+    const result = await userRepository.readArtists();
+    res.json(result);
+  } catch (err) {
+    next(err);
+  }
+};
 
 const add: RequestHandler = async (req, res) => {
   try {
@@ -23,4 +31,4 @@ const add: RequestHandler = async (req, res) => {
   }
 };
 
-export default { add, browse };
+export default { add, browse, browseArtists };

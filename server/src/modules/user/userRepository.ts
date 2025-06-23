@@ -8,6 +8,12 @@ class userRepository {
     );
     return result;
   }
+  async readArtists() {
+    const [result] = await databaseClient.query<Rows>(
+      "SELECT * from user_account WHERE is_artist = TRUE",
+    );
+    return result;
+  }
 
   async create(body: User) {
     const [user] = await databaseClient.query<Result>(
