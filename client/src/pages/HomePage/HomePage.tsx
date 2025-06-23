@@ -1,3 +1,4 @@
+import Carousel from "../../components/Carousel/Carousel";
 import "./HomePage.css";
 
 function HomePage() {
@@ -23,6 +24,9 @@ function HomePage() {
         personnaliser votre intérieur. CreaNova, une galerie vivante où l’art
         s’invite chez vous en toute simplicité.
       </p>
+      <Carousel />
+      <Carousel />
+      <Carousel />
       <section className="artist">
         <h2>Artistes</h2>
         <div className="artist-flex">

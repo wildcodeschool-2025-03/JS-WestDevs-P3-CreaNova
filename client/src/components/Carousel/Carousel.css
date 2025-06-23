@@ -1,0 +1,64 @@
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  border: solid 1px red;
+  width: 900px;
+  margin: 0 auto;
+
+  h2 {
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 1.5rem;
+  }
+
+  .arrow.left {
+    left: 10px;
+  }
+
+  .arrow.right {
+    right: 10px;
+  }
+}
+
+.carousel {
+  margin: 2rem auto;
+
+  padding: 1rem;
+  width: 700px;
+  scrollbar-width: none;
+
+  display: grid;
+  gap: 3rem;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  > li {
+    scroll-snap-align: center;
+  }
+
+  img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  figcaption {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+}
