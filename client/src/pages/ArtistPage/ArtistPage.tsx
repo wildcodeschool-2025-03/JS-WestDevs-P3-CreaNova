@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./ArtistPage.css";
 
-interface User {
+interface Artist {
   id: number;
   firstname: string;
   lastname: string;
@@ -9,23 +9,23 @@ interface User {
 }
 
 function ArtistPage() {
-  const [artist, setArtist] = useState<User[]>([]);
+  const [artists, setArtists] = useState<Artist[]>([]);
   useEffect(() => {
-    fetch("http://localhost:3310/api/user")
+    fetch("http://localhost:3310/api/artist")
       .then((res) => res.json())
-      .then((data) => setArtist(data));
+      .then((data) => setArtists(data));
   }, []);
   return (
     <main className="artist-page-main">
       <h1>Artistes</h1>
-      {artist.map((test) => (
-        <figure key={test.id}>
+      {artists.map((artist) => (
+        <figure key={artist.id}>
           <img
-            src={`${test.image}`}
-            alt={`${test.firstname} ${test.lastname}`}
+            src={`${artist.image}`}
+            alt={`${artist.firstname} ${artist.lastname}`}
           />
           <figcaption>
-            {test.firstname} {test.lastname}
+            {artist.firstname} {artist.lastname}
           </figcaption>
         </figure>
       ))}
