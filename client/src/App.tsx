@@ -1,14 +1,18 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import Footer from "./components/Footer";
 import "./global.css";
 import Header from "./components/Header/Header";
 
 function App() {
+  const location = useLocation();
+  const isVisible =
+    location.pathname === "/login" || location.pathname === "/registration";
+
   return (
     <>
-      <Header />
+      {!isVisible && <Header />}
       <Outlet />
-      <Footer />
+      {!isVisible && <Footer />}
     </>
   );
 }
