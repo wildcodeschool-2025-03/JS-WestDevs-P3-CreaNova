@@ -22,9 +22,9 @@ const Header = () => {
             onClose={handleCloseMenu}
           >
             <Link
-              id="artistes"
+              id="artist"
               className="menu-item"
-              to="/artistes"
+              to="/artist"
               onClick={handleCloseMenu}
             >
               Artistes
@@ -76,10 +76,16 @@ const Header = () => {
             </Link>
           </Menu>
           <section className="left_nav">
-            <img className="logo" src="/img/black_logo.png" alt="logo-black" />
+            <Link to="/">
+              <img
+                className="logo"
+                src="/img/black_logo.png"
+                alt="logo-black"
+              />
+            </Link>
             <nav className="nav_categories">
               <button type="button">
-                <Link to="/artistes">
+                <Link to="/artist">
                   <span>Artistes</span>
                 </Link>
               </button>
@@ -136,7 +142,7 @@ const Header = () => {
                 <hr />
                 <Link to="/favoris">Favoris</Link>
                 <hr />
-                <Link to="/connexion">Connexion</Link>
+                <Link to="/login">Connexion</Link>
               </dialog>
             </nav>
           </section>
