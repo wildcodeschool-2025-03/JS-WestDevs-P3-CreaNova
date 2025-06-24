@@ -11,35 +11,38 @@ function Carousel({ title, items }: CarouselProps) {
 
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
+      carouselRef.current.scrollBy({ left: -200, behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
+      carouselRef.current.scrollBy({ left: 200, behavior: "smooth" });
     }
   };
+
   return (
-    <div className="carousel-container">
+    <section className="carousel-container">
       <h2>{title}</h2>
-      <button type="button" className="arrow left" onClick={scrollLeft}>
-        ⬅
-      </button>
+      <div className="carousel-controls">
+        <button type="button" className="arrow left" onClick={scrollLeft}>
+          ⬅
+        </button>
 
-      <ul className="carousel" ref={carouselRef}>
-        {items.map((el) => (
-          <li key={el.id}>
-            <img src={el.src} alt={el.caption} />
-            <figcaption>{el.caption}</figcaption>
-          </li>
-        ))}
-      </ul>
+        <ul className="carousel" ref={carouselRef}>
+          {items.map((el) => (
+            <li key={el.id}>
+              <img src={el.src} alt={el.caption} />
+              <figcaption>{el.caption}</figcaption>
+            </li>
+          ))}
+        </ul>
 
-      <button type="button" className="arrow right" onClick={scrollRight}>
-        ⮕
-      </button>
-    </div>
+        <button type="button" className="arrow right" onClick={scrollRight}>
+          ⮕
+        </button>
+      </div>
+    </section>
   );
 }
 

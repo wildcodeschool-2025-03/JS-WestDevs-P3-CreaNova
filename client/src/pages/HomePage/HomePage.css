@@ -58,7 +58,7 @@
       border-radius: 10px;
       height: 220px;
       width: 275px;
-      margin: 0 auto 40px auto;
+      margin: 0 auto 0 auto;
       transition: all 250ms ease-out;
       box-shadow: 0 0 3px #3b3b3b;
       overflow: hidden;

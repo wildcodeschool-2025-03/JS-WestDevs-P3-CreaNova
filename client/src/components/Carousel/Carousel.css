@@ -1,64 +1,131 @@
 .carousel-container {
-  position: relative;
-  overflow: hidden;
-  /* border: solid 1px red; */
-  width: 900px;
-  margin: 0 auto;
+  max-width: 80vw;
+  margin: 0 auto 80px auto;
 
   h2 {
     text-align: center;
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
-    font-size: 1.5rem;
+    display: none;
   }
+}
 
-  .arrow.left {
-    left: 10px;
-  }
-
-  .arrow.right {
-    right: 10px;
-  }
+.carousel-controls {
+  width: 80vw;
+  height: 175px;
 }
 
 .carousel {
   margin: 2rem auto;
 
   padding: 1rem;
-  width: 700px;
+  width: 80vw;
   scrollbar-width: none;
 
   display: grid;
-  gap: 3rem;
+  gap: 1rem;
   grid-auto-flow: column;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
 
   > li {
     scroll-snap-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  > li:hover {
+    transform: scale(1.05);
+    cursor: pointer;
   }
 
   img {
-    width: 400px;
-    height: 400px;
+    width: 175px;
+    height: 175px;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   figcaption {
     text-align: center;
     font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 500px) {
+  .carousel-container {
+    width: 500px;
+    margin: 0 auto 100px auto;
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    .arrow {
+      display: none;
+    }
+  }
+
+  .carousel-controls {
+    position: relative;
+    width: 500px;
+    height: 200px;
+  }
+
+  .carousel {
+    width: 500px;
+    gap: 2rem;
+
+    img {
+      width: 200px;
+      height: 200px;
+      /* border-radius: 20px; */
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel-container {
+    width: 900px;
+
+    .arrow {
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 50%;
+      font-size: 1.5rem;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+  }
+
+  .carousel-controls {
+    width: 900px;
+    height: 300px;
+  }
+
+  .carousel {
+    width: 700px;
+    gap: 3rem;
+
+    img {
+      width: 300px;
+      height: 300px;
+      border-radius: 20px;
+    }
   }
 }

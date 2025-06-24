@@ -53,6 +53,11 @@ const peintures = [
     src: "240_F2.webp",
     caption: "Portraits",
   },
+  {
+    id: "p2",
+    src: "Oeuvre-homePage.webp",
+    caption: "Abstraits",
+  },
 ];
 
 function HomePage() {
