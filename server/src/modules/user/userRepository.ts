@@ -15,6 +15,17 @@ class userRepository {
     return result;
   }
 
+  async readArtistArtworks(id: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      `SELECT ua.*, a.* 
+      FROM user_account AS ua 
+      JOIN artwork AS a 
+      ON ua.id = a.user_account_id WHERE ua.id = ?`,
+      [id],
+    );
+    return rows;
+  }
+
   async create(body: User) {
     const [user] = await databaseClient.query<Result>(
       "INSERT INTO user_account (firstname, lastname, email, password, is_artist, confidentiality) VALUES (?, ?, ?, ?, ?, ?)",

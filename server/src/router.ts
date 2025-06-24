@@ -25,4 +25,5 @@ router.post(
 );
 router.get("/api/user", userActions.browse);
 router.get("/api/artist", userActions.browseArtists);
+router.get("/api/artist/:id", userActions.browseArtistArtworks);
 export default router;
