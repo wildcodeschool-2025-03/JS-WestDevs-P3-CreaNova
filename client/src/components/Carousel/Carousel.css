@@ -61,10 +61,6 @@
     h2 {
       font-size: 3rem;
     }
-
-    .arrow {
-      display: none;
-    }
   }
 
   .carousel-controls {
@@ -80,7 +76,6 @@
     img {
       width: 200px;
       height: 200px;
-      /* border-radius: 20px; */
     }
   }
 }
