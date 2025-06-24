@@ -1,6 +1,6 @@
 import Carousel from "../../components/Carousel/Carousel";
+import { dessins, peintures, photos } from "../data/data";
 import "./HomePage.css";
-import { photos, dessins, peintures } from "../data/data";
 
 function HomePage() {
   return (
