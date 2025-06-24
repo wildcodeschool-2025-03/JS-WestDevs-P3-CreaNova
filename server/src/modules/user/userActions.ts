@@ -17,6 +17,19 @@ const browseArtists: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
+const browseArtistArtworks: RequestHandler = async (req, res, next) => {
+  try {
+    const artistId = Number(req.params.id);
+    const result = await userRepository.readArtistArtworks(artistId);
+    if (!result) {
+      res.sendStatus(404);
+    } else {
+      res.json(result);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 
 const add: RequestHandler = async (req, res) => {
   try {
@@ -31,4 +44,4 @@ const add: RequestHandler = async (req, res) => {
   }
 };
 
-export default { add, browse, browseArtists };
+export default { add, browse, browseArtists, browseArtistArtworks };
