@@ -4,6 +4,7 @@ import ArtistPage from "./pages/ArtistPage/ArtistPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import GalleryPagePhotos from "./pages/GalleryPage/GalleryPagePhotos";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         element: <ArtistPage />,
         path: "/artist",
+      },
+      {
+        element: <GalleryPagePhotos />,
+        path: "/gallery_page_photo",
       },
     ],
   },
