@@ -1,11 +1,6 @@
 import { useRef } from "react";
 import "./Carousel.css";
 
-interface CarouselProps {
-  title: string;
-  items: { id: string; src: string; caption: string }[];
-}
-
 function Carousel({ title, items }: CarouselProps) {
   const carouselRef = useRef<HTMLUListElement | null>(null);
 
