@@ -7,8 +7,10 @@ interface ArtistArtworks {
   lastname: string;
   city: string;
   country: string;
-  image: string;
-  description: string;
+  artist_image: string;
+  artwork_image: string;
+  artist_description: string;
+  artwork_description: string;
   title: string;
   price: number;
 }
@@ -23,28 +25,28 @@ function ArtistDetailsPage() {
   }, [id]);
   const artist = artistData[0];
   const artworks = artistData.map((item) => ({
-    image: item.image,
+    image: item.artwork_image,
     title: item.title,
-    description: item.description,
+    description: item.artwork_description,
     price: item.price,
     id: item.id,
   }));
 
   if (!artist || !artworks) {
-    return null;
+    return <h1>Il n'y a pas d'artiste</h1>;
   }
 
   return (
-    <main>
+    <main className="artist-detail-page">
       <section className="artist-section">
         <article>
           <h1>
             {artist.firstname} {artist.lastname}
           </h1>
-          <p>{artist.description}</p>
+          <p>{artist.artist_description}</p>
         </article>
         <img
-          src={artist.image}
+          src={artist.artist_image}
           alt={`${artist.firstname} ${artist.lastname}`}
         />
       </section>

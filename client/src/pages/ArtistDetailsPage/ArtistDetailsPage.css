@@ -1,0 +1,20 @@
+.artist-detail-page {
+  text-align: center;
+  .artist-section {
+    h1 {
+      font-size: 3rem;
+    }
+    img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+  }
+  .artist-artwork-section {
+    img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+  }
+}
