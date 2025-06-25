@@ -32,4 +32,5 @@ router.get("/api/artwork", artworkActions.browse);
 router.get("/api/artwork", artworkActions.browseValidated);
 router.get("/api/artwork/:id", artworkActions.readUserAccount);
 
+router.get("/api/artist/:id", userActions.browseArtistArtworks);
 export default router;
