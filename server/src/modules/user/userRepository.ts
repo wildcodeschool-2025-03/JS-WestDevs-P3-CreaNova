@@ -17,7 +17,7 @@ class userRepository {
 
   async readArtistArtworks(id: number) {
     const [rows] = await databaseClient.query<Rows>(
-      `SELECT ua.*, a.* 
+      `SELECT ua.*, ua.description AS artist_description, a.*, a.description AS artwork_description 
       FROM user_account AS ua 
       JOIN artwork AS a 
       ON ua.id = a.user_account_id WHERE ua.id = ?`,
