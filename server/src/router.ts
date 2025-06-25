@@ -24,8 +24,7 @@ router.post(
   userActions.add,
 );
 
-router.post("/api/login", auth.login)
-  
+router.post("/api/login", auth.login);
 
 router.get("/api/user", userActions.browse);
 router.get("/api/artist", userActions.browseArtists);
