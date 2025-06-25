@@ -9,6 +9,7 @@ const router = express.Router();
 // Define item-related routes
 import itemActions from "./modules/item/itemActions";
 import userActions from "./modules/user/userActions";
+import artworkActions from "./modules/artwork/artworkActions";
 import auth from "./utils/auth";
 import validation from "./utils/validation";
 
@@ -25,4 +26,10 @@ router.post(
 );
 router.get("/api/user", userActions.browse);
 router.get("/api/artist", userActions.browseArtists);
+
+/* ************************************************************************* */
+router.get("/api/artwork", artworkActions.browse);
+router.get("/api/artwork", artworkActions.browseValidated);
+router.get("/api/artwork/:id", artworkActions.readUserAccount);
+
 export default router;
