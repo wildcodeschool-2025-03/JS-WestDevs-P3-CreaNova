@@ -23,6 +23,10 @@ router.post(
   auth.hashedPassword,
   userActions.add,
 );
+
+router.post("/api/login", auth.login)
+  
+
 router.get("/api/user", userActions.browse);
 router.get("/api/artist", userActions.browseArtists);
 export default router;
