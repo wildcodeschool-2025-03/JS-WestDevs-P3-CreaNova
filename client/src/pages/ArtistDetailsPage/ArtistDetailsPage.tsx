@@ -45,10 +45,12 @@ function ArtistDetailsPage() {
           </h1>
           <p>{artist.artist_description}</p>
         </article>
-        <img
-          src={artist.artist_image}
-          alt={`${artist.firstname} ${artist.lastname}`}
-        />
+        <div className="image-artist">
+          <img
+            src={artist.artist_image}
+            alt={`${artist.firstname} ${artist.lastname}`}
+          />
+        </div>
       </section>
       <section className="artist-artwork-section">
         <h2>Oeuvres</h2>
