@@ -1,5 +1,4 @@
 import Carousel from "../../components/Carousel/Carousel";
-import { dessins, peintures, photos } from "../data/data";
 import "./HomePage.css";
 
 function HomePage() {
@@ -25,9 +24,9 @@ function HomePage() {
         personnaliser votre intérieur. CreaNova, une galerie vivante où l’art
         s’invite chez vous en toute simplicité.
       </p>
-      <Carousel title="Photos" items={photos} />
-      <Carousel title="Dessins" items={dessins} />
-      <Carousel title="Peintures" items={peintures} />
+      <Carousel title="Photographie" category="Photographie" />
+      <Carousel title="Dessin" category="Dessin" />
+      <Carousel title="Peinture" category="Peinture" />
       <section className="artist">
         <h2>Artistes</h2>
         <div className="artist-flex">

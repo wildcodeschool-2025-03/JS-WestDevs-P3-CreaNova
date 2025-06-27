@@ -38,4 +38,10 @@ router.get("/api/artwork/:id", artworkActions.readUserAccount);
 
 router.get("/api/artist/:id", userActions.browseArtistArtworks);
 
+/* ************************************************************************* */
+router.get(
+  "/api/carousel/:categoryName",
+  artworkActions.browseCarouselArtworks,
+);
+
 export default router;
