@@ -1,0 +1,72 @@
+.artist-detail-page {
+  padding: 32px;
+  .artist-section {
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      line-height: 32px;
+    }
+    img {
+      justify-self: center;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+  .artist-artwork-section {
+    display: grid;
+    gap: 32px;
+    padding-top: 32px;
+    grid-template-columns: 1fr;
+    h2 {
+      font-size: 2.7rem;
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .artist-section {
+      display: flex;
+      gap: 32px;
+      justify-content: space-around;
+      article {
+        max-width: 50%;
+      }
+      .image-artist {
+        width: 700px;
+        height: 600px;
+      }
+    }
+    .artist-artwork-section {
+      grid-template-columns: repeat(2, 1fr);
+      h2 {
+        grid-column: 1 / -1;
+      }
+      img {
+        height: 500px;
+      }
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .artist-section {
+      p {
+        font-size: 1.5rem;
+      }
+    }
+    .artist-artwork-section {
+      width: 60%;
+      margin: 0 auto;
+      img {
+        transition: 0.3s ease;
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+}
