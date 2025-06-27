@@ -7,23 +7,24 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <App />,
     children: [
       {
         element: <HomePage />,
-        path: "/",
+        path: "",
       },
       {
         element: <RegistrationPage />,
-        path: "/registration",
+        path: "registration",
       },
       {
         element: <LoginPage />,
-        path: "/login",
+        path: "login",
       },
       {
         element: <ArtistPage />,
-        path: "/artist",
+        path: "artist",
       },
     ],
   },

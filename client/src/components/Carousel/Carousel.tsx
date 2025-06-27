@@ -1,8 +1,17 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Carousel.css";
 
-function Carousel({ title, items }: CarouselProps) {
+function Carousel({ title, category }: CarouselProps) {
   const carouselRef = useRef<HTMLUListElement | null>(null);
+  const [carousel, setCarousel] = useState<Carousel[]>([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:3310/api/carousel/${category}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCarousel(data);
+      });
+  }, [category]);
 
   const scrollLeft = () => {
     if (carouselRef.current) {
@@ -25,10 +34,10 @@ function Carousel({ title, items }: CarouselProps) {
         </button>
 
         <ul className="carousel" ref={carouselRef}>
-          {items.map((el) => (
+          {carousel.map((el) => (
             <li key={el.id}>
-              <img src={el.src} alt={el.caption} />
-              <figcaption>{el.caption}</figcaption>
+              <img src={el.image} alt={el.sub_category_name} />
+              <figcaption>{el.sub_category_name}</figcaption>
             </li>
           ))}
         </ul>

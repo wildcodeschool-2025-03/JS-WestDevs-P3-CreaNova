@@ -27,7 +27,6 @@ class artworkRepository {
     `,
       [categoryName],
     );
-
     return result;
   }
 }
