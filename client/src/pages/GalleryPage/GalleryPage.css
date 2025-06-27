@@ -1,0 +1,28 @@
+.gallery_page {
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  h1 {
+    border: 2px, solid, orange;
+    text-align: center;
+  }
+
+  figure {
+    border: 2px, solid, black;
+  }
+
+  img {
+    border: 2px, solid, red;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: top;
+  }
+
+  figcaption {
+    border: 2px, solid, white;
+  }
+}
