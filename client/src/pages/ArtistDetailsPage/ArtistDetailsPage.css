@@ -1,6 +1,5 @@
 .artist-detail-page {
   padding: 32px;
-  /* text-align: center; */
   .artist-section {
     h1 {
       font-size: 3rem;
@@ -24,7 +23,6 @@
     h2 {
       font-size: 2.7rem;
     }
-
     img {
       width: 100%;
       object-fit: cover;
@@ -55,9 +53,20 @@
     }
   }
   @media screen and (min-width: 992px) {
+    .artist-section {
+      p {
+        font-size: 1.5rem;
+      }
+    }
     .artist-artwork-section {
       width: 60%;
       margin: 0 auto;
+      img {
+        transition: 0.3s ease;
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
     }
   }
 }

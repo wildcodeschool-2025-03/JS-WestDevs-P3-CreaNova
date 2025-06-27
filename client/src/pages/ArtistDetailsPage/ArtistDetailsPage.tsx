@@ -1,19 +1,7 @@
 import { useParams } from "react-router";
 import "./ArtistDetailsPage.css";
 import { useEffect, useState } from "react";
-interface ArtistArtworks {
-  id: number;
-  firstname: string;
-  lastname: string;
-  city: string;
-  country: string;
-  artist_image: string;
-  artwork_image: string;
-  artist_description: string;
-  artwork_description: string;
-  title: string;
-  price: number;
-}
+
 function ArtistDetailsPage() {
   const { id } = useParams();
   const [artistData, setArtistData] = useState<ArtistArtworks[]>([]);
@@ -55,9 +43,7 @@ function ArtistDetailsPage() {
       <section className="artist-artwork-section">
         <h2>Oeuvres</h2>
         {artworks.map((artwork) => (
-          <div key={artwork.id}>
-            <img src={artwork.image} alt={artwork.title} />
-          </div>
+          <img src={artwork.image} alt={artwork.title} key={artwork.id} />
         ))}
       </section>
     </main>
