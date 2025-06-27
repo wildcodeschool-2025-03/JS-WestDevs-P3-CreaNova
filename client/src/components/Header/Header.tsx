@@ -42,7 +42,7 @@ const Header = () => {
             <Link
               id="photographies"
               className="menu-item"
-              to="/photographies"
+              to="/gallery_page_photo"
               onClick={handleCloseMenu}
             >
               Photographies
@@ -96,7 +96,7 @@ const Header = () => {
                 </Link>
               </button>
               <button type="button">
-                <Link to="/photographies">
+                <Link to="/gallery_page_photo">
                   <span>Photographies</span>
                 </Link>
               </button>

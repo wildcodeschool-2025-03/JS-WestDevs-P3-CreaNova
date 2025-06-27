@@ -10,3 +10,7 @@ interface User {
   is_artist: boolean;
   confidentiality: boolean;
 }
+
+interface artwork {
+  id: number;
+}
