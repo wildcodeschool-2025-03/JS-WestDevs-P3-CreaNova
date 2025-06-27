@@ -7,11 +7,11 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Define item-related routes
+import artworkActions from "./modules/artwork/artworkActions";
 import itemActions from "./modules/item/itemActions";
 import userActions from "./modules/user/userActions";
 import auth from "./utils/auth";
 import validation from "./utils/validation";
-import artworkActions from "./modules/artwork/artworkActions";
 
 router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
@@ -24,8 +24,18 @@ router.post(
   auth.hashedPassword,
   userActions.add,
 );
+
+router.post("/api/login", auth.login);
+
 router.get("/api/user", userActions.browse);
 router.get("/api/artist", userActions.browseArtists);
+
+/* ************************************************************************* */
+router.get("/api/artwork", artworkActions.browse);
+/*router.get("/api/artwork", artworkActions.browseValidated);*/
+router.get("/api/artwork/artwork-category", artworkActions.readArtworkCategory);
+router.get("/api/artwork/:id", artworkActions.readUserAccount);
+
 router.get("/api/artist/:id", userActions.browseArtistArtworks);
 
 /* ************************************************************************* */
