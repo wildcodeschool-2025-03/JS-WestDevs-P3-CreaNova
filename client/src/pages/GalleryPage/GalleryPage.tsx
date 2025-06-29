@@ -11,7 +11,8 @@ function GalleryPage() {
   console.log(artwork);
   return (
     <main className="gallery_page">
-      <h1> Gallerie</h1>
+      <h1 className="title"> Gallerie</h1>
+
       {artwork.map((artwork) => (
         <figure key={artwork.id}>
           <img src={artwork.image} alt={artwork.title} />
