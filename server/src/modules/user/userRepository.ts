@@ -18,7 +18,12 @@ class userRepository {
   }
   async readArtists() {
     const [result] = await databaseClient.query<Rows>(
-      "SELECT * from user_account WHERE is_artist = TRUE",
+      `SELECT ua.* FROM user_account AS ua
+      LEFT JOIN artwork AS a ON ua.id = a.user_account_id
+      WHERE ua.is_artist = TRUE
+      AND (ua.description IS NOT NULL 
+      OR a.id IS NOT NULL)
+      GROUP BY ua.id`,
     );
     return result;
   }
