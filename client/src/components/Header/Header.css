@@ -1,19 +1,13 @@
 header {
-  display: flex;
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 11;
   background-color: var(--primary-color);
   height: 70px;
-  .menu-et-logo {
-    flex-basis: 100%;
-    justify-content: center;
-  }
 
   .logo {
     width: 50px;
-    height: 50px;
     margin: 5px 0 0 45px;
   }
 
@@ -32,14 +26,12 @@ header {
   .bm-menu {
     background: #373a47;
     padding: 2.5em 2.5em 0;
-    font-size: 1.20em;
+    font-size: 1.2rem;
   }
 
   .menu-item {
-    display: block;
     color: white;
     padding: 0.5em 0;
-    text-decoration: none;
   }
 
   /* Color/shape of the cross on the closing button */
@@ -48,15 +40,13 @@ header {
   }
 
   .nav_categories {
-    width: 80%;
+    width: 100%;
     display: flex;
-    /* A tester... */
-    justify-content: flex-end;
-    gap: 25px;
-    height: 15px;
+    justify-content: center;
+    gap: 20px;
 
     span {
-      /*features under navbar*/
+      /*features under button navbar*/
       position: relative;
       padding-bottom: .7rem;
     }
@@ -85,7 +75,6 @@ header {
       box-shadow: #cdcccc29 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
       background-color: var(--color-component);
       border-radius: 30px;
-      border: none;
       width: 90px;
     }
   }
@@ -97,15 +86,13 @@ header {
 
   .nav_menu {
     display: flex;
-    flex-basis: 15%;
     justify-content: right;
     gap: 12px;
-    margin: 6px;
+    margin: 8px;
   }
 
   .nav_menu img {
     width: 30px;
-    height: 30px;
     margin-top: 6px;
   }
 
