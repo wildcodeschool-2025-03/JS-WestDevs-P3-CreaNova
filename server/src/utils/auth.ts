@@ -38,11 +38,13 @@ const login: RequestHandler = async (req, res) => {
       throw new Error("A secret key must be provided");
     }
 
-    const token = jwt.sign(payload, secretKey);
-
-    res
-      .status(200)
-      .json({ message: "Congratulations, you're logged in !", token });
+    const token = jwt.sign(payload, secretKey, { expiresIn: "1d" });
+    res.cookie("token", token, {
+      httpOnly: true,
+      // Rend l'envoie du cookie possible. En déploiement, il est important de  mettre secure à true.
+      secure: false,
+    });
+    res.status(200).json("Congratulations, you're logged in !");
   } catch (err) {
     res.sendStatus(500);
   }
