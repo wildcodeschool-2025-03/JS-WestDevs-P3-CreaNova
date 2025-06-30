@@ -4,7 +4,7 @@ import { AuthContext } from "../contexts/AuthContext";
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error("A content need to be inside");
+    throw new Error("A context cannot be null");
   }
   return context;
 };
