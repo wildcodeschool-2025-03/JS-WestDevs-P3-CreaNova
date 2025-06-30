@@ -43,7 +43,12 @@ body {
   margin: 0;
   padding: 0;
 }
-
+main {
+  padding-top: 70px;
+}
+main.no-padding {
+  padding-top: 0;
+}
 h1,
 h2,
 h3,

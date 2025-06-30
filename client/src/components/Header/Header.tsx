@@ -134,9 +134,9 @@ const Header = () => {
                 <img src="/img/contact.png" alt="contact" />
               </button>
               <dialog popover="auto" id="contact_modal">
-                <div id="contact_logo">
+                <Link to="/" id="contact_logo">
                   <img src="/img/contact.png" alt="contact" />
-                </div>
+                </Link>
                 <br />
                 <Link to="/ma collection">Ma collection</Link>
                 <hr />
@@ -146,9 +146,9 @@ const Header = () => {
               </dialog>
             </nav>
           </section>
+          <hr className="line" />
         </section>
       </header>
-      <hr className="line" />
     </>
   );
 };
