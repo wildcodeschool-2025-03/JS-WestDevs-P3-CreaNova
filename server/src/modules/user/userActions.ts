@@ -44,4 +44,24 @@ const add: RequestHandler = async (req, res) => {
   }
 };
 
-export default { add, browse, browseArtists, browseArtistArtworks };
+const editUser: RequestHandler = async (req, res, next) => {
+  try {
+    const userId = Number(req.params.id);
+    if (Number.isNaN(userId)) {
+      res.status(400).json("Invalid user ID");
+      return;
+    }
+
+    const affectedRows = await userRepository.updateId(userId, req.body);
+
+    if (affectedRows === 0) {
+      res.status(404).json("User not found");
+      return;
+    }
+    res.status(200).json("User updated successfully");
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { add, browse, browseArtists, browseArtistArtworks, editUser };
