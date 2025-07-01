@@ -50,4 +50,12 @@ const login: RequestHandler = async (req, res) => {
   }
 };
 
-export default { hashedPassword, login };
+const logout: RequestHandler = (req, res) => {
+  try {
+    res.clearCookie("token");
+    res.sendStatus(200);
+  } catch (err) {
+    res.sendStatus(500);
+  }
+};
+export default { hashedPassword, login, logout };
