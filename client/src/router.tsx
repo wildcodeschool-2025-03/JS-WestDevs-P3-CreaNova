@@ -4,10 +4,12 @@ import ArtistPage from "./pages/ArtistPage/ArtistPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import NotFound from "./pages/Notfound/Notfound";
 
 const router = createBrowserRouter([
   {
     element: <App />,
+    errorElement: <NotFound />,
     children: [
       {
         element: <HomePage />,
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
         element: <ArtistPage />,
         path: "/artist",
       },
+      { 
+        element: <NotFound />,
+        path: "/*",
+      }
     ],
   },
 ]);
