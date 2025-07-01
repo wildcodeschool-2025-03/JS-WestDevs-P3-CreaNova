@@ -1,3 +1,5 @@
+
+
 import { createBrowserRouter } from "react-router";
 import App from "./App";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
