@@ -1,12 +1,12 @@
 import "./Footer.css";
-import { Link } from "react-router";
+
 
 function Footer() {
   return (
+    <>
+    <hr className="footer-line" />
     <footer className="banner-footer">
-      <Link to="/">
-        <p>à propos</p>
-      </Link>
+      
       <ul className="social-icons">
         <li>
           <a href="https://www.instagram.com/" target="blank">
@@ -30,6 +30,7 @@ function Footer() {
         </li>
       </ul>
     </footer>
+    </>
   );
 }
 export default Footer;
