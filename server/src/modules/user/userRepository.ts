@@ -49,6 +49,46 @@ class userRepository {
     );
     return user.affectedRows;
   }
+  async updateid(id: number, body: Partial<User>) {
+    const [currentUser] = await databaseClient.query<Rows>(
+      "SELECT * FROM user_account WHERE id = ?",
+      [id],
+    );
+    if (!currentUser[0]) {
+      return 0;
+    }
+    const firstname = body.firstname ?? currentUser[0].firstname;
+    const lastname = body.lastname ?? currentUser[0].lastname;
+    const email = body.email ?? currentUser[0].email;
+    const street = body.street ?? currentUser[0].street;
+    const city = body.city ?? currentUser[0].city;
+    const zip_code = body.zip_code ?? currentUser[0].zip_code;
+    const country = body.country ?? currentUser[0].country;
+    const image = body.image ?? currentUser[0].image;
+    const description = body.description ?? currentUser[0].description;
+
+    const sql = `
+      UPDATE user_account
+      SET firstname = ?, lastname = ?, email = ?, street = ?, city = ?, zip_code = ?, country = ?, image = ?, description = ?
+      WHERE id = ?
+    `;
+
+    const values = [
+      firstname,
+      lastname,
+      email,
+      street,
+      city,
+      zip_code,
+      country,
+      image,
+      description,
+      id,
+    ];
+
+    const [result] = await databaseClient.query<Result>(sql, values);
+    return result.affectedRows;
+  }
 }
 
 export default new userRepository();
