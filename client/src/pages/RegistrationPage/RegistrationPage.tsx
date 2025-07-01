@@ -25,7 +25,7 @@ function RegistrationPage() {
 
   return (
     <>
-      <main className="registration-main no-padding">
+      <main className="registration-main">
         <img src="/image16.webp" alt="Artwork" />
         <section>
           <Link to="/">

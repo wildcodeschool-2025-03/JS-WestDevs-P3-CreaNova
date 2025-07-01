@@ -1,10 +1,8 @@
 header {
-  width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
-  z-index: 11;
+  z-index: 1;
   background-color: var(--primary-color);
-  height: 70px;
 
   .logo {
     width: 50px;
@@ -40,6 +38,7 @@ header {
   }
 
   .nav_categories {
+    margin-left: 8%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -162,6 +161,16 @@ header {
       top: 70px;
       width: 250px;
       height: 250px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .nav_categories {
+      a {
+        font-size: 1rem;
+      }
+      button {
+        width: 120px;
+      }
     }
   }
 

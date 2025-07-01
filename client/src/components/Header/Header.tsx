@@ -130,8 +130,6 @@ const Header = () => {
             <br />
             <Link to="/ma collection">Ma collection</Link>
             <hr />
-            <Link to="/favoris">Favoris</Link>
-            <hr />
             <Link to="/login">Connexion</Link>
           </dialog>
         </nav>

@@ -23,7 +23,7 @@ function LoginPage() {
   };
   return (
     <>
-      <main className="login-main no-padding">
+      <main className="login-main">
         <img src="/image16.webp" alt="Artwork" />
         <section>
           <Link to="/">
