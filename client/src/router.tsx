@@ -27,10 +27,10 @@ const router = createBrowserRouter([
         element: <ArtistPage />,
         path: "/artist",
       },
-      { 
+      {
         element: <NotFound />,
         path: "/*",
-      }
+      },
     ],
   },
 ]);

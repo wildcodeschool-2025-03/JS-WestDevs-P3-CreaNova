@@ -6,7 +6,9 @@ import Header from "./components/Header/Header";
 function App() {
   const location = useLocation();
   const isVisible =
-    location.pathname === "/login" || location.pathname === "/registration" || location.pathname === "/notfound";
+    location.pathname === "/login" ||
+    location.pathname === "/registration" ||
+    location.pathname === "/notfound";
 
   return (
     <>
