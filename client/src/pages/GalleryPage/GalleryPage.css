@@ -13,7 +13,8 @@
     justify-content: center;
 
     .search {
-      text-align: center;
+      text-align: left;
+      padding-left: 20px;
       cursor: pointer;
       border-radius: 30px;
       box-shadow: #cdcccc29 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -117,8 +118,8 @@
     justify-content: center;
 
     figure {
-      width: 290px;
-      height: 290px;
+      width: 320px;
+      height: 320px;
     }
     #search_bar {
       .search {
