@@ -5,26 +5,81 @@
   gap: 10px;
 
   .title {
-    /*border: 2px, solid, orange;*/
     text-align: center;
+  }
+  #search_bar {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+
+    .search {
+      text-align: center;
+      cursor: pointer;
+      border-radius: 30px;
+      box-shadow: #cdcccc29 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      background-color: var(--color-component);
+      height: 20px;
+      width: 300px;
+    }
   }
 
   figure {
+    position: relative;
+    overflow: hidden;
     width: 300px;
     height: 300px;
-    border: 2px, solid, black;
-  }
+    cursor: pointer;
+    box-shadow: 0 0 3px #3b3b3b;
 
-  img {
-    /*border: 2px, solid, red;*/
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0);
+      transition: background-color 0.3s ease;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .favorite {
+      position: absolute;
+      top: 2%;
+      right: 2%;
+      width: 35px;
+      height: 35px;
+    }
   }
 
   figcaption {
-    border: 2px, solid, white;
-    color: red;
+    position: relative;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    padding: 0.5em 1em;
+
+    img {
+      position: absolute;
+      top: 12%;
+      right: 2%;
+      width: 30px;
+      height: 30px;
+    }
   }
 }
 
@@ -43,22 +98,34 @@
       width: 500px;
       height: 500px;
     }
+
+    #search_bar {
+      .search {
+        background-color: var(--color-component);
+        width: 600px;
+        height: 30px;
+      }
+    }
   }
 }
 /*TABLETTE*/
 @media screen and (min-width: 455px) and (max-width: 1182px) {
   .gallery_page {
-    background-color: blanchedalmond;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    .title {
-      flex-basis: 100%;
-    }
+
     figure {
       width: 290px;
       height: 290px;
+    }
+    #search_bar {
+      .search {
+        background-color: var(--color-component);
+        width: 250px;
+        height: 30px;
+      }
     }
   }
 }
