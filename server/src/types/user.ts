@@ -9,6 +9,8 @@ interface User {
   country: string;
   is_artist: boolean;
   confidentiality: boolean;
+  image: string;
+  description: string;
 }
 
 interface artwork {
