@@ -69,11 +69,11 @@ const Header = () => {
           A propos
         </Link>
       </Menu>
-      <section className="left_nav">
+      <section className="left-nav">
         <Link to="/">
           <img className="logo" src="/img/black_logo.png" alt="logo-black" />
         </Link>
-        <nav className="nav_categories">
+        <nav className="nav-categories">
           <button type="button">
             <Link to="/artist">
               <span>Artistes</span>
@@ -109,7 +109,7 @@ const Header = () => {
           </button>
         </nav>
 
-        <nav className="nav_menu">
+        <nav className="nav-menu">
           <Link to="/dark_mode">
             <img src="/img/soleil.png" alt="dark_mode" />
           </Link>
@@ -120,10 +120,10 @@ const Header = () => {
             <img src="/img/panier.png" alt="panier" />
           </Link>
 
-          <button type="button" popoverTarget="contact_modal">
+          <button type="button" popoverTarget="contact-modal">
             <img src="/img/contact.png" alt="contact" />
           </button>
-          <dialog popover="auto" id="contact_modal">
+          <dialog popover="auto" id="contact-modal">
             <Link to="/" id="contact_logo">
               <img src="/img/contact.png" alt="contact" />
             </Link>
