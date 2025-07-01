@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
+import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import HomePage from "./pages/HomePage/HomePage";
@@ -8,23 +9,28 @@ import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <App />,
     children: [
       {
         element: <HomePage />,
-        path: "/",
+        path: "",
       },
       {
         element: <RegistrationPage />,
-        path: "/registration",
+        path: "registration",
       },
       {
         element: <LoginPage />,
-        path: "/login",
+        path: "login",
       },
       {
         element: <ArtistPage />,
-        path: "/artist",
+        path: "artist",
+      },
+      {
+        element: <ArtistDetailsPage />,
+        path: "/artist/:id",
       },
       {
         element: <GalleryPage />,

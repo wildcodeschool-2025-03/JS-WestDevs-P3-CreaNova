@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import "./RegistrationPage.css";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -27,7 +28,9 @@ function RegistrationPage() {
       <main className="registration-main">
         <img src="/image16.webp" alt="Artwork" />
         <section>
-          <img src="/black_logo.png" alt="logo of CreaNova" />
+          <Link to="/">
+            <img src="/black_logo.png" alt="logo of CreaNova" />
+          </Link>
           <h1>Créer mon compte</h1>
           <form action={handleSubmit}>
             <label htmlFor="firstname">Prénom</label>

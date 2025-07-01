@@ -8,7 +8,7 @@ function GalleryPage() {
       .then((res) => res.json())
       .then((data) => setArtwork(data));
   }, []);
-  console.log(artwork);
+
   return (
     <main className="gallery_page">
       <h1 className="title"> Gallerie</h1>

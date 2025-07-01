@@ -8,6 +8,7 @@ function LoginPage() {
 
     fetch("http://localhost:3310/api/login", {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -25,7 +26,9 @@ function LoginPage() {
       <main className="login-main">
         <img src="/image16.webp" alt="Artwork" />
         <section>
-          <img src="/black_logo.png" alt="logo of CreaNova" />
+          <Link to="/">
+            <img src="/black_logo.png" alt="logo of CreaNova" />
+          </Link>
           <h1>Connexion</h1>
           <form action={handleSubmit}>
             <label htmlFor="email">Email</label>

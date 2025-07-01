@@ -1,4 +1,10 @@
+interface Carousel {
+  id: number;
+  image: string;
+  sub_category_name: string;
+}
+
 interface CarouselProps {
   title: string;
-  items: { id: string; src: string; caption: string }[];
+  category: string;
 }

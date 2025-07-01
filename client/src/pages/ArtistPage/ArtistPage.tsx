@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ArtistPage.css";
+import { Link } from "react-router";
 
 function ArtistPage() {
   const [artists, setArtists] = useState<Artist[]>([]);
@@ -13,13 +14,15 @@ function ArtistPage() {
       <h1>Artistes</h1>
       {artists.map((artist) => (
         <figure key={artist.id}>
-          <img
-            src={`${artist.image}`}
-            alt={`${artist.firstname} ${artist.lastname}`}
-          />
-          <figcaption>
-            {artist.firstname} {artist.lastname}
-          </figcaption>
+          <Link to={`/artist/${artist.id}`}>
+            <img
+              src={`${artist.image}`}
+              alt={`${artist.firstname} ${artist.lastname}`}
+            />
+            <figcaption>
+              {artist.firstname} {artist.lastname}
+            </figcaption>
+          </Link>
         </figure>
       ))}
     </main>
