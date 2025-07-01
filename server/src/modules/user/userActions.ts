@@ -52,7 +52,7 @@ const editUser: RequestHandler = async (req, res, next) => {
       return;
     }
 
-    const affectedRows = await userRepository.updateid(userId, req.body);
+    const affectedRows = await userRepository.updateId(userId, req.body);
 
     if (affectedRows === 0) {
       res.status(404).json("User not found");

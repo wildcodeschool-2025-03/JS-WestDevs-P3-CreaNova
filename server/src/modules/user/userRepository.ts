@@ -49,7 +49,7 @@ class userRepository {
     );
     return user.affectedRows;
   }
-  async updateid(id: number, body: Partial<User>) {
+  async updateId(id: number, body: Partial<User>) {
     const [currentUser] = await databaseClient.query<Rows>(
       "SELECT * FROM user_account WHERE id = ?",
       [id],
