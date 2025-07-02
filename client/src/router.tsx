@@ -6,6 +6,7 @@ import GalleryPagePhotos from "./pages/GalleryPage/GalleryPagePhotos";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import UserFormPage from "./pages/UserFormPage/UserFormPage";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         element: <GalleryPagePhotos />,
         path: "/gallery_page_photo",
+      },
+      {
+        element: <UserFormPage />,
+        path: "user_form",
       },
     ],
   },
