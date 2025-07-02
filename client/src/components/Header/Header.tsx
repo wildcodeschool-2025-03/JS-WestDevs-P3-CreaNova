@@ -27,7 +27,7 @@ const Header = () => {
         <Link
           id="peintures"
           className="menu-item"
-          to="/peintures"
+          to="/galleryPage"
           onClick={handleCloseMenu}
         >
           Peintures
@@ -36,7 +36,7 @@ const Header = () => {
         <Link
           id="photographies"
           className="menu-item"
-          to="/gallery_page_photo"
+          to="/galleryPage"
           onClick={handleCloseMenu}
         >
           Photographies
@@ -45,7 +45,7 @@ const Header = () => {
         <Link
           id="dessins"
           className="menu-item"
-          to="/dessins"
+          to="/galleryPage"
           onClick={handleCloseMenu}
         >
           Dessins
@@ -81,18 +81,18 @@ const Header = () => {
           </button>
 
           <button type="button">
-            <Link to="/peintures">
+            <Link to="/galleryPage">
               <span>Peintures</span>
             </Link>
           </button>
           <button type="button">
-            <Link to="/gallery_page_photo">
+            <Link to="/galleryPage">
               <span>Photographies</span>
             </Link>
           </button>
 
           <button type="button">
-            <Link to="/dessins">
+            <Link to="/galleryPage">
               <span>Dessins</span>
             </Link>
           </button>

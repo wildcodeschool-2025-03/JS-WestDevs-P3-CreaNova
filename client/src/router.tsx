@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router";
 import App from "./App";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
-import GalleryPagePhotos from "./pages/GalleryPage/GalleryPagePhotos";
+import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
@@ -33,8 +33,8 @@ const router = createBrowserRouter([
         path: "/artist/:id",
       },
       {
-        element: <GalleryPagePhotos />,
-        path: "/gallery_page_photo",
+        element: <GalleryPage />,
+        path: "/galleryPage",
       },
     ],
   },
