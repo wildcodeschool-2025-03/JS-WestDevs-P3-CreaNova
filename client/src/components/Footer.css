@@ -1,32 +1,27 @@
 .banner-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  border-top: 1px solid #606060;
-  padding-top: 16px;
+  padding: 5px 20px;
 }
 
 .banner-footer ul {
   display: flex;
-  margin: 10px;
   gap: 8px;
-  list-style: none;
-  padding: 0;
-}
-
-.banner-footer a {
-  text-decoration: none;
-}
-
-.banner-footer a p {
-  border: solid 1px #606060;
-  border-radius: 20px;
-  padding-left: 8px;
-  padding-right: 8px;
-  margin-left: 20px;
-  color: #191919;
+  margin: 0;
 }
 
 .banner-footer img {
   height: 30px;
+}
+
+.footer-line {
+  width: 98%;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 992px) {
+  .banner-footer img {
+    height: 24px;
+  }
 }
