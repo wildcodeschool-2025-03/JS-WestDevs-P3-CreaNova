@@ -94,6 +94,14 @@ class userRepository {
     const [result] = await databaseClient.query<Result>(sql, values);
     return result.affectedRows;
   }
+
+  async readById(id: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT * FROM user_account WHERE id = ?",
+      [id],
+    );
+    return rows[0];
+  }
 }
 
 export default new userRepository();

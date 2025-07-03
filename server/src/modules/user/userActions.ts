@@ -63,5 +63,30 @@ const editUser: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
+const getUserById: RequestHandler = async (req, res, next) => {
+  try {
+    const userId = Number(req.params.id);
+    if (Number.isNaN(userId)) {
+      res.status(400).json("Invalid user ID");
+      return;
+    }
 
-export default { add, browse, browseArtists, browseArtistArtworks, editUser };
+    const user = await userRepository.readById(userId);
+    if (!user) {
+      res.status(404).json("User not found");
+      return;
+    }
+    res.status(200).json(user);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default {
+  add,
+  browse,
+  browseArtists,
+  browseArtistArtworks,
+  editUser,
+  getUserById,
+};
