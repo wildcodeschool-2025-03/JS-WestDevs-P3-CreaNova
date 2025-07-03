@@ -1,5 +1,6 @@
 import type { RequestHandler } from "express";
 import userRepository from "./userRepository";
+import { get } from "node:http";
 
 const browse: RequestHandler = async (req, res, next) => {
   try {
