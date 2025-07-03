@@ -25,9 +25,34 @@ function CollectionPage() {
           <input type="text" placeholder="ex: " />
           <br />
         </form>
-        <button type="submit">Modifier</button>
+        <section className="button">
+          <br />
+          <button type="submit">Modifier</button>
+          <br />
+          <button type="submit">Valider</button>
+        </section>
         <br />
-        <button type="submit">Valider</button>
+        <br />
+        <section className="delete">
+          <img src="img/IMG_0864.JPG" alt="artwork" />
+          <img src="img/IMG_0864.JPG" alt="artwork" />
+          <img src="img/IMG_0864.JPG" alt="artwork" />
+
+          <h1>
+            Titre de l'oeuvre <br />
+            <img id="trash" src="img/delete_black.png" alt="delete" />
+          </h1>
+
+          <h1>
+            Titre de l'oeuvre <br />
+            <img id="trash" src="img/delete_black.png" alt="delete" />
+          </h1>
+
+          <h1>
+            Titre de l'oeuvre <br />
+            <img id="trash" src="img/delete_black.png" alt="delete" />
+          </h1>
+        </section>
       </section>
     </main>
   );
