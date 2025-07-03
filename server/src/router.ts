@@ -26,7 +26,7 @@ router.post(
 );
 
 router.post("/api/login", auth.login);
-router.post("/api/logout", auth.logout);
+router.get("/api/logout", auth.logout);
 router.get("/api/refresh-token", auth.refreshToken);
 router.get("/api/user", userActions.browse);
 router.get("/api/artist", userActions.browseArtists);
