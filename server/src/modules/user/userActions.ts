@@ -47,7 +47,7 @@ const add: RequestHandler = async (req, res) => {
 const editUser: RequestHandler = async (req, res, next) => {
   try {
     const userId = Number(req.params.id);
-    if (Number.isNaN(userId)) {
+    if (!userId) {
       res.status(400).json("Invalid user ID");
       return;
     }
@@ -66,7 +66,7 @@ const editUser: RequestHandler = async (req, res, next) => {
 const getUserById: RequestHandler = async (req, res, next) => {
   try {
     const userId = Number(req.params.id);
-    if (Number.isNaN(userId)) {
+    if (!userId) {
       res.status(400).json("Invalid user ID");
       return;
     }
