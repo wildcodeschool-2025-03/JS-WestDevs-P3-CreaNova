@@ -128,7 +128,7 @@ const Header = () => {
               <img src="/img/contact.png" alt="contact" />
             </Link>
             <br />
-            <Link to="/collection">Ma collection</Link>
+            <Link to="/ma_collection">Ma collection</Link>
             <hr />
             <Link to="/login">Connexion</Link>
           </dialog>
