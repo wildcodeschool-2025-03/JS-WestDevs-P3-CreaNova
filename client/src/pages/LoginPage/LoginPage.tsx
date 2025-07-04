@@ -1,8 +1,11 @@
-import { Link } from "react-router";
 import "./LoginPage.css";
+import { Link, useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
+import { useAuth } from "../../hooks/useAuth";
 
 function LoginPage() {
+  const { setIsLogged } = useAuth();
+  const navigate = useNavigate();
   const handleSubmit = (data: FormData) => {
     const values = Object.fromEntries(data);
 
@@ -16,6 +19,8 @@ function LoginPage() {
     }).then((response) => {
       if (response.status === 200) {
         toast.success("Vous êtes connecté");
+        setIsLogged(true);
+        navigate("/");
       } else {
         toast.error("Echec de connexion");
       }
