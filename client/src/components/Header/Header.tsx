@@ -2,9 +2,22 @@ import { slide as Menu } from "react-burger-menu";
 import "./Header.css";
 import { useState } from "react";
 import { Link } from "react-router";
+import { toast } from "react-toastify";
+import { useAuth } from "../../hooks/useAuth";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isLogged, setIsLogged, user } = useAuth();
+  const handleLogout = () => {
+    fetch("http://localhost:3310/api/logout", {
+      credentials: "include",
+    }).then((res) => {
+      if (res.ok) {
+        setIsLogged(false);
+        toast.success("Déconnexion réussie");
+      }
+    });
+  };
   const handleOpenMenu = () => {
     setIsOpen(true);
   };
@@ -126,11 +139,22 @@ const Header = () => {
           <dialog popover="auto" id="contact-modal">
             <Link to="/" id="contact_logo">
               <img src="/img/contact.png" alt="contact" />
+              {isLogged && (
+                <p>
+                  {user?.firstname} {user?.lastname}
+                </p>
+              )}
             </Link>
             <br />
             <Link to="/ma_collection">Ma collection</Link>
             <hr />
-            <Link to="/login">Connexion</Link>
+            {!isLogged ? (
+              <Link to="/login">Connexion</Link>
+            ) : (
+              <button type="button" onClick={handleLogout} id="logout">
+                Se déconnecter
+              </button>
+            )}
           </dialog>
         </nav>
       </section>

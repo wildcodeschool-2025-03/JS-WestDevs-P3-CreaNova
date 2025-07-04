@@ -30,7 +30,7 @@ function Carousel({ title, category }: CarouselProps) {
       <h2>{title}</h2>
       <div className="carousel-controls">
         <button type="button" className="arrow left" onClick={scrollLeft}>
-          ⬅
+          <img src="fleche-gauche.png" alt="Fleche gauche" />
         </button>
 
         <ul className="carousel" ref={carouselRef}>
@@ -43,7 +43,7 @@ function Carousel({ title, category }: CarouselProps) {
         </ul>
 
         <button type="button" className="arrow right" onClick={scrollRight}>
-          ⮕
+          <img src="fleche-droite.png" alt="Fleche droite" />
         </button>
       </div>
     </section>
