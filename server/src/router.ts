@@ -7,6 +7,7 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Define item-related routes
+import collectionActions from "./modules/collection/collectionActions";
 import artworkActions from "./modules/artwork/artworkActions";
 import itemActions from "./modules/item/itemActions";
 import userActions from "./modules/user/userActions";
@@ -46,5 +47,8 @@ router.get(
   "/api/carousel/:categoryName",
   artworkActions.browseCarouselArtworks,
 );
+
+/* ************************************************************************* */
+router.get("/api/artwork", collectionActions.browse);
 
 export default router;
