@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
 
 function LoginPage() {
-  const { setIsLogged } = useAuth();
+  const { setIsLogged, setUser } = useAuth();
   const navigate = useNavigate();
   const handleSubmit = (data: FormData) => {
     const values = Object.fromEntries(data);
@@ -16,15 +16,20 @@ function LoginPage() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(values),
-    }).then((response) => {
-      if (response.status === 200) {
+    })
+      .then((response) => {
+        if (!response.ok) {
+          toast.error("Echec de connexion");
+          throw new Error("Connexion failed");
+        }
+        return response.json();
+      })
+      .then((data) => {
         toast.success("Vous êtes connecté");
         setIsLogged(true);
+        setUser(data);
         navigate("/");
-      } else {
-        toast.error("Echec de connexion");
-      }
-    });
+      });
   };
   return (
     <>
