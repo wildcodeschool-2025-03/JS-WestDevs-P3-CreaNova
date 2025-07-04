@@ -25,7 +25,8 @@ if (process.env.CLIENT_URL != null) {
 }
 
 // If you need to allow extra origins, you can add something like this:
-
+import cookieParser from "cookie-parser";
+app.use(cookieParser());
 /*
 app.use(
   cors({

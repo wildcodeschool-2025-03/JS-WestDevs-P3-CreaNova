@@ -1,6 +1,6 @@
 import argon2 from "argon2";
 import type { RequestHandler } from "express";
-import jwt from "jsonwebtoken";
+import jwt, { type JwtPayload } from "jsonwebtoken";
 import userRepository from "../modules/user/userRepository";
 
 const hashedPassword: RequestHandler = async (req, res, next) => {
@@ -58,4 +58,36 @@ const logout: RequestHandler = (req, res) => {
     res.sendStatus(500);
   }
 };
-export default { hashedPassword, login, logout };
+
+const refreshToken: RequestHandler = (req, res, next) => {
+  try {
+    const token = req.cookies.token;
+
+    if (!token) {
+      throw new Error("A token must be provided");
+    }
+    const secretKey = process.env.APP_SECRET;
+    if (!secretKey) {
+      throw new Error("A secret key must be provided");
+    }
+
+    const decoded = jwt.verify(token, secretKey);
+    if (decoded) {
+      const payload = decoded as JwtPayload;
+      const newToken = jwt.sign({ id: payload.id }, secretKey, {
+        expiresIn: "1d",
+      });
+
+      res.cookie("token", newToken, {
+        httpOnly: true,
+        secure: false,
+      });
+      res.status(200).send(payload);
+    } else {
+      res.sendStatus(403);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+export default { hashedPassword, login, logout, refreshToken };
