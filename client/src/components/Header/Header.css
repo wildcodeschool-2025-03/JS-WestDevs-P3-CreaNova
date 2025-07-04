@@ -120,10 +120,26 @@ header {
 
     #contact_logo {
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       img {
         width: 60px;
         height: 60px;
+      }
+    }
+    #logout {
+      font-size: 1.1rem;
+      margin: 16px 0 0 30px;
+      cursor: pointer;
+      color: var(--text-color);
+      padding: 8px 20px;
+      box-shadow: #cdcccc29 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      background-color: var(--color-component);
+      border-radius: 30px;
+      transition: background-color 0.2s;
+      &:hover {
+        background-color: var(--primary-color);
       }
     }
     a {
@@ -160,7 +176,7 @@ header {
       right: 20px;
       top: 70px;
       width: 250px;
-      height: 250px;
+      height: 320px;
     }
   }
   @media screen and (min-width: 1200px) {

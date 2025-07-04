@@ -26,7 +26,7 @@ router.post(
 );
 
 router.post("/api/login", auth.login);
-router.post("/api/logout", auth.logout);
+router.get("/api/logout", auth.logout);
 router.get("/api/refresh-token", auth.refreshToken);
 router.get("/api/user", userActions.browse);
 router.get("/api/artist", userActions.browseArtists);
@@ -37,6 +37,8 @@ router.get("/api/artwork/artwork-category", artworkActions.readArtworkCategory);
 router.get("/api/artwork/:id", artworkActions.readUserAccount);
 
 router.get("/api/artist/:id", userActions.browseArtistArtworks);
+
+router.get("/api/user/:id", userActions.getUserById);
 router.put("/api/user/:id", userActions.editUser);
 
 /* ************************************************************************* */
