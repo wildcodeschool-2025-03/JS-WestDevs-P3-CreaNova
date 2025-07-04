@@ -6,23 +6,23 @@ function CollectionPage() {
       <section>
         <h1>Bonjour........</h1>
         <form className="formular">
-          <label for="titre">Titre de l'oeuvre </label>
-          <input type="text" placeholder="ex: Le soleil dans les champs" />
+          <label for="titre"> Titre de l'oeuvre </label>
+          <input type="text" />
           <br />
-          <label for="">Description de l'oeuvre</label>
-          <input type="text" placeholder="ex: " />
+          <label for=""> Description de l'oeuvre</label>
+          <input id="description" type="text" />
           <br />
-          <label for="titre">Tags:(pour référencer l'oeuvre) </label>
-          <input type="text" placeholder="ex: paysage, peinture" />
+          <label for="titre"> Tags:(pour référencer l'oeuvre) </label>
+          <input type="text" />
           <br />
-          <label for="">Tarifs:</label>
-          <input type="text" placeholder="ex: 566€" />
+          <label for=""> Tarifs:</label>
+          <input type="text" />
           <br />
-          <label for="titre">Ajouter des collections ou des oeuvres: </label>
-          <input type="text" placeholder="ex: " />
+          <label for="titre"> Ajouter des collections ou des oeuvres: </label>
+          <input type="text" />
           <br />
-          <label for="">Supprimer des collections ou des oeuvres:</label>
-          <input type="text" placeholder="ex: " />
+          <label for=""> Supprimer des collections ou des oeuvres:</label>
+          <input type="text" />
           <br />
         </form>
         <section className="button">
@@ -35,22 +35,9 @@ function CollectionPage() {
         <br />
         <section className="delete">
           <img src="img/IMG_0864.JPG" alt="artwork" />
-          <img src="img/IMG_0864.JPG" alt="artwork" />
-          <img src="img/IMG_0864.JPG" alt="artwork" />
-
+          <img id="trash" src="img/delete_black.png" alt="delete" />
           <h1>
             Titre de l'oeuvre <br />
-            <img id="trash" src="img/delete_black.png" alt="delete" />
-          </h1>
-
-          <h1>
-            Titre de l'oeuvre <br />
-            <img id="trash" src="img/delete_black.png" alt="delete" />
-          </h1>
-
-          <h1>
-            Titre de l'oeuvre <br />
-            <img id="trash" src="img/delete_black.png" alt="delete" />
           </h1>
         </section>
       </section>
