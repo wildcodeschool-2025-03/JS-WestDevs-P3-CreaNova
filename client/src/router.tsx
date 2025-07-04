@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFound from "./pages/Notfound/Notfound";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import Favoritespage from "./pages/Favoritespage/Favoritespage";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         element: <NotFound />,
         path: "*",
+      },
+      {
+        element: <Favoritespage />,
+        path: "/favoritespage",
       },
     ],
   },

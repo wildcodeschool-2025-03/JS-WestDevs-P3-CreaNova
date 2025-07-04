@@ -12,6 +12,7 @@ import itemActions from "./modules/item/itemActions";
 import userActions from "./modules/user/userActions";
 import auth from "./utils/auth";
 import validation from "./utils/validation";
+import FavoriteAction from "./modules/Favorites/FavoriteAction";
 
 router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
@@ -34,6 +35,7 @@ router.get("/api/artist", userActions.browseArtists);
 router.get("/api/artwork", artworkActions.browse);
 router.get("/api/artwork/artwork-category", artworkActions.readArtworkCategory);
 router.get("/api/artwork/:id", artworkActions.readUserAccount);
+router.get("/api/user/:userId/favorite",FavoriteAction.favoriteArtwork);
 
 router.get("/api/artist/:id", userActions.browseArtistArtworks);
 router.put("/api/user/:id", userActions.editUser);
