@@ -62,7 +62,8 @@ VALUES
 ("Naissance", "Capture Népalaise.", 180.00, "http://localhost:3310/img_5.webp", TRUE, 5),
 ("Brume du matin", "Hymne à la vie.", 210.00, "http://localhost:3310/claudio-schwarz.webp", TRUE, 6),
 ("Famille doré", "Rencontre pure.", 200.00, "http://localhost:3310/boston-public.webp", TRUE, 6),
-("Portrait lumineux", "Sérénité de la nature.", 250.00, "http://localhost:3310/jakub-durian.webp", TRUE, 6);
+("Portrait lumineux", "Sérénité de la nature.", 250.00, "http://localhost:3310/jakub-durian.webp", TRUE, 6),
+("Oeil envoutant", "Regard profond.", 200.00, "http://localhost:3310/eyesdraw.webp", TRUE, 6);
 
 
 CREATE TABLE category (
@@ -82,7 +83,8 @@ VALUES
 ("Sport", TRUE),
 ("Figuratif", TRUE),
 ("Ville", TRUE),
-("Nature", TRUE);
+("Nature", TRUE),
+("Réaliste", TRUE);
 
 CREATE TABLE artwork_category (
 category_id INT NOT NULL,
@@ -110,7 +112,8 @@ VALUES
 (2, 15), (11, 15),
 (3, 16), (5, 16),
 (3, 17), (4, 17),
-(3, 18), (5 ,18);
+(3, 18), (5 ,18),
+(3,19), (12,19);
 
 
 CREATE TABLE favorite (

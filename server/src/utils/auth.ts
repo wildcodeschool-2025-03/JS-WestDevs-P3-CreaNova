@@ -44,7 +44,7 @@ const login: RequestHandler = async (req, res) => {
       // Rend l'envoie du cookie possible. En déploiement, il est important de  mettre secure à true.
       secure: false,
     });
-    res.status(200).json("Congratulations, you're logged in !");
+    res.status(200).json(payload);
   } catch (err) {
     res.sendStatus(500);
   }
@@ -82,12 +82,13 @@ const refreshToken: RequestHandler = (req, res, next) => {
         httpOnly: true,
         secure: false,
       });
-      res.status(200).send(payload);
+      res.status(200).json(payload);
     } else {
       res.sendStatus(403);
     }
   } catch (err) {
-    next(err);
+    console.error((err as Error).message);
+    res.sendStatus(500);
   }
 };
 export default { hashedPassword, login, logout, refreshToken };
