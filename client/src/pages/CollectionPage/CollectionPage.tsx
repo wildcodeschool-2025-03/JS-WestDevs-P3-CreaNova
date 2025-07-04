@@ -6,22 +6,25 @@ function CollectionPage() {
       <section>
         <h1>Bonjour........</h1>
         <form className="formular">
-          <label for="titre"> Titre de l'oeuvre </label>
+          <label htmlFor="titre"> Titre de l'oeuvre </label>
           <input type="text" />
           <br />
-          <label for=""> Description de l'oeuvre</label>
+          <label htmlFor=""> Description de l'oeuvre</label>
           <input id="description" type="text" />
           <br />
-          <label for="titre"> Tags:(pour référencer l'oeuvre) </label>
+          <label htmlFor="titre"> Tags:(pour référencer l'oeuvre) </label>
           <input type="text" />
           <br />
-          <label for=""> Tarifs:</label>
+          <label htmlFor=""> Tarifs:</label>
           <input type="text" />
           <br />
-          <label for="titre"> Ajouter des collections ou des oeuvres: </label>
+          <label htmlFor="titre">
+            {" "}
+            Ajouter des collections ou des oeuvres:{" "}
+          </label>
           <input type="text" />
           <br />
-          <label for=""> Supprimer des collections ou des oeuvres:</label>
+          <label htmlFor=""> Supprimer des collections ou des oeuvres:</label>
           <input type="text" />
           <br />
         </form>
