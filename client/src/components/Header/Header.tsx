@@ -137,24 +137,25 @@ const Header = () => {
             <img src="/img/contact.png" alt="contact" />
           </button>
           <dialog popover="auto" id="contact-modal">
-            <Link to="/" id="contact_logo">
-              <img src="/img/contact.png" alt="contact" />
-              {isLogged && (
-                <p>
-                  {user?.firstname} {user?.lastname}
-                </p>
+            <nav>
+              <Link to="/" id="contact_logo">
+                <img src="/img/contact.png" alt="contact" />
+                {isLogged && (
+                  <span>
+                    {user?.firstname} {user?.lastname}
+                  </span>
+                )}
+              </Link>
+              <Link to="/ma collection">Ma collection</Link>
+              <hr />
+              {!isLogged ? (
+                <Link to="/login">Connexion</Link>
+              ) : (
+                <button type="button" onClick={handleLogout} id="logout">
+                  Déconnexion
+                </button>
               )}
-            </Link>
-            <br />
-            <Link to="/collection">Ma collection</Link>
-            <hr />
-            {!isLogged ? (
-              <Link to="/login">Connexion</Link>
-            ) : (
-              <button type="button" onClick={handleLogout} id="logout">
-                Se déconnecter
-              </button>
-            )}
+            </nav>
           </dialog>
         </nav>
       </section>
