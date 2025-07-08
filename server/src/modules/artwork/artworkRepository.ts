@@ -1,5 +1,5 @@
 import type { Rows } from "../../../database/client";
-import databaseClient from "../../../database/client";
+import databaseClient, { type Result } from "../../../database/client";
 
 class ArtworkRepository {
   async readAll() {
@@ -48,6 +48,21 @@ class ArtworkRepository {
       [categoryName],
     );
     return result;
+  }
+
+  async update(artwork: Artwork) {
+    const [result] = await databaseClient.query<Result>(
+      `UPDATE artwork SET title = ?, description = ?, price = ?, image = ? 
+      WHERE id = ?`,
+      [
+        artwork.title,
+        artwork.description,
+        artwork.price,
+        artwork.image,
+        artwork.id,
+      ],
+    );
+    return result.affectedRows;
   }
 }
 

@@ -48,9 +48,30 @@ const browseCarouselArtworks: RequestHandler = async (req, res) => {
   }
 };
 
+const edit: RequestHandler = async (req, res, next) => {
+  try {
+    const newArtwork = {
+      id: Number(req.params.id),
+      title: req.body.title,
+      description: req.body.description,
+      image: req.body.image,
+      price: req.body.price,
+    };
+    const result = await artworkRepository.update(newArtwork);
+    if (result === 0) {
+      res.sendStatus(404);
+    } else {
+      res.sendStatus(204);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 export default {
   browseCarouselArtworks,
   browse,
   readArtworkCategory,
   readUserAccount,
+  edit,
 };
