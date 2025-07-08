@@ -40,12 +40,12 @@ const router = createBrowserRouter([
         path: "/galleryPage",
       },
       {
-        element: <NotFound />,
-        path: "*",
-      },
-      {
         element: <CollectionPage />,
         path: "collection",
+      },
+      {
+        element: <NotFound />,
+        path: "*",
       },
     ],
   },

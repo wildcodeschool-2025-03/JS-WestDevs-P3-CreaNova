@@ -146,7 +146,7 @@ const Header = () => {
                   </span>
                 )}
               </Link>
-              <Link to="/ma collection">Ma collection</Link>
+              <Link to="/collection">Ma collection</Link>
               <hr />
               {!isLogged ? (
                 <Link to="/login">Connexion</Link>
