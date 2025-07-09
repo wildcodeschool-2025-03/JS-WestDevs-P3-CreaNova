@@ -26,10 +26,8 @@ function ArtworkModificationPage() {
 
           <label htmlFor=""> Tarifs:</label>
           <input type="text" />
-        </form>
-        <section className="button">
           <button type="submit">Modifier</button>
-        </section>
+        </form>
       </section>
     </main>
   );
