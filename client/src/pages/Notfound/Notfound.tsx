@@ -3,7 +3,7 @@ import "./NotFound.css";
 import { useNavigate } from "react-router";
 
 function NotFound() {
-  const [second, setSecond] = useState(5);
+  const [second, setSecond] = useState(3);
   const navigate = useNavigate();
 
   useEffect(() => {
