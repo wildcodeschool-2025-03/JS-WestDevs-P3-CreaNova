@@ -1,7 +1,7 @@
 interface Artwork {
   id: number;
-  firstname: string;
-  lastname: string;
+  firstname?: string;
+  lastname?: string;
   image: string;
   title: string;
 }

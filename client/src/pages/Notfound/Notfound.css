@@ -1,8 +1,16 @@
 .notfound-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  p {
+    text-align: center;
+    font-size: 2rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 992px) {
