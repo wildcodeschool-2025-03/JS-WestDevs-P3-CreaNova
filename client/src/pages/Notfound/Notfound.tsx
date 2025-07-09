@@ -8,16 +8,17 @@ function NotFound() {
 
   useEffect(() => {
     const countdown = setInterval(() => {
-      setSecond((prev) => {
-        if (prev <= 1) {
+      setSecond((sec) => {
+        if (sec <= 1) {
           clearInterval(countdown);
           navigate("/");
         }
-        return prev - 1;
+        return sec - 1;
       });
     }, 1000);
     return () => clearInterval(countdown);
   }, [navigate]);
+
   return (
     <main className="notfound-container">
       <p>Retour à l'accueil dans {second}</p>
