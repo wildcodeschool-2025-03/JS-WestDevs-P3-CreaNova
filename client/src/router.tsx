@@ -2,8 +2,8 @@ import { createBrowserRouter } from "react-router";
 import App from "./App";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
-import ArtworkModificationPage from "./pages/ArtworkModificationPage/ArtworkModificationPage";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
+import EditArtworkPage from "./pages/EditArtworkPage/EditArtworkPage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -44,8 +44,8 @@ const router = createBrowserRouter([
         path: "collection/:id",
       },
       {
-        element: <ArtworkModificationPage />,
-        path: "artwork-modification",
+        element: <EditArtworkPage />,
+        path: "artwork/:id/edit",
       },
     ],
   },

@@ -1,5 +1,9 @@
-.artwork_modification_page {
+.edit-artwork-page {
   margin: 20px;
+  min-height: calc(100vh - 98px - 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   h1 {
     text-align: center;
@@ -53,7 +57,7 @@
 }
 
 @media screen and (min-width: 992px) {
-  .artwork_modification_page {
+  .edit-artwork-page {
     .form {
       margin: 0 auto;
       max-width: 900px;
