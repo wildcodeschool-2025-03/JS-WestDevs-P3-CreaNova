@@ -71,9 +71,10 @@ header {
 
     button {
       text-align: center;
-      box-shadow: #cdcccc29 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      border: 1px, solid, var(--color-border);
       background-color: var(--color-component);
       border-radius: 30px;
+      height: 20px;
       width: 90px;
     }
   }
@@ -187,7 +188,7 @@ header {
         font-size: 1rem;
       }
       button {
-        width: 120px;
+        width: 125px;
       }
     }
   }
