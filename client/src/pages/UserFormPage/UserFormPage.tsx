@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import "./UserFormPage.css";
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthContext";
+import { Link } from "react-router";
 
 function UserFormPage() {
   const authContext = useContext(AuthContext);
@@ -92,6 +93,19 @@ function UserFormPage() {
         setLoading(false);
       });
   };
+
+  if (!user) {
+    return (
+      <main className="link-login">
+        <section>
+          <p>Vous devez être connecté pour accéder à cette page.</p>
+          <Link to="/login">
+            <button type="button">Accéder à la page de connexion</button>
+          </Link>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <>

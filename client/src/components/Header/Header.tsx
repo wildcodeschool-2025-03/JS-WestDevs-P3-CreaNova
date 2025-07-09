@@ -137,7 +137,7 @@ const Header = () => {
             <img src="/img/contact.png" alt="contact" />
           </button>
           <dialog popover="auto" id="contact-modal">
-            <Link to="/" id="contact_logo">
+            <Link to="/userForm" id="contact_logo">
               <img src="/img/contact.png" alt="contact" />
               {isLogged && (
                 <p>
