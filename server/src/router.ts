@@ -36,7 +36,14 @@ router.get("/api/artist", userActions.browseArtists);
 router.get("/api/artwork", artworkActions.browse);
 router.get("/api/artwork/artwork-category", artworkActions.readArtworkCategory);
 router.get("/api/artwork/:id", artworkActions.readUserAccount);
-router.get("/api/user/:userId/favorite",FavoriteAction.favoriteArtwork);
+router.get("/api/user/:userId/favorite", FavoriteAction.favoriteArtwork);
+router.put("/api/artwork/:id", artworkActions.edit);
+router.get("/api/artist/:id/artworks", artworkActions.readUserAccount);
+router.get(
+  "/api/artist/:userId/artworks/:artworkId",
+  artworkActions.readArtworkUserById,
+);
+router.delete("/api/artworks/:id", artworkActions.deleteArtwork);
 
 router.get("/api/artist/:id", userActions.browseArtistArtworks);
 
@@ -48,5 +55,7 @@ router.get(
   "/api/carousel/:categoryName",
   artworkActions.browseCarouselArtworks,
 );
+
+/* ************************************************************************* */
 
 export default router;
