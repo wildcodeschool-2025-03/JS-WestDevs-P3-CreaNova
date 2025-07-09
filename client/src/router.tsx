@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       },
       {
         element: <ArtworkModificationPage />,
-        path: "artwork-modification-page",
+        path: "artwork-modification",
       },
       {
         element: <NotFound />,
