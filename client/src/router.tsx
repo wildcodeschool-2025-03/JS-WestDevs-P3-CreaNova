@@ -2,12 +2,12 @@ import { createBrowserRouter } from "react-router";
 import App from "./App";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
+import ArtworkModificationPage from "./pages/ArtworkModificationPage/ArtworkModificationPage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFound from "./pages/Notfound/Notfound";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
-import ArtworkModificationPage from "./pages/ArtworkModificationPage/ArtworkModificationPage";
 
 const router = createBrowserRouter([
   {
