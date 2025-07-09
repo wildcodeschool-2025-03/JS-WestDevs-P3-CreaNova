@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import App from "./App";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
+import CollectionPage from "./pages/CollectionPage/CollectionPage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         element: <GalleryPage />,
         path: "/galleryPage",
+      },
+      {
+        element: <CollectionPage />,
+        path: "collection/:id",
       },
       {
         element: <NotFound />,

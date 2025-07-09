@@ -16,7 +16,7 @@ class ArtworkRepository {
 
   async readUserAccount(id: number) {
     const [rows] = await databaseClient.query<Rows>(
-      "SELECT * from artwork WHERE user_account_id = TRUE",
+      "SELECT * from artwork WHERE user_account_id = ?",
       [id],
     );
     return rows;
