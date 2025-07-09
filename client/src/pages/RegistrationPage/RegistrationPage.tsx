@@ -12,6 +12,7 @@ function RegistrationPage() {
     const formData = {
       ...values,
       is_artist: values.is_artist === "on",
+      confidentiality: values.confidentiality === "on",
     };
     fetch("http://localhost:3310/api/user", {
       method: "POST",
@@ -66,10 +67,14 @@ function RegistrationPage() {
               <input type="checkbox" id="is_artist" name="is_artist" />
             </div>
             <div>
-              <label htmlFor="policy">
+              <label htmlFor="confidentiality">
                 accepter la politique de confidentialité
               </label>
-              <input id="policy" type="checkbox" />
+              <input
+                id="confidentiality"
+                name="confidentiality"
+                type="checkbox"
+              />
             </div>
             <button type="submit">Créer un compte</button>
           </form>
