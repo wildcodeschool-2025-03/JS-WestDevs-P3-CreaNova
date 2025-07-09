@@ -1,5 +1,5 @@
 import type { Rows } from "../../../database/client";
-import databaseClient from "../../../database/client";
+import databaseClient, { type Result } from "../../../database/client";
 
 class ArtworkRepository {
   async readAll() {
@@ -21,7 +21,20 @@ class ArtworkRepository {
     );
     return rows;
   }
-
+  async readArtworkUserById(userId: number, artworkId: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT * FROM artwork WHERE user_account_id = ? AND artwork.id = ?",
+      [userId, artworkId],
+    );
+    return rows;
+  }
+  async delete(id: number) {
+    const [result] = await databaseClient.query<Result>(
+      "DELETE FROM artwork WHERE id = ?",
+      [id],
+    );
+    return result.affectedRows;
+  }
   async readCarouselArtwork(categoryName: string) {
     const [result] = await databaseClient.query<Rows>(
       `
@@ -48,6 +61,21 @@ class ArtworkRepository {
       [categoryName],
     );
     return result;
+  }
+
+  async update(artwork: Artwork) {
+    const [result] = await databaseClient.query<Result>(
+      `UPDATE artwork SET title = ?, description = ?, price = ?, image = ? 
+      WHERE id = ?`,
+      [
+        artwork.title,
+        artwork.description,
+        artwork.price,
+        artwork.image,
+        artwork.id,
+      ],
+    );
+    return result.affectedRows;
   }
 }
 

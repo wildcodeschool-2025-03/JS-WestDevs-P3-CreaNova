@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import App from "./App";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
+import ArtworkModificationPage from "./pages/ArtworkModificationPage/ArtworkModificationPage";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import HomePage from "./pages/HomePage/HomePage";
@@ -13,7 +14,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <NotFound />,
     children: [
       {
         element: <HomePage />,
@@ -44,10 +44,14 @@ const router = createBrowserRouter([
         path: "collection/:id",
       },
       {
-        element: <NotFound />,
-        path: "*",
+        element: <ArtworkModificationPage />,
+        path: "artwork-modification",
       },
     ],
+  },
+  {
+    element: <NotFound />,
+    path: "*",
   },
 ]);
 

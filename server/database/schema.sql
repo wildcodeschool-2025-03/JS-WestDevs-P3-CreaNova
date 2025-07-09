@@ -121,7 +121,7 @@ user_account_id INT NOT NULL,
 artwork_id INT NOT NULL,
 PRIMARY KEY (user_account_id, artwork_id),
 FOREIGN KEY (user_account_id) REFERENCES user_account(id),
-FOREIGN KEY (artwork_id) REFERENCES artwork(id)
+FOREIGN KEY (artwork_id) REFERENCES artwork(id) ON DELETE CASCADE
 );
 INSERT INTO favorite (user_account_id, artwork_id)
 VALUES
@@ -137,7 +137,7 @@ means_of_payment VARCHAR(55) NOT NULL,
 payment_validated BOOLEAN DEFAULT FALSE,
 PRIMARY KEY (user_account_id, artwork_id),
 FOREIGN KEY (user_account_id) REFERENCES user_account(id),
-FOREIGN KEY (artwork_id) REFERENCES artwork(id)
+FOREIGN KEY (artwork_id) REFERENCES artwork(id) ON DELETE CASCADE
 );
 INSERT INTO purchase (user_account_id, artwork_id, means_of_payment, payment_validated)
 VALUES
