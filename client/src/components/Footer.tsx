@@ -2,9 +2,9 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <>
+    <footer>
       <hr className="footer-line" />
-      <footer className="banner-footer">
+      <nav className="banner-footer" aria-label="Réseaux sociaux">
         <ul className="social-icons">
           <li>
             <a href="https://www.instagram.com/" target="blank">
@@ -27,8 +27,8 @@ function Footer() {
             </a>
           </li>
         </ul>
-      </footer>
-    </>
+      </nav>
+    </footer>
   );
 }
 export default Footer;
