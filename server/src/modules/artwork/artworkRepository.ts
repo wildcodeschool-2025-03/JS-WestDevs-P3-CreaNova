@@ -62,6 +62,21 @@ class ArtworkRepository {
     );
     return result;
   }
+
+  async update(artwork: Artwork) {
+    const [result] = await databaseClient.query<Result>(
+      `UPDATE artwork SET title = ?, description = ?, price = ?, image = ? 
+      WHERE id = ?`,
+      [
+        artwork.title,
+        artwork.description,
+        artwork.price,
+        artwork.image,
+        artwork.id,
+      ],
+    );
+    return result.affectedRows;
+  }
 }
 
 export default new ArtworkRepository();

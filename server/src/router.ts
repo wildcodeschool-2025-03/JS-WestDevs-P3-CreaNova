@@ -12,7 +12,6 @@ import itemActions from "./modules/item/itemActions";
 import userActions from "./modules/user/userActions";
 import auth from "./utils/auth";
 import validation from "./utils/validation";
-
 router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
 router.post("/api/items", itemActions.add);
@@ -34,6 +33,8 @@ router.get("/api/artist", userActions.browseArtists);
 /* ************************************************************************* */
 router.get("/api/artwork", artworkActions.browse);
 router.get("/api/artwork/artwork-category", artworkActions.readArtworkCategory);
+router.get("/api/artwork/:id", artworkActions.readUserAccount);
+router.put("/api/artwork/:id", artworkActions.edit);
 router.get("/api/artist/:id/artworks", artworkActions.readUserAccount);
 router.get(
   "/api/artist/:userId/artworks/:artworkId",
