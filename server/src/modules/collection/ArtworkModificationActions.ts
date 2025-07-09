@@ -1,9 +1,10 @@
 import type { RequestHandler } from "express";
-import collectionRepository from "./collectionRepository";
+import ArtworkModificationRepository from "./ArtworkModificationRepository";
 
 const browse: RequestHandler = async (req, res, next) => {
   try {
-    const result = await collectionRepository.readAll();
+    const result = await ArtworkModificationRepository.readAll();
+    res.json(result);
   } catch (err) {
     next(err);
   }

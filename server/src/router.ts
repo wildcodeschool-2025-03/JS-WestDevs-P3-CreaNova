@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Define item-related routes
 import artworkActions from "./modules/artwork/artworkActions";
-import collectionActions from "./modules/collection/collectionActions";
+import collectionActions from "./modules/collection/ArtworkModificationActions";
 import itemActions from "./modules/item/itemActions";
 import userActions from "./modules/user/userActions";
 import auth from "./utils/auth";

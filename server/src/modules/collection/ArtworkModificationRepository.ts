@@ -1,11 +1,11 @@
 import type { Rows } from "../../../database/client";
 import databaseClient from "../../../database/client";
 
-class CollectionRepository {
+class ArtworkModificationRepository {
   async readAll() {
     const [result] = await databaseClient.query<Rows>("SELECT * from artwork");
     return result;
   }
 }
 
-export default new CollectionRepository();
+export default new ArtworkModificationRepository();
