@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "./UserFormPage.css";
+import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../contexts/AuthContext";
-import { toast } from "react-toastify";
 
 function UserFormPage() {
   const authContext = useContext(AuthContext);
@@ -22,6 +22,8 @@ function UserFormPage() {
     country: "",
     description: "",
   });
+
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!user || !user.id) return;
@@ -61,93 +63,128 @@ function UserFormPage() {
     }));
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!user || !user.id) return;
+
+    setLoading(true);
+
+    fetch(`http://localhost:3310/api/user/${user.id}`, {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          toast.success("Informations mises à jour avec succès !");
+        } else {
+          throw new Error("Erreur lors de la mise à jour");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error("Impossible de mettre à jour les données");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
   return (
-    <main className="user-form-main">
-      <section>
-        <img src="/img/contact.png" alt="contact" />
-        <figcaption>{`${formData.firstname} ${formData.lastname}`}</figcaption>
+    <>
+      <main className="user-form-main">
+        <section>
+          <img src="/img/contact.png" alt="contact" />
+          <figcaption>{`${formData.firstname} ${formData.lastname}`}</figcaption>
 
-        <form>
-          <h2>Mes informations personnelles</h2>
+          <form onSubmit={handleSubmit}>
+            <h2>Mes informations personnelles</h2>
 
-          <label htmlFor="lastname">Nom</label>
-          <input
-            type="text"
-            placeholder="ex: Dupont"
-            name="lastname"
-            value={formData.lastname}
-            onChange={handleChange}
-          />
+            <label htmlFor="lastname">Nom</label>
+            <input
+              type="text"
+              placeholder="ex: Dupont"
+              name="lastname"
+              value={formData.lastname}
+              onChange={handleChange}
+            />
 
-          <label htmlFor="firstname">Prénom</label>
-          <input
-            name="firstname"
-            type="text"
-            placeholder="ex: Jean"
-            value={formData.firstname}
-            onChange={handleChange}
-          />
+            <label htmlFor="firstname">Prénom</label>
+            <input
+              name="firstname"
+              type="text"
+              placeholder="ex: Jean"
+              value={formData.firstname}
+              onChange={handleChange}
+            />
 
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            placeholder="ex: jean.dupont@example.com"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              placeholder="ex: jean.dupont@example.com"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
 
-          <h2>Mon Adresse</h2>
+            <h2>Mon Adresse</h2>
 
-          <label htmlFor="street">Adresse</label>
-          <input
-            type="text"
-            placeholder="ex: 123 rue de Paris"
-            name="street"
-            value={formData.street}
-            onChange={handleChange}
-          />
+            <label htmlFor="street">Adresse</label>
+            <input
+              type="text"
+              placeholder="ex: 123 rue de Paris"
+              name="street"
+              value={formData.street}
+              onChange={handleChange}
+            />
 
-          <label htmlFor="city">Ville</label>
-          <input
-            type="text"
-            placeholder="ex: Paris"
-            name="city"
-            value={formData.city}
-            onChange={handleChange}
-          />
+            <label htmlFor="city">Ville</label>
+            <input
+              type="text"
+              placeholder="ex: Paris"
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+            />
 
-          <label htmlFor="zip_code">Code Postal</label>
-          <input
-            type="text"
-            placeholder="ex: 75000"
-            name="zip_code"
-            value={formData.zip_code}
-            onChange={handleChange}
-          />
+            <label htmlFor="zip_code">Code Postal</label>
+            <input
+              type="text"
+              placeholder="ex: 75000"
+              name="zip_code"
+              value={formData.zip_code}
+              onChange={handleChange}
+            />
 
-          <label htmlFor="country">Pays</label>
-          <input
-            type="text"
-            placeholder="ex: France"
-            name="country"
-            value={formData.country}
-            onChange={handleChange}
-          />
+            <label htmlFor="country">Pays</label>
+            <input
+              type="text"
+              placeholder="ex: France"
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+            />
 
-          <label htmlFor="description">Description</label>
-          <input
-            type="text"
-            placeholder="ex: Passionné d'art contemporain..."
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-          />
+            <label htmlFor="description">Description</label>
+            <input
+              type="text"
+              placeholder="ex: Passionné d'art contemporain..."
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+            />
 
-          <button type="submit">Valider</button>
-        </form>
-      </section>
-    </main>
+            <button type="submit" disabled={loading}>
+              {loading ? "Chargement..." : "Valider"}
+            </button>
+          </form>
+        </section>
+      </main>
+      <ToastContainer position="top-right" />
+    </>
   );
 }
 
