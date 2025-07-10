@@ -2,9 +2,11 @@ import { Link, useParams } from "react-router";
 import "./EditArtworkPage.css";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useAuth } from "../../hooks/useAuth";
 
 function EditArtworkPage() {
   const [artwork, setArtwork] = useState<Artwork>();
+  const { isLogged } = useAuth();
   const [form, setForm] = useState({
     title: "",
     description: "",
@@ -42,6 +44,7 @@ function EditArtworkPage() {
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetch(`http://localhost:3310/api/artwork/${artworkId}`, {
+      credentials: "include",
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +54,12 @@ function EditArtworkPage() {
       .then((res) => res.json())
       .then(() => {
         toast.success("Oeuvre modifiée !");
-        fetch(`http://localhost:3310/api/artist/${userId}artworks/${artworkId}`)
+        fetch(
+          `http://localhost:3310/api/artist/${userId}artworks/${artworkId}`,
+          {
+            credentials: "include",
+          },
+        )
           .then((res) => res.json())
           .then((data) => {
             const artworkData = data[0];
@@ -72,6 +80,18 @@ function EditArtworkPage() {
         <Link to="/">
           <h1>Vous n'avez pas d'oeuvre qui possède cet identifiant.</h1>
         </Link>
+      </main>
+    );
+  }
+  if (!isLogged) {
+    return (
+      <main className="link-login">
+        <section>
+          <p>Vous devez être connecté pour accéder à cette page.</p>
+          <Link to="/login">
+            <button type="button">Accéder à la page de connexion</button>
+          </Link>
+        </section>
       </main>
     );
   }
