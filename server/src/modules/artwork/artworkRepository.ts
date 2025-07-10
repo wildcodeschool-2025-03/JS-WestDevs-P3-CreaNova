@@ -28,6 +28,15 @@ class ArtworkRepository {
     );
     return rows;
   }
+
+  async createArtwork(category_id: number) {
+    const [result] = await databaseClient.query<Result>(
+      "INSERT INTO artwork (id, title, description, image, price, user_account_id)",
+      "INSERT INTO artwork_category (category_id)",
+      [category_id],
+    );
+    return result;
+  }
   async delete(id: number) {
     const [result] = await databaseClient.query<Result>(
       "DELETE FROM artwork WHERE id = ?",
@@ -62,7 +71,6 @@ class ArtworkRepository {
     );
     return result;
   }
-
   async update(artwork: Artwork) {
     const [result] = await databaseClient.query<Result>(
       `UPDATE artwork SET title = ?, description = ?, price = ?, image = ? 

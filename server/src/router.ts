@@ -41,6 +41,7 @@ router.get(
   artworkActions.readArtworkUserById,
 );
 router.delete("/api/artworks/:id", artworkActions.deleteArtwork);
+router.post("/api/artworks/", artworkActions.createArtwork);
 
 router.get("/api/artist/:id", userActions.browseArtistArtworks);
 

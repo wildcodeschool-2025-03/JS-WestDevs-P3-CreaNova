@@ -51,7 +51,21 @@ const readArtworkUserById: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
+const createArtwork: RequestHandler = async (req, res, next) => {
+  try {
+    const createArtwork = await artworkRepository.createArtwork();
+    const category_id = Number(req.params.id);
 
+    if (result == null) {
+      res.status(404).json("Artwork not found 🤨");
+      return;
+    }
+    res.status(200).json("The work is added 🎊");
+    return;
+  } catch (err) {
+    next(err);
+  }
+};
 const deleteArtwork: RequestHandler = async (req, res, next) => {
   try {
     const artworkId = Number(req.params.id);
@@ -109,5 +123,6 @@ export default {
   readUserAccount,
   edit,
   readArtworkUserById,
+  createArtwork,
   deleteArtwork,
 };

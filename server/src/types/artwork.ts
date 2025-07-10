@@ -5,3 +5,7 @@ interface Artwork {
   price: string;
   image: string;
 }
+
+interface artwork_category {
+  category_id: number;
+}
