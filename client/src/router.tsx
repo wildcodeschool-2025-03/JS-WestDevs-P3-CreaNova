@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
+import AddArtworkPage from "./pages/AddArtworkPage/AddArtworkPage";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
 import ArtworkModificationPage from "./pages/ArtworkModificationPage/ArtworkModificationPage";
@@ -9,7 +10,6 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFound from "./pages/Notfound/Notfound";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
-import AddArtworkPage from "./pages/AddArtworkPage/AddArtworkPage";
 
 const router = createBrowserRouter([
   {
