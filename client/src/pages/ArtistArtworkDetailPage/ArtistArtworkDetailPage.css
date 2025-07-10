@@ -1,3 +1,8 @@
+.no-data {
+  min-height: calc(100vh - 98px - 100px);
+  display: grid;
+  place-items: center;
+}
 .artist-artwork-detail-main {
   min-height: calc(100vh - 98px - 100px);
   display: grid;
