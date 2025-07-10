@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import "./UserFormPage.css";
 import { Link } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
-import "./UserFormPage.css";
 
 function UserFormPage() {
   const { user, isLogged } = useAuth();
