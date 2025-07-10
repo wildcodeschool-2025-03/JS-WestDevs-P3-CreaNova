@@ -1,17 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./UserFormPage.css";
 import { ToastContainer, toast } from "react-toastify";
-import { AuthContext } from "../../contexts/AuthContext";
 import { Link } from "react-router";
+import { useAuth } from "../../hooks/useAuth";
 
 function UserFormPage() {
-  const authContext = useContext(AuthContext);
-
-  if (!authContext) {
-    return <div>Erreur: Contexte d'authentification non trouvé</div>;
-  }
-
-  const { user } = authContext;
+  const { user, isLogged } = useAuth();
 
   const [formData, setFormData] = useState({
     lastname: "",
@@ -56,7 +50,9 @@ function UserFormPage() {
       });
   }, [user]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -94,7 +90,7 @@ function UserFormPage() {
       });
   };
 
-  if (!user) {
+  if (!isLogged) {
     return (
       <main className="link-login">
         <section>
@@ -183,8 +179,8 @@ function UserFormPage() {
             />
 
             <label htmlFor="description">Description</label>
-            <input
-              type="text"
+            <textarea
+              rows={5}
               placeholder="ex: Passionné d'art contemporain..."
               name="description"
               value={formData.description}
