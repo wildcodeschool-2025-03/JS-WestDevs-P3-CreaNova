@@ -6,6 +6,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 function UserFormPage() {
   const { user, isLogged } = useAuth();
+  if (!user) return;
 
   const [formData, setFormData] = useState({
     lastname: "",
@@ -15,14 +16,11 @@ function UserFormPage() {
     city: "",
     zip_code: "",
     country: "",
+    image: "",
     description: "",
   });
 
-  const [loading, setLoading] = useState(false);
-
   useEffect(() => {
-    if (!user || !user.id) return;
-
     fetch(`http://localhost:3310/api/user/${user.id}`, {
       credentials: "include",
     })
@@ -41,6 +39,7 @@ function UserFormPage() {
           city: data.city || "",
           zip_code: data.zip_code || "",
           country: data.country || "",
+          image: data.image || "",
           description: data.description || "",
         });
       })
@@ -62,9 +61,6 @@ function UserFormPage() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!user || !user.id) return;
-
-    setLoading(true);
 
     fetch(`http://localhost:3310/api/user/${user.id}`, {
       method: "PUT",
@@ -84,9 +80,6 @@ function UserFormPage() {
       .catch((error) => {
         console.error(error);
         toast.error("Impossible de mettre à jour les données");
-      })
-      .finally(() => {
-        setLoading(false);
       });
   };
 
@@ -108,7 +101,9 @@ function UserFormPage() {
       <main className="user-form-main">
         <section>
           <img src="/img/contact.png" alt="contact" />
-          <figcaption>{`${formData.firstname} ${formData.lastname}`}</figcaption>
+          <figcaption>
+            {formData.firstname} {formData.lastname}
+          </figcaption>
 
           <form onSubmit={handleSubmit}>
             <h2>Mes informations personnelles</h2>
@@ -137,6 +132,22 @@ function UserFormPage() {
               placeholder="ex: jean.dupont@example.com"
               name="email"
               value={formData.email}
+              onChange={handleChange}
+            />
+            <label htmlFor="image">Image url</label>
+            <input
+              type="text"
+              placeholder="ex: jean.dupont@example.com"
+              name="image"
+              value={formData.image}
+              onChange={handleChange}
+            />
+            <label htmlFor="description">Description</label>
+            <textarea
+              rows={5}
+              placeholder="ex: Passionné d'art contemporain..."
+              name="description"
+              value={formData.description}
               onChange={handleChange}
             />
 
@@ -178,18 +189,7 @@ function UserFormPage() {
               onChange={handleChange}
             />
 
-            <label htmlFor="description">Description</label>
-            <textarea
-              rows={5}
-              placeholder="ex: Passionné d'art contemporain..."
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-            />
-
-            <button type="submit" disabled={loading}>
-              {loading ? "Chargement..." : "Valider"}
-            </button>
+            <button type="submit">Valider</button>
           </form>
         </section>
       </main>
