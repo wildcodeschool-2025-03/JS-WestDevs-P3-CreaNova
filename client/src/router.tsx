@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         element: <ArtistArtworkDetailPage />,
-        path: "test/:userId/test/:artworkId",
+        path: "artist/:userId/artwork/:artworkId",
       },
     ],
   },

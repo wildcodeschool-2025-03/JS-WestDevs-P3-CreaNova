@@ -23,7 +23,7 @@ function ArtistArtworkDetailPage() {
     });
   };
   if (!artwork) {
-    return <h1>PAS POSSIBLE</h1>;
+    return <h1>Vous n'avez pas d'oeuvre disponible ici.</h1>;
   }
   return (
     <main className="artist-artwork-detail-main">
@@ -34,7 +34,7 @@ function ArtistArtworkDetailPage() {
       </figure>
       <article>
         <button type="button">Modifier</button>
-        <button type="button" onClick={handleOnSubmit} id="ok">
+        <button type="button" onClick={handleOnSubmit}>
           Supprimer
         </button>
       </article>

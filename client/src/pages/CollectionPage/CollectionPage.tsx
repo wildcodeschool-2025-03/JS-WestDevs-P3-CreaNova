@@ -20,7 +20,7 @@ function CollectionPage() {
       <h1>Ma collection</h1>
       {artwork.map((item) => (
         <figure key={item.id}>
-          <Link to="/">
+          <Link to={`http://localhost:3000/artist/${id}/artwork/${item.id}`}>
             <img src={item.image} alt={item.title} />
             <figcaption>{item.title}</figcaption>
           </Link>
