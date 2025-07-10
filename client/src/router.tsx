@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         element: <EditArtworkPage />,
-        path: "artwork/:id/edit",
+        path: "artist/:userId/artworks/:artworkId/edit",
       },
     ],
   },
