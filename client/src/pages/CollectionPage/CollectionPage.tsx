@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import "./CollectionPage.css";
 import { Link, useParams } from "react-router";
+import { useAuth } from "../../hooks/useAuth";
 
 function CollectionPage() {
   const [artwork, setArtwork] = useState<Artwork[]>([]);
   const { id } = useParams();
+  const { isLogged } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:3310/api/artwork/${id}`)
+    fetch(`http://localhost:3310/api/artwork/${id}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => setArtwork(data));
   }, [id]);
@@ -15,6 +19,20 @@ function CollectionPage() {
   if (!artwork) {
     return <h1>Vous n'avez aucune oeuvre</h1>;
   }
+
+  if (!isLogged) {
+    return (
+      <main className="link-login">
+        <section>
+          <p>Vous devez être connecté pour accéder à cette page.</p>
+          <Link to="/login">
+            <button type="button">Accéder à la page de connexion</button>
+          </Link>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="collection-page-main">
       <h1>Ma collection</h1>
