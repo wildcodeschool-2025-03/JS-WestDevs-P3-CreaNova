@@ -1,7 +1,7 @@
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import "./EditArtworkPage.css";
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 function EditArtworkPage() {
   const [artwork, setArtwork] = useState<Artwork>();
@@ -11,9 +11,10 @@ function EditArtworkPage() {
     price: "",
     image: "",
   });
+
   const { userId, artworkId } = useParams();
 
-  const dataChange = (
+  const handleOnChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
@@ -24,20 +25,18 @@ function EditArtworkPage() {
   };
 
   useEffect(() => {
-    // console.log("userid: ", userId);
-    // console.log("artworkid : ", artworkId);
     fetch(`http://localhost:3310/api/artist/${userId}/artworks/${artworkId}`)
       .then((res) => res.json())
       .then((data) => {
-        setArtwork(data[0]);
+        const artworkData = data[0];
+        setArtwork(artworkData);
         setForm({
-          title: data[0]?.title,
-          description: data[0]?.description,
-          price: data[0]?.price,
-          image: data[0]?.image,
+          title: artworkData?.title,
+          description: artworkData?.description,
+          price: artworkData?.price,
+          image: artworkData?.image,
         });
       });
-    // console.log("artwork: ", artwork);
   }, [userId, artworkId]);
 
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -51,66 +50,76 @@ function EditArtworkPage() {
     })
       .then((res) => res.json())
       .then(() => {
-        fetch(`http://localhost:3310/api/artwork/${artworkId}`)
+        toast.success("Oeuvre modifiée !");
+        fetch(`http://localhost:3310/api/artist/${userId}artworks/${artworkId}`)
           .then((res) => res.json())
           .then((data) => {
-            setArtwork(data[0]);
+            const artworkData = data[0];
+            setArtwork(artworkData);
             setForm({
-              title: data[0]?.title,
-              description: data[0]?.description,
-              price: data[0]?.price,
-              image: data[0]?.image,
+              title: artworkData?.title,
+              description: artworkData?.description,
+              price: artworkData?.price,
+              image: artworkData?.image,
             });
-            toast.success("Oeuvre modifiée !");
           });
       });
   };
 
   if (!artwork) {
-    return <h1>Problemo</h1>;
+    return (
+      <main className="place-items">
+        <Link to="/">
+          <h1>Vous n'avez pas d'oeuvre qui possède cet identifiant.</h1>
+        </Link>
+      </main>
+    );
   }
   return (
-    <main className="edit-artwork-page">
-      <section>
-        <h1>Modifier l'oeuvre</h1>
-        <form className="form" onSubmit={handleOnSubmit}>
-          <label htmlFor="title"> Titre de l'oeuvre </label>
-          <input
-            type="text"
-            name="title"
-            value={form.title}
-            onChange={dataChange}
-          />
+    <>
+      <main className="edit-artwork-page">
+        <section>
+          <h1>Modifier l'oeuvre</h1>
+          <form className="form" onSubmit={handleOnSubmit}>
+            <label htmlFor="title"> Titre de l'oeuvre </label>
+            <input
+              type="text"
+              name="title"
+              value={form.title}
+              onChange={handleOnChange}
+            />
 
-          <label htmlFor="description"> Description de l'oeuvre</label>
-          <input
-            id="description"
-            type="text"
-            name="description"
-            value={form.description}
-            onChange={dataChange}
-          />
+            <label htmlFor="description"> Description de l'oeuvre</label>
+            <input
+              id="description"
+              type="text"
+              name="description"
+              value={form.description}
+              onChange={handleOnChange}
+            />
 
-          <label htmlFor="price"> Tarif:</label>
-          <input
-            type="text"
-            name="price"
-            value={form.price}
-            onChange={dataChange}
-          />
+            <label htmlFor="price"> Tarif:</label>
+            <input
+              type="text"
+              name="price"
+              value={form.price}
+              onChange={handleOnChange}
+            />
 
-          <label htmlFor="image"> Image URL:</label>
-          <input
-            type="text"
-            name="image"
-            value={form.image}
-            onChange={dataChange}
-          />
+            <label htmlFor="image"> Image URL:</label>
+            <input
+              type="text"
+              name="image"
+              value={form.image}
+              onChange={handleOnChange}
+            />
 
-          <button type="submit">Modifier</button>
-        </form>
-      </section>
-    </main>
+            <button type="submit">Modifier</button>
+          </form>
+        </section>
+      </main>
+      <ToastContainer />
+    </>
   );
 }
 

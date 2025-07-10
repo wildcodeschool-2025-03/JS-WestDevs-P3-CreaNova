@@ -64,3 +64,8 @@
     }
   }
 }
+.place-items {
+  min-height: calc(100vh - 98px - 100px);
+  display: grid;
+  place-items: center;
+}
