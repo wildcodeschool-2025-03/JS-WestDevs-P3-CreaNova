@@ -12,6 +12,9 @@ function AddArtworkPage() {
           <label htmlFor=""> Description de l'oeuvre</label>
           <input id="description" type="text" />
 
+          <label htmlFor=""> Image URL </label>
+          <input type="text" />
+
           <label htmlFor=""> Catégorie de l'oeuvre</label>
 
           <select id="categorie" name="categorie">
