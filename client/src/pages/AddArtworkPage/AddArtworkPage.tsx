@@ -2,11 +2,11 @@ import "./AddArtworkPage.css";
 
 function AddArtworkPage() {
   return (
-    <main className="add_artwork_page">
+    <main className="add-artwork-page">
       <section>
         <h1>Ajouter une oeuvre</h1>
         <form className="form">
-          <label htmlFor="titre"> Titre de l'oeuvre </label>
+          <label htmlFor="title"> Titre de l'oeuvre </label>
           <input type="text" />
 
           <label htmlFor=""> Description de l'oeuvre</label>
@@ -24,10 +24,10 @@ function AddArtworkPage() {
             <option value="peinture">Peinture</option>
           </select>
 
-          <label htmlFor="titre"> Tags:(pour référencer l'oeuvre) </label>
+          <label htmlFor=""> Tags:(pour référencer l'oeuvre) </label>
           <input type="text" />
 
-          <label htmlFor=""> Tarifs:</label>
+          <label htmlFor=""> Tarif:</label>
           <input type="text" />
           <button type="submit">Ajouter</button>
         </form>
