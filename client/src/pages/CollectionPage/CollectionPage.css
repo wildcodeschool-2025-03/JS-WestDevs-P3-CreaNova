@@ -7,6 +7,23 @@
     text-align: center;
     grid-column: 1 / -1;
   }
+  .add-artwork-link {
+    padding: 10px 16px;
+    margin-top: 20px;
+    grid-column: 1 / -1;
+    justify-self: flex-end;
+    background: var(--button-reg-log);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #183040;
+    }
+  }
   figure {
     position: relative;
     border-radius: 10px;
@@ -57,6 +74,9 @@
     grid-template-columns: repeat(2, 1fr);
     h1 {
       font-size: 3rem;
+    }
+    .add-artwork-link {
+      padding: 10px 48px;
     }
     figure {
       width: 350px;

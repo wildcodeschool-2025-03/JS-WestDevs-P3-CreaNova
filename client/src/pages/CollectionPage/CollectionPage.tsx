@@ -35,6 +35,9 @@ function CollectionPage() {
 
   return (
     <main className="collection-page-main">
+      <Link to="" className="add-artwork-link">
+        Ajouter
+      </Link>
       <h1>Ma collection</h1>
       {artwork.map((item) => (
         <figure key={item.id}>
