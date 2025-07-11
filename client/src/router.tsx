@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
 import AddArtworkPage from "./pages/AddArtworkPage/AddArtworkPage";
+import ArtistArtworkDetailPage from "./pages/ArtistArtworkDetailPage/ArtistArtworkDetailPage";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
@@ -50,9 +51,10 @@ const router = createBrowserRouter([
         path: "artist/:userId/artworks/:artworkId/edit",
       },
       {
-        element: <AddArtworkPage />,
-        path: "add-artwork",
+        element: <ArtistArtworkDetailPage />,
+        path: "artist/:userId/artwork/:artworkId",
       },
+      { element: <AddArtworkPage />, path: "add-artwork" },
       {
         element: <UserFormPage />,
         path: "user-form",
