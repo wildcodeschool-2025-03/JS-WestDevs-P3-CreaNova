@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router";
 import "./AddArtworkPage.css";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
 
 function AddArtworkPage() {
