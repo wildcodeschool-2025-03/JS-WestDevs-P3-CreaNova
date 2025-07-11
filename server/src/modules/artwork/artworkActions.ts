@@ -95,7 +95,7 @@ const edit: RequestHandler = async (req, res, next) => {
     if (result === 0) {
       res.sendStatus(404);
     } else {
-      res.sendStatus(204);
+      res.status(200).json(newArtwork);
     }
   } catch (err) {
     next(err);
