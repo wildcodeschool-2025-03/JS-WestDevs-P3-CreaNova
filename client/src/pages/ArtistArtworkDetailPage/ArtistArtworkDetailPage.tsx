@@ -57,7 +57,9 @@ function ArtistArtworkDetailPage() {
         <figcaption>{artwork.title}</figcaption>
       </figure>
       <article>
-        <button type="button">Modifier</button>
+        <Link to={`/artist/${userId}/artworks/${artwork.id}/edit`}>
+          <button type="button">Modifier</button>
+        </Link>
         <button type="button" onClick={handleOnSubmit}>
           Supprimer
         </button>
