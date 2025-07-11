@@ -14,8 +14,7 @@ function EditArtworkPage() {
     fetch(`http://localhost:3310/api/artist/${userId}/artworks/${artworkId}`)
       .then((res) => res.json())
       .then((data) => {
-        const artworkData = data[0];
-        setArtwork(artworkData);
+        setArtwork(data[0]);
       });
   }, [userId, artworkId]);
 
@@ -42,8 +41,7 @@ function EditArtworkPage() {
         )
           .then((res) => res.json())
           .then((data) => {
-            const artworkData = data[0];
-            setArtwork(artworkData);
+            setArtwork(data[0]);
           });
       });
   };
@@ -78,9 +76,8 @@ function EditArtworkPage() {
             <label htmlFor="title"> Titre de l'oeuvre </label>
             <input type="text" name="title" defaultValue={artwork.title} />
             <label htmlFor="description"> Description de l'oeuvre</label>
-            <input
+            <textarea
               id="description"
-              type="text"
               name="description"
               defaultValue={artwork.description}
             />
