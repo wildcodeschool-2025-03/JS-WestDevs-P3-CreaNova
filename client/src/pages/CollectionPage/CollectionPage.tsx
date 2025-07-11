@@ -35,7 +35,7 @@ function CollectionPage() {
 
   return (
     <main className="collection-page-main">
-      <Link to="" className="add-artwork-link">
+      <Link to={`/artist/${id}/add-artwork`} className="add-artwork-link">
         Ajouter
       </Link>
       <h1>Ma collection</h1>

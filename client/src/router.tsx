@@ -51,10 +51,13 @@ const router = createBrowserRouter([
         path: "artist/:userId/artworks/:artworkId/edit",
       },
       {
+        element: <AddArtworkPage />,
+        path: "artist/:userId/add-artwork",
+      },
+      {
         element: <ArtistArtworkDetailPage />,
         path: "artist/:userId/artwork/:artworkId",
       },
-      { element: <AddArtworkPage />, path: "add-artwork" },
       {
         element: <UserFormPage />,
         path: "user-form",
