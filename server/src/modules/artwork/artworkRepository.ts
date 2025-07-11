@@ -29,13 +29,18 @@ class ArtworkRepository {
     return rows;
   }
 
-  async createArtwork(category_id: number) {
+  async createArtwork(body: Artwork) {
     const [result] = await databaseClient.query<Result>(
-      "INSERT INTO artwork (id, title, description, image, price, user_account_id)",
-      "INSERT INTO artwork_category (category_id)",
-      [category_id],
+      "INSERT INTO artwork (title, description, price, image, user_account_id) VALUES (?, ?, ?, ?, ?)",
+      [
+        body.title,
+        body.description,
+        body.price,
+        body.image,
+        body.user_account_id,
+      ],
     );
-    return result;
+    return result.affectedRows;
   }
   async delete(id: number) {
     const [result] = await databaseClient.query<Result>(

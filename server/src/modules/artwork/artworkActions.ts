@@ -53,15 +53,12 @@ const readArtworkUserById: RequestHandler = async (req, res, next) => {
 };
 const createArtwork: RequestHandler = async (req, res, next) => {
   try {
-    const createArtwork = await artworkRepository.createArtwork();
-    const category_id = Number(req.params.id);
-
-    if (result == null) {
-      res.status(404).json("Artwork not found 🤨");
-      return;
+    const createArtwork = await artworkRepository.createArtwork(req.body);
+    if (createArtwork) {
+      res.status(200).json("The work is added 🎊");
+    } else {
+      res.status(404).json("Artwork not created 🤨");
     }
-    res.status(200).json("The work is added 🎊");
-    return;
   } catch (err) {
     next(err);
   }

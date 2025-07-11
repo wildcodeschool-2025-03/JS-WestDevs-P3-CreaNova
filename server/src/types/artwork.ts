@@ -1,9 +1,10 @@
 interface Artwork {
-  id: number;
+  id?: number;
   title: string;
   description: string;
   price: string;
   image: string;
+  user_account_id?: number;
 }
 
 interface artwork_category {

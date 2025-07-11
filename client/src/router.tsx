@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         element: <AddArtworkPage />,
-        path: "add-artwork",
+        path: "artist/:userId/add-artwork",
       },
     ],
   },
