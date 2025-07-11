@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router";
 import "./AddArtworkPage.css";
 import { useAuth } from "../../hooks/useAuth";
+import { toast, ToastContainer } from "react-toastify";
 
 function AddArtworkPage() {
   const { userId } = useParams();
@@ -20,6 +21,7 @@ function AddArtworkPage() {
       },
       body: JSON.stringify(formData),
     });
+    toast.success("Oeuvre ajoutée avec succès !");
   };
   if (!isLogged) {
     return (
@@ -35,25 +37,28 @@ function AddArtworkPage() {
   }
 
   return (
-    <main className="add-artwork-page">
-      <section>
-        <h1>Ajouter une oeuvre</h1>
-        <form className="form" action={handleSubmit}>
-          <label htmlFor="title"> Titre de l'oeuvre </label>
-          <input type="text" name="title" />
+    <>
+      <main className="add-artwork-page">
+        <section>
+          <h1>Ajouter une oeuvre</h1>
+          <form className="form" action={handleSubmit}>
+            <label htmlFor="title"> Titre de l'oeuvre </label>
+            <input type="text" name="title" />
 
-          <label htmlFor="description"> Description de l'oeuvre</label>
-          <input id="description" type="text" name="description" />
+            <label htmlFor="description"> Description de l'oeuvre</label>
+            <input id="description" type="text" name="description" />
 
-          <label htmlFor="image"> Image URL </label>
-          <input type="text" name="image" />
+            <label htmlFor="image"> Image URL </label>
+            <input type="text" name="image" />
 
-          <label htmlFor="price"> Tarif:</label>
-          <input type="text" name="price" />
-          <button type="submit">Ajouter</button>
-        </form>
-      </section>
-    </main>
+            <label htmlFor="price"> Tarif:</label>
+            <input type="text" name="price" />
+            <button type="submit">Ajouter</button>
+          </form>
+        </section>
+      </main>
+      <ToastContainer />
+    </>
   );
 }
 
