@@ -1,4 +1,5 @@
-.artwork_modification_page {
+.add-artwork-page {
+  min-height: calc(100vh - 98px - 100px);
   margin: 20px;
 
   h1 {
@@ -53,7 +54,7 @@
 }
 
 @media screen and (min-width: 992px) {
-  .artwork_modification_page {
+  .add-artwork-page {
     .form {
       margin: 0 auto;
       max-width: 900px;
