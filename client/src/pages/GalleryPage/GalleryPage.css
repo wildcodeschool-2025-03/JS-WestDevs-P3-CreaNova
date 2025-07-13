@@ -74,13 +74,19 @@
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
     padding: 0.5em 1em;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    font-size: 0.8rem;
+
+    .price {
+      justify-self: center;
+    }
 
     img {
-      position: absolute;
-      top: 12%;
-      right: 2%;
       width: 30px;
       height: 30px;
+      justify-self: end;
     }
   }
 }
@@ -99,6 +105,10 @@
     figure {
       width: 550px;
       height: 550px;
+
+      figcaption {
+        font-size: 0.9rem;
+      }
     }
 
     #search_bar {
@@ -121,6 +131,10 @@
     figure {
       width: 320px;
       height: 320px;
+
+      figcaption {
+        font-size: 0.8rem;
+      }
     }
     #search_bar {
       .search {
