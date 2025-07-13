@@ -94,18 +94,18 @@ const Header = () => {
           </button>
 
           <button type="button">
-            <Link to="/galleryPage">
+            <Link to="/gallery/Peintures">
               <span>Peintures</span>
             </Link>
           </button>
           <button type="button">
-            <Link to="/galleryPage">
+            <Link to="/gallery/Photographie">
               <span>Photographies</span>
             </Link>
           </button>
 
           <button type="button">
-            <Link to="/galleryPage">
+            <Link to="/gallery/Dessins">
               <span>Dessins</span>
             </Link>
           </button>
