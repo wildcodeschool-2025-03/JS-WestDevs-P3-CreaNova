@@ -4,6 +4,7 @@ interface Artwork {
   lastname?: string;
   image: string;
   title: string;
-  price?: number;
-  artist_name?: string;
+  price: number;
+  description: number;
+  artist_name: number;
 }

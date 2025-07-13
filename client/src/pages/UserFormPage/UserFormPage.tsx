@@ -6,7 +6,6 @@ import { useAuth } from "../../hooks/useAuth";
 
 function UserFormPage() {
   const { user, isLogged } = useAuth();
-  if (!user) return;
 
   const [formData, setFormData] = useState({
     lastname: "",
@@ -21,6 +20,7 @@ function UserFormPage() {
   });
 
   useEffect(() => {
+    if (!user) return;
     fetch(`http://localhost:3310/api/user/${user.id}`, {
       credentials: "include",
     })
@@ -61,7 +61,7 @@ function UserFormPage() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    if (!user) return;
     fetch(`http://localhost:3310/api/user/${user.id}`, {
       method: "PUT",
       credentials: "include",
