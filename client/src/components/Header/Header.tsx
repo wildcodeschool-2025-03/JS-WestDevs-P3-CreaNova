@@ -94,7 +94,7 @@ const Header = () => {
           </button>
 
           <button type="button">
-            <Link to="/gallery/Peintures">
+            <Link to="/gallery/Peinture">
               <span>Peintures</span>
             </Link>
           </button>
@@ -105,7 +105,7 @@ const Header = () => {
           </button>
 
           <button type="button">
-            <Link to="/gallery/Dessins">
+            <Link to="/gallery/Dessin">
               <span>Dessins</span>
             </Link>
           </button>

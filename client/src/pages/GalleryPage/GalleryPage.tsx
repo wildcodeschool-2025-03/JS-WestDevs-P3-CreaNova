@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 function GalleryPage() {
   const [artwork, setArtwork] = useState<Artwork[]>([]);
   const { categoryName } = useParams();
+  console.log("Catégorie :", categoryName);
 
   useEffect(() => {
     fetch(`http://localhost:3310/api/artwork/category/${categoryName}`)
