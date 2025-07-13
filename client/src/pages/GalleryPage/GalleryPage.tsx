@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import "./GalleryPage.css";
+import { useParams } from "react-router";
 
 function GalleryPage() {
   const [artwork, setArtwork] = useState<Artwork[]>([]);
+  const { categoryName } = useParams();
+
   useEffect(() => {
-    fetch("http://localhost:3310/api/artwork/artwork-category")
+    fetch(`http://localhost:3310/api/artwork/category/${categoryName}`)
       .then((res) => res.json())
       .then((data) => setArtwork(data));
-  }, []);
+  }, [categoryName]);
 
   return (
     <main className="gallery_page">
