@@ -6,5 +6,5 @@ interface Artwork {
   title: string;
   price: number;
   description: number;
-  artist_name: number;
+  artist_name?: number;
 }
