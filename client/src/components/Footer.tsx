@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import "./Footer.css";
 
 function Footer() {
@@ -5,6 +6,11 @@ function Footer() {
     <footer>
       <hr className="footer-line" />
       <nav className="banner-footer" aria-label="Réseaux sociaux">
+        <div id="cgv-link">
+          <Link to="/cgv">
+            <button type="button">CGV</button>
+          </Link>
+        </div>
         <ul className="social-icons">
           <li>
             <a href="https://www.instagram.com/" target="blank">
