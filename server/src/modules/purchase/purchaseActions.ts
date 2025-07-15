@@ -4,7 +4,6 @@ import purchaseRepository from "./purchaseRepository";
 const browse: RequestHandler = async (req, res, next) => {
   try {
     const result = await purchaseRepository.readAll();
-    console.warn("result: ", result);
     res.json(result);
   } catch (err) {
     next(err);
