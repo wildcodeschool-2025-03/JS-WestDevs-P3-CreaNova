@@ -6,7 +6,6 @@ function CgvPage() {
       <img src="img/black_logo.png" alt="CGV" />
       <section>
         <h1>
-          {" "}
           <strong>Conditions générales de vente </strong>
         </h1>
         <li>
@@ -94,7 +93,7 @@ function CgvPage() {
           </p>
         </li>
         <li>
-          <strong>10. Suppression du Compte et Retrait des Œuvres </strong>{" "}
+          <strong>10. Suppression du Compte et Retrait des Œuvres </strong>
           <br />
           <p>
             Les Utilisateurs ont le droit de quitter la Plateforme à tout moment
