@@ -10,7 +10,7 @@
   list-style: none;
   margin: 0;
 }
-.banner-footer #cgv-link {
+.banner-footer a {
   width: 90%;
 
   button {

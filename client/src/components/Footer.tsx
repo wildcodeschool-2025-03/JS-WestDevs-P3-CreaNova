@@ -6,11 +6,9 @@ function Footer() {
     <footer>
       <hr className="footer-line" />
       <nav className="banner-footer" aria-label="Réseaux sociaux">
-        <div id="cgv-link">
-          <Link to="/cgv">
-            <button type="button">CGV</button>
-          </Link>
-        </div>
+        <Link to="/cgv">
+          <button type="button">CGV</button>
+        </Link>
         <ul className="social-icons">
           <li>
             <a href="https://www.instagram.com/" target="blank">
