@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFound from "./pages/Notfound/Notfound";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
+import CgvPage from "./pages/CgvPage/CgvPage";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         element: <AddArtworkPage />,
         path: "add-artwork",
+      },
+      {
+        element: <CgvPage />,
+        path: "cgv",
       },
     ],
   },
