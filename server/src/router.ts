@@ -32,7 +32,10 @@ router.get("/api/artist", userActions.browseArtists);
 
 /* ************************************************************************* */
 router.get("/api/artwork", artworkActions.browse);
-router.get("/api/artwork/artwork-category", artworkActions.readArtworkCategory);
+router.get(
+  "/api/artwork/category/:categoryName",
+  artworkActions.readArtworkCategory,
+);
 router.get("/api/artwork/:id", artworkActions.readUserAccount);
 router.put("/api/artwork/:id", artworkActions.edit);
 router.get("/api/artist/:id/artworks", artworkActions.readUserAccount);
@@ -41,6 +44,7 @@ router.get(
   artworkActions.readArtworkUserById,
 );
 router.delete("/api/artworks/:id", artworkActions.deleteArtwork);
+router.post("/api/artworks", artworkActions.createArtwork);
 
 router.get("/api/artist/:id", userActions.browseArtistArtworks);
 

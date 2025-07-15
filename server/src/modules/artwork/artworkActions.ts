@@ -12,7 +12,8 @@ const browse: RequestHandler = async (req, res, next) => {
 
 const readArtworkCategory: RequestHandler = async (req, res, next) => {
   try {
-    const result = await artworkRepository.readArtworkCategory();
+    const { categoryName } = req.params;
+    const result = await artworkRepository.readArtworkCategory(categoryName);
     res.json(result);
   } catch (err) {
     next(err);
@@ -51,7 +52,18 @@ const readArtworkUserById: RequestHandler = async (req, res, next) => {
     next(err);
   }
 };
-
+const createArtwork: RequestHandler = async (req, res, next) => {
+  try {
+    const createArtwork = await artworkRepository.createArtwork(req.body);
+    if (createArtwork) {
+      res.status(200).json("The work is added 🎊");
+    } else {
+      res.status(404).json("Artwork not created 🤨");
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 const deleteArtwork: RequestHandler = async (req, res, next) => {
   try {
     const artworkId = Number(req.params.id);
@@ -95,7 +107,7 @@ const edit: RequestHandler = async (req, res, next) => {
     if (result === 0) {
       res.sendStatus(404);
     } else {
-      res.sendStatus(204);
+      res.status(200).json(newArtwork);
     }
   } catch (err) {
     next(err);
@@ -109,5 +121,6 @@ export default {
   readUserAccount,
   edit,
   readArtworkUserById,
+  createArtwork,
   deleteArtwork,
 };

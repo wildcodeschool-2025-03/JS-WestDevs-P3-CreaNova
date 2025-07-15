@@ -7,9 +7,20 @@ class ArtworkRepository {
     return result;
   }
 
-  async readArtworkCategory() {
+  async readArtworkCategory(categoryName: string) {
     const [result] = await databaseClient.query<Rows>(
-      "SELECT a.*, c.name, ua.firstname, ua.lastname FROM artwork AS a JOIN artwork_category AS ac ON a.id = ac.artwork_id JOIN category AS c ON ac.category_id = c.id JOIN user_account AS ua ON a.user_account_id = ua.id",
+      `SELECT DISTINCT
+        a.id,
+        a.image,
+        a.title,
+        a.price,
+        CONCAT(ua.firstname, ' ', ua.lastname) AS artist_name
+      FROM artwork a
+      JOIN artwork_category ac ON a.id = ac.artwork_id
+      JOIN category c ON ac.category_id = c.id
+      JOIN user_account ua ON a.user_account_id = ua.id
+      WHERE c.name = ?`,
+      [categoryName],
     );
     return result;
   }
@@ -27,6 +38,20 @@ class ArtworkRepository {
       [userId, artworkId],
     );
     return rows;
+  }
+
+  async createArtwork(body: Artwork) {
+    const [result] = await databaseClient.query<Result>(
+      "INSERT INTO artwork (title, description, price, image, user_account_id) VALUES (?, ?, ?, ?, ?)",
+      [
+        body.title,
+        body.description,
+        body.price,
+        body.image,
+        body.user_account_id,
+      ],
+    );
+    return result.affectedRows;
   }
   async delete(id: number) {
     const [result] = await databaseClient.query<Result>(
@@ -62,7 +87,6 @@ class ArtworkRepository {
     );
     return result;
   }
-
   async update(artwork: Artwork) {
     const [result] = await databaseClient.query<Result>(
       `UPDATE artwork SET title = ?, description = ?, price = ?, image = ? 

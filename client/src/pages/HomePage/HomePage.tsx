@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Carousel from "../../components/Carousel/Carousel";
 import "./HomePage.css";
 
@@ -36,12 +37,12 @@ function HomePage() {
             univers uniques. Leurs œuvres sont des invitations à la réflexion et
             à l'émotion. Laissez-vous transporter par leurs visions singulières.
           </p>
-          <a href="/">
+          <Link to="/artist">
             <figure>
               <img src="artiste-homepage.webp" alt="Bertrand Rogon" />
               <figcaption>Accéder aux artistes</figcaption>
             </figure>
-          </a>
+          </Link>
         </div>
       </section>
     </main>
