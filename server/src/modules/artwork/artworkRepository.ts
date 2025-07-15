@@ -7,6 +7,14 @@ class ArtworkRepository {
     return result;
   }
 
+  async readArtworkById(artworkId: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT * FROM artwork WHERE id = ?",
+      [artworkId],
+    );
+    return rows;
+  }
+
   async readArtworkCategory() {
     const [result] = await databaseClient.query<Rows>(
       "SELECT a.*, c.name, ua.firstname, ua.lastname FROM artwork AS a JOIN artwork_category AS ac ON a.id = ac.artwork_id JOIN category AS c ON ac.category_id = c.id JOIN user_account AS ua ON a.user_account_id = ua.id",
