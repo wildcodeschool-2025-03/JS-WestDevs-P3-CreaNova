@@ -27,7 +27,8 @@ const readArtworkById: RequestHandler = async (req, res, next) => {
 
 const readArtworkCategory: RequestHandler = async (req, res, next) => {
   try {
-    const result = await artworkRepository.readArtworkCategory();
+    const { categoryName } = req.params;
+    const result = await artworkRepository.readArtworkCategory(categoryName);
     res.json(result);
   } catch (err) {
     next(err);
