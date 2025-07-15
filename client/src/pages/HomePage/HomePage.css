@@ -13,7 +13,7 @@
       font-weight: 500;
       font-size: 0.9rem;
       line-height: 0.2;
-      margin-bottom: 30px;
+      margin-bottom: 60px;
     }
   }
 
@@ -26,7 +26,7 @@
     p {
       font-size: 0.9rem;
       width: 85vw;
-      margin: 0 auto 20px auto;
+      margin: 0 auto 60px auto;
     }
   }
 
@@ -34,7 +34,7 @@
     font-size: 0.9rem;
     width: 85vw;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 40px;
   }
 
   .artist {
@@ -122,6 +122,7 @@
       }
       p {
         font-size: 1.4rem;
+        margin-bottom: 0;
       }
     }
 
