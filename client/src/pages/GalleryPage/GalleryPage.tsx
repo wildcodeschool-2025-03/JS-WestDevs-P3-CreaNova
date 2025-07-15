@@ -5,13 +5,11 @@ import { useParams } from "react-router";
 function GalleryPage() {
   const [artwork, setArtwork] = useState<Artwork[]>([]);
   const { categoryName } = useParams();
-  console.log("Catégorie :", categoryName);
 
   useEffect(() => {
     fetch(`http://localhost:3310/api/artwork/category/${categoryName}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setArtwork(data);
       });
   }, [categoryName]);
@@ -31,12 +29,18 @@ function GalleryPage() {
           <img src={artwork.image} alt={artwork.title} />
 
           <figcaption>
-            <div>
-              <div>{artwork.title}</div>
-              <div>de {artwork.artist_name}</div>
+            <div className="artwork-details">
+              <span>{artwork.title}</span>
+              <p>de {artwork.artist_name}</p>
             </div>
-            <div className="price">{artwork.price}€</div>
-            <img src="/img/shopping-cart-white-icon.png" alt="panier" />
+            <span className="price">{artwork.price}€</span>
+            <button
+              className="add-to-cart"
+              type="button"
+              aria-label="Ajouter au panier"
+            >
+              <img src="/img/shopping-cart-white-icon.png" alt="" />
+            </button>
           </figcaption>
         </figure>
       ))}

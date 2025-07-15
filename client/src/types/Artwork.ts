@@ -5,6 +5,6 @@ interface Artwork {
   image: string;
   title: string;
   price: number;
-  description: number;
-  artist_name?: number;
+  description: string;
+  artist_name?: string;
 }
