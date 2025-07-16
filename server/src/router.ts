@@ -32,11 +32,8 @@ router.get("/api/artist", userActions.browseArtists);
 
 /* ************************************************************************* */
 router.get("/api/artwork", artworkActions.browse);
-router.get(
-  "/api/artwork/category/:categoryName",
-  artworkActions.readArtworkCategory,
-);
-router.get("/api/artwork/:id", artworkActions.readUserAccount);
+router.get("/api/artwork/artwork-category", artworkActions.readArtworkCategory);
+router.get("/api/artwork/:id", artworkActions.readArtworkById);
 router.put("/api/artwork/:id", artworkActions.edit);
 router.get("/api/artist/:id/artworks", artworkActions.readUserAccount);
 router.get(

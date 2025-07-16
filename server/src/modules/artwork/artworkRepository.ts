@@ -7,6 +7,14 @@ class ArtworkRepository {
     return result;
   }
 
+  async readArtworkById(artworkId: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT * FROM artwork WHERE id = ?",
+      [artworkId],
+    );
+    return rows;
+  }
+
   async readArtworkCategory(categoryName: string) {
     const [result] = await databaseClient.query<Rows>(
       `SELECT DISTINCT

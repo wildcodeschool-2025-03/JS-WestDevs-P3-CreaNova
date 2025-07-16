@@ -10,6 +10,21 @@ const browse: RequestHandler = async (req, res, next) => {
   }
 };
 
+const readArtworkById: RequestHandler = async (req, res, next) => {
+  try {
+    const artworkId = Number(req.params.id);
+    const result = await artworkRepository.readArtworkById(artworkId);
+
+    if (!result) {
+      res.status(404).json("Artwork not found");
+    } else {
+      res.json(result);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const readArtworkCategory: RequestHandler = async (req, res, next) => {
   try {
     const { categoryName } = req.params;
@@ -117,6 +132,7 @@ const edit: RequestHandler = async (req, res, next) => {
 export default {
   browseCarouselArtworks,
   browse,
+  readArtworkById,
   readArtworkCategory,
   readUserAccount,
   edit,
