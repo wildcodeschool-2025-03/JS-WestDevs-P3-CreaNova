@@ -4,8 +4,28 @@
   align-items: center;
   padding: 5px 20px;
 }
+.banner-footer .social-icons {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+}
+.banner-footer a {
+  width: 90%;
 
-.banner-footer ul {
+  button {
+    border: 1px, solid, var(--color-border);
+    background-color: var(--color-component);
+    border-radius: 30px;
+    width: 50px;
+    height: 20px;
+    cursor: pointer;
+    padding: 2px 10px;
+    margin-bottom: 14px;
+  }
+}
+
+.banner-footer .banner-footer ul {
   display: flex;
   gap: 8px;
   margin: 0;
