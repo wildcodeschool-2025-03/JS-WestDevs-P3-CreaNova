@@ -4,6 +4,7 @@ import AddArtworkPage from "./pages/AddArtworkPage/AddArtworkPage";
 import ArtistArtworkDetailPage from "./pages/ArtistArtworkDetailPage/ArtistArtworkDetailPage";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
+import CgvPage from "./pages/CgvPage/CgvPage";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
 import EditArtworkPage from "./pages/EditArtworkPage/EditArtworkPage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         element: <GalleryPage />,
-        path: "/galleryPage",
+        path: "/gallery/:categoryName",
       },
       {
         element: <CollectionPage />,
@@ -64,8 +65,13 @@ const router = createBrowserRouter([
         path: "user-form",
       },
       {
+<<<<<<< HEAD
         element: <Favoritespage />,
         path: "/favoritespage",
+=======
+        element: <CgvPage />,
+        path: "cgv",
+>>>>>>> dcc01915000f79272372ed96b181cbd8fddbbaa2
       },
     ],
   },

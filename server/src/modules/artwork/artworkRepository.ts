@@ -7,9 +7,28 @@ class ArtworkRepository {
     return result;
   }
 
-  async readArtworkCategory() {
+  async readArtworkById(artworkId: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT * FROM artwork WHERE id = ?",
+      [artworkId],
+    );
+    return rows;
+  }
+
+  async readArtworkCategory(categoryName: string) {
     const [result] = await databaseClient.query<Rows>(
-      "SELECT a.*, c.name, ua.firstname, ua.lastname FROM artwork AS a JOIN artwork_category AS ac ON a.id = ac.artwork_id JOIN category AS c ON ac.category_id = c.id JOIN user_account AS ua ON a.user_account_id = ua.id",
+      `SELECT DISTINCT
+        a.id,
+        a.image,
+        a.title,
+        a.price,
+        CONCAT(ua.firstname, ' ', ua.lastname) AS artist_name
+      FROM artwork a
+      JOIN artwork_category ac ON a.id = ac.artwork_id
+      JOIN category c ON ac.category_id = c.id
+      JOIN user_account ua ON a.user_account_id = ua.id
+      WHERE c.name = ?`,
+      [categoryName],
     );
     return result;
   }
