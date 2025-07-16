@@ -13,6 +13,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFound from "./pages/Notfound/Notfound";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import UserFormPage from "./pages/UserFormPage/UserFormPage";
+import ArtworkDetailPage from "./pages/ArtworkDetailPage/ArtworkDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         element: <CollectionPage />,
         path: "collection/:id",
+      },
+      {
+        element: <ArtworkDetailPage />,
+        path: "artwork/:id",
       },
       {
         element: <EditArtworkPage />,
