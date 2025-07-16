@@ -29,6 +29,7 @@ export function useCart() {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
     localStorage.setItem(CART_KEY, JSON.stringify(updatedCart));
+    toast.success("L'article a bien été retiré du panier");
   };
 
   const clearCart = () => {
