@@ -76,7 +76,7 @@ const Header = () => {
         <Link
           id="a propos"
           className="menu-item"
-          to="/a propos"
+          to="/about"
           onClick={handleCloseMenu}
         >
           A propos
@@ -116,7 +116,7 @@ const Header = () => {
             </Link>
           </button>
           <button type="button">
-            <Link to="/a propos">
+            <Link to="/about">
               <span>A propos</span>
             </Link>
           </button>
