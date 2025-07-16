@@ -4,6 +4,7 @@ import AddArtworkPage from "./pages/AddArtworkPage/AddArtworkPage";
 import ArtistArtworkDetailPage from "./pages/ArtistArtworkDetailPage/ArtistArtworkDetailPage";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
+import CartPage from "./pages/CartPage/CartPage";
 import CgvPage from "./pages/CgvPage/CgvPage";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
 import EditArtworkPage from "./pages/EditArtworkPage/EditArtworkPage";
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         element: <CgvPage />,
         path: "cgv",
+      },
+      {
+        element: <CartPage />,
+        path: "panier",
       },
     ],
   },
