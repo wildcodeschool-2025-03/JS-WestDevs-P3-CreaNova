@@ -39,31 +39,32 @@ description VARCHAR(2000),
 price DECIMAL(10, 2) NOT NULL,
 image VARCHAR(500),
 is_validated BOOLEAN DEFAULT FALSE,
+sold BOOLEAN DEFAULT FALSE,
 date_creation TIMESTAMP NOT NULL DEFAULT NOW(),
 user_account_id INT NOT NULL,
 FOREIGN KEY (user_account_id) REFERENCES user_account(id) ON DELETE CASCADE
 );
-INSERT INTO artwork (title, description, price, image, is_validated, user_account_id)
+INSERT INTO artwork (title, description, price, image, is_validated, sold, user_account_id)
 VALUES 
-("Amour pluvieux", "Huile sur toile aux tons chauds/froids.", 250.00, "http://localhost:3310/illustrated-watercolor.webp", TRUE, 1),
-("Soleil Sombre", "Les deux grands masques de l'humanité.", 180.00, "http://localhost:3310/abstract-painting.webp", TRUE, 1),
-("Rainbow abstrait", "Composition sablée pure.", 210.00, "http://localhost:3310/abstract-rainbow.webp", TRUE, 1),
-("Silence lourd", "Melancolie.", 150.00, "http://localhost:3310/pexels-jc.webp", TRUE, 2),
-("Visage fleurie", "Photo prise de nuit à Paris.", 230.00, "http://localhost:3310/pexels-cihan.webp", TRUE, 2),
-("Naissance", "Naissance nature.", 190.00, "http://localhost:3310/pexels-caiquethecreator.webp", TRUE, 2),
-("Rêverie", "Personnage plongé dans ses pensées.", 170.00, "http://localhost:3310/240_F_1.webp", TRUE, 3),
-("Pensive", "Personnage plongé dans l'abîme du sort de ce monde.", 140.00, "http://localhost:3310/240_F_12.webp", TRUE, 3),
-("Ensoleillé", "Personnage plongé dans votre âme.", 195.00, "http://localhost:3310/240_F2.webp", TRUE, 3),
-("Perte de vue", "Immortalisation avec couché de soleil.", 260.00, "http://localhost:3310/pexels-christian.webp", TRUE, 4),
-("Nature débordante", "Quand l'Homme est entouré de nature.", 300.00, "http://localhost:3310/pexels-freestockpro.webp", TRUE, 4),
-("Silence bleu", "Solitude sublime.", 240.00, "http://localhost:3310/pexels-pixabay.webp", TRUE, 4),
-("Contraste", "Jeu d'ombres et de lumière.", 160.00, "http://localhost:3310/pexels-souvenirpixels.webp", TRUE, 5),
-("Éclosion", "Plaine.", 220.00, "http://localhost:3310/pexels-akos.webp", TRUE, 5),
-("Naissance", "Capture Népalaise.", 180.00, "http://localhost:3310/img_5.webp", TRUE, 5),
-("Brume du matin", "Hymne à la vie.", 210.00, "http://localhost:3310/claudio-schwarz.webp", TRUE, 6),
-("Famille doré", "Rencontre pure.", 200.00, "http://localhost:3310/boston-public.webp", TRUE, 6),
-("Portrait lumineux", "Sérénité de la nature.", 250.00, "http://localhost:3310/jakub-durian.webp", TRUE, 6),
-("Oeil envoutant", "Regard profond.", 200.00, "http://localhost:3310/eyesdraw.webp", TRUE, 6);
+("Amour pluvieux", "Huile sur toile aux tons chauds/froids.", 250.00, "http://localhost:3310/illustrated-watercolor.webp", TRUE, FALSE, 1),
+("Soleil Sombre", "Les deux grands masques de l'humanité.", 180.00, "http://localhost:3310/abstract-painting.webp", TRUE, FALSE, 1),
+("Rainbow abstrait", "Composition sablée pure.", 210.00, "http://localhost:3310/abstract-rainbow.webp", TRUE, FALSE, 1),
+("Silence lourd", "Melancolie.", 150.00, "http://localhost:3310/pexels-jc.webp", TRUE, FALSE, 2),
+("Visage fleurie", "Photo prise de nuit à Paris.", 230.00, "http://localhost:3310/pexels-cihan.webp", TRUE, FALSE, 2),
+("Naissance", "Naissance nature.", 190.00, "http://localhost:3310/pexels-caiquethecreator.webp", TRUE, FALSE, 2),
+("Rêverie", "Personnage plongé dans ses pensées.", 170.00, "http://localhost:3310/240_F_1.webp", TRUE, FALSE, 3),
+("Pensive", "Personnage plongé dans l'abîme du sort de ce monde.", 140.00, "http://localhost:3310/240_F_12.webp", TRUE, FALSE, 3),
+("Ensoleillé", "Personnage plongé dans votre âme.", 195.00, "http://localhost:3310/240_F2.webp", TRUE, FALSE, 3),
+("Perte de vue", "Immortalisation avec couché de soleil.", 260.00, "http://localhost:3310/pexels-christian.webp", TRUE, FALSE, 4),
+("Nature débordante", "Quand l'Homme est entouré de nature.", 300.00, "http://localhost:3310/pexels-freestockpro.webp", TRUE, FALSE, 4),
+("Silence bleu", "Solitude sublime.", 240.00, "http://localhost:3310/pexels-pixabay.webp", TRUE, FALSE, 4),
+("Contraste", "Jeu d'ombres et de lumière.", 160.00, "http://localhost:3310/pexels-souvenirpixels.webp", TRUE, FALSE, 5),
+("Éclosion", "Plaine.", 220.00, "http://localhost:3310/pexels-akos.webp", TRUE, FALSE, 5),
+("Naissance", "Capture Népalaise.", 180.00, "http://localhost:3310/img_5.webp", TRUE, FALSE, 5),
+("Brume du matin", "Hymne à la vie.", 210.00, "http://localhost:3310/claudio-schwarz.webp", TRUE, FALSE, 6),
+("Famille doré", "Rencontre pure.", 200.00, "http://localhost:3310/boston-public.webp", TRUE, FALSE, 6),
+("Portrait lumineux", "Sérénité de la nature.", 250.00, "http://localhost:3310/jakub-durian.webp", TRUE, FALSE, 6),
+("Oeil envoutant", "Regard profond.", 200.00, "http://localhost:3310/eyesdraw.webp", TRUE, FALSE, 6);
 
 
 CREATE TABLE category (

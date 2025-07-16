@@ -9,6 +9,7 @@ const router = express.Router();
 // Define item-related routes
 import artworkActions from "./modules/artwork/artworkActions";
 import itemActions from "./modules/item/itemActions";
+import purchaseActions from "./modules/purchase/purchaseActions";
 import userActions from "./modules/user/userActions";
 import auth from "./utils/auth";
 import validation from "./utils/validation";
@@ -55,5 +56,6 @@ router.get(
 );
 
 /* ************************************************************************* */
-
+router.get("/api/purchase", purchaseActions.browse);
+router.post("/api/purchase", purchaseActions.purchaseArtworks);
 export default router;
