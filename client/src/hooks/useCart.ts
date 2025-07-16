@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 interface CartItem {
   id: number;
@@ -21,6 +22,7 @@ export function useCart() {
     const updatedCart = [...cart, item];
     setCart(updatedCart);
     localStorage.setItem(CART_KEY, JSON.stringify(updatedCart));
+    toast.success(`${item.title} a été ajoutée au panier`);
   };
 
   const removeFromCart = (id: number) => {
