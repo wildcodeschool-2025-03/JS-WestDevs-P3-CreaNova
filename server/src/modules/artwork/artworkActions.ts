@@ -12,8 +12,8 @@ const browse: RequestHandler = async (req, res, next) => {
 
 const readArtworkById: RequestHandler = async (req, res, next) => {
   try {
-    const artwork_id = Number(req.params.id);
-    const result = await artworkRepository.readArtworkById(artwork_id);
+    const artworkId = Number(req.params.id);
+    const result = await artworkRepository.readArtworkById(artworkId);
 
     if (!result) {
       res.status(404).json("Artwork not found");
