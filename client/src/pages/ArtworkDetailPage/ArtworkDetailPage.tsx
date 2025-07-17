@@ -35,9 +35,6 @@ function ArtworkDetailPage() {
             <figcaption>
               <div className="artwork-details">
                 <span>{artwork.title}</span>
-                {/* <p>
-              de {artwork.firstname} {artwork.lastname}
-            </p> */}
               </div>
               <span className="price">{artwork.price}€</span>
               <button

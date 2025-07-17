@@ -4,6 +4,7 @@ import AddArtworkPage from "./pages/AddArtworkPage/AddArtworkPage";
 import ArtistArtworkDetailPage from "./pages/ArtistArtworkDetailPage/ArtistArtworkDetailPage";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
+import ArtworkDetailPage from "./pages/ArtworkDetailPage/ArtworkDetailPage";
 import CgvPage from "./pages/CgvPage/CgvPage";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
 import EditArtworkPage from "./pages/EditArtworkPage/EditArtworkPage";
@@ -13,7 +14,6 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFound from "./pages/Notfound/Notfound";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import UserFormPage from "./pages/UserFormPage/UserFormPage";
-import ArtworkDetailPage from "./pages/ArtworkDetailPage/ArtworkDetailPage";
 
 const router = createBrowserRouter([
   {
