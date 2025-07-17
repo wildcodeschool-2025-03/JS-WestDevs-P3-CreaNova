@@ -1,4 +1,4 @@
-.artwork_detail_page {
+.artwork-detail-page {
   h1 {
     text-align: center;
   }
@@ -131,7 +131,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .artwork_detail_page {
+  .artwork-detail-page {
     .artwork-info {
       width: 90vw;
       margin: 0 auto;
@@ -161,7 +161,7 @@
 }
 
 @media screen and (min-width: 992px) {
-  .artwork_detail_page {
+  .artwork-detail-page {
     .artwork-info {
       p {
         max-width: 400px;

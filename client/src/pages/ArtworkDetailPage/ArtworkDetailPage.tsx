@@ -23,7 +23,7 @@ function ArtworkDetailPage() {
   }
 
   return (
-    <main className="artwork_detail_page">
+    <main className="artwork-detail-page">
       <h1>{artwork.title}</h1>
       <section className="artwork-info">
         <p className="description">{artwork.description}</p>
