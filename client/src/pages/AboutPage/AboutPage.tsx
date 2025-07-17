@@ -57,25 +57,96 @@ function AboutPage() {
         </p>
         <h1>Notre équipe</h1>
         <span>
-          <p>
-            <strong>Anne DURAND,</strong>
-            <br /> Chef de projet
-          </p>
-          <Link to="https://github.com/Anne0709">
-            <img
-              id="github-link"
-              src="image/github-logo.webp"
-              alt="logo-Github"
-            />
-          </Link>
-          <Link to="www.linkedin.com/in/anne-durand44">
-            <img
-              id="linkedin-link"
-              src="image/linkedin.png"
-              alt="logo-Linkedin"
-            />
-          </Link>
+          <div className="team-member">
+            <p>
+              <strong>Anne DURAND,</strong>
+              <br /> Chef de projet
+            </p>
+            <Link to="https://github.com/Anne0709">
+              <img
+                id="github-link"
+                src="image/github-logo.webp"
+                alt="logo-Github"
+              />
+            </Link>
+            <Link to="https://www.linkedin.com/in/anne-durand44/">
+              <img
+                id="linkedin-link"
+                src="image/linkedin.png"
+                alt="logo-Linkedin"
+              />
+            </Link>
+          </div>
           <img src="img/Anne-ID.webp" alt="Anne DURAND" />
+        </span>
+        <span>
+          <img src="img/Ahmed-ID.webp" alt="Ahmed FIROUM" />
+          <div className="team-member">
+            <p>
+              <strong>Ahmed FIROUM,</strong>
+              <br /> Développeur Backend
+            </p>
+            <Link to="https://github.com/AhmedFikado">
+              <img
+                id="github-link"
+                src="image/github-logo.webp"
+                alt="logo-Github"
+              />
+            </Link>
+            <Link to="https://www.linkedin.com/in/ahmed-firoum/">
+              <img
+                id="linkedin-link"
+                src="image/linkedin.png"
+                alt="logo-Linkedin"
+              />
+            </Link>
+          </div>
+        </span>
+        <span>
+          <div className="team-member">
+            <p>
+              <strong>Mohamed AOUIS,</strong>
+              <br /> Développeur Frontend
+            </p>
+            <Link to="https://github.com/Mohamed-am10">
+              <img
+                id="github-link"
+                src="image/github-logo.webp"
+                alt="logo-Github"
+              />
+            </Link>
+            <Link to="https://www.linkedin.com/in/mohamed-aouis-968300338/">
+              <img
+                id="linkedin-link"
+                src="image/linkedin.png"
+                alt="logo-Linkedin"
+              />
+            </Link>
+          </div>
+          <img src="img/MohamedA.png" alt="Mohamed AOUIS" />
+        </span>
+        <span>
+          <img src="img/Tristan.png" alt="Tristan ZUBIARRAIN " />
+          <div className="team-member">
+            <p>
+              <strong>Tristan ZUBIARRAIN,</strong>
+              <br /> Designer UX/UI
+            </p>
+            <Link to="https://github.com/Tristanzubi">
+              <img
+                id="github-link"
+                src="image/github-logo.webp"
+                alt="logo-Github"
+              />
+            </Link>
+            <Link to="https://www.linkedin.com/in/tristan-zubiarrain/">
+              <img
+                id="linkedin-link"
+                src="image/linkedin.png"
+                alt="logo-Linkedin"
+              />
+            </Link>
+          </div>
         </span>
       </section>
     </main>
