@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useCart } from "../../hooks/useCart";
 import "./CartPage.css";
+import { Link } from "react-router";
 import { ToastContainer } from "react-toastify";
+import { useAuth } from "../../hooks/useAuth";
 
 function CartPage() {
   const { cart, removeFromCart, total, clearCart } = useCart();
+  const { isLogged } = useAuth();
   const numberItem = cart.length;
   const [showModal, setShowModal] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
@@ -15,10 +18,10 @@ function CartPage() {
     const formData = new FormData(e.currentTarget);
     const values = Object.fromEntries(formData);
 
-    const cardNumber = String(values.cardNumber ?? "");
-    const expiry = String(values.expiry ?? "");
-    const cvc = String(values.cvc ?? "");
-    const name = String(values.name ?? "");
+    const cardNumber = String(values.cardNumber);
+    const expiry = String(values.expiry);
+    const cvc = String(values.cvc);
+    const name = String(values.name);
 
     if (
       cardNumber.length < 16 ||
@@ -54,6 +57,19 @@ function CartPage() {
       }
     });
   };
+
+  if (!isLogged) {
+    return (
+      <main className="link-login">
+        <section>
+          <p>Vous devez être connecté pour accéder à cette page.</p>
+          <Link to="/login">
+            <button type="button">Accéder à la page de connexion</button>
+          </Link>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <>
