@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-interface CartItem {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-}
-
 const CART_KEY = "cart_items";
 
 function getCartFromStorage(): CartItem[] {
@@ -17,6 +10,7 @@ function getCartFromStorage(): CartItem[] {
 
 export function useCart() {
   const [cart, setCart] = useState<CartItem[]>(getCartFromStorage());
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
 
   const addToCart = (item: CartItem) => {
     const updatedCart = [...cart, item];
@@ -37,5 +31,5 @@ export function useCart() {
     localStorage.removeItem(CART_KEY);
   };
 
-  return { cart, addToCart, removeFromCart, clearCart };
+  return { cart, addToCart, removeFromCart, clearCart, total };
 }

@@ -47,7 +47,8 @@ function GalleryPage() {
                     id: artwork.id,
                     title: artwork.title,
                     image: artwork.image,
-                    price: artwork.price,
+                    price: Number(artwork.price),
+                    artist_name: artwork.artist_name,
                   })
                 }
               >
