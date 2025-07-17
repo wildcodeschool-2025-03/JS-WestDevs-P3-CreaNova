@@ -91,4 +91,30 @@ const refreshToken: RequestHandler = (req, res, next) => {
     res.sendStatus(500);
   }
 };
-export default { hashedPassword, login, logout, refreshToken };
+const authenticateUser: RequestHandler = (req, res, next) => {
+  try {
+    const token = req.cookies.token;
+    if (!token) {
+      res.status(401).json({ error: "No token provided" });
+      return;
+    }
+    const secretKey = process.env.APP_SECRET;
+    if (!secretKey) {
+      res.status(500).json({ error: "A secret key must be provided" });
+      return;
+    }
+
+    const decoded = jwt.verify(token, secretKey) as jwt.JwtPayload;
+    req.body.user_account_id = decoded.id;
+    next();
+  } catch (err) {
+    res.status(401).json({ error: "Invalid token" });
+  }
+};
+export default {
+  hashedPassword,
+  login,
+  logout,
+  refreshToken,
+  authenticateUser,
+};
