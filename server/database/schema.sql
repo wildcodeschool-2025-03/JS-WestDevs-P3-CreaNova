@@ -54,7 +54,7 @@ VALUES
 ("Naissance", "Naissance nature.", 190.00, "http://localhost:3310/pexels-caiquethecreator.webp", TRUE, FALSE, 2),
 ("Rêverie", "Personnage plongé dans ses pensées.", 170.00, "http://localhost:3310/240_F_1.webp", TRUE, FALSE, 3),
 ("Pensive", "Personnage plongé dans l'abîme du sort de ce monde.", 140.00, "http://localhost:3310/240_F_12.webp", TRUE, FALSE, 3),
-("Ensoleillé", "Personnage plongé dans votre âme.", 195.00, "http://localhost:3310/240_F2.webp", TRUE, FALSE, 3),
+("Ensoleillé", "Plongée dans des tonalités sombres et contrastées, L’Éclipse Intérieure explore le tumulte de l’âme face à ses propres zones d’ombre. Entre abstraction et figuration, cette œuvre invite à un voyage introspectif, où la lumière peine à percer un voile dense de matières texturées. Le cercle central, obscurci comme une lune cachée, symbolise le cœur de l’émotion humaine, partiellement voilé mais toujours vibrant.  Une peinture qui questionne l’équilibre fragile entre clarté et obscurité, entre surface et profondeur.", 195.00, "http://localhost:3310/240_F2.webp", TRUE, FALSE, 3),
 ("Perte de vue", "Immortalisation avec couché de soleil.", 260.00, "http://localhost:3310/pexels-christian.webp", TRUE, FALSE, 4),
 ("Nature débordante", "Quand l'Homme est entouré de nature.", 300.00, "http://localhost:3310/pexels-freestockpro.webp", TRUE, FALSE, 4),
 ("Silence bleu", "Solitude sublime.", 240.00, "http://localhost:3310/pexels-pixabay.webp", TRUE, FALSE, 4),
