@@ -4,6 +4,7 @@ import AddArtworkPage from "./pages/AddArtworkPage/AddArtworkPage";
 import ArtistArtworkDetailPage from "./pages/ArtistArtworkDetailPage/ArtistArtworkDetailPage";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
+import ArtworkDetailPage from "./pages/ArtworkDetailPage/ArtworkDetailPage";
 import CartPage from "./pages/CartPage/CartPage";
 import CgvPage from "./pages/CgvPage/CgvPage";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         element: <CollectionPage />,
         path: "collection/:id",
+      },
+      {
+        element: <ArtworkDetailPage />,
+        path: "artwork/:id",
       },
       {
         element: <EditArtworkPage />,
