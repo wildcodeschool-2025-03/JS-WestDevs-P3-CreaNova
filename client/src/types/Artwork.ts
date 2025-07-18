@@ -7,4 +7,6 @@ interface Artwork {
   price: number;
   description: string;
   artist_name?: string;
+  artist_image: string;
+  user_account_id: number;
 }

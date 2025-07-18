@@ -33,6 +33,21 @@ class ArtworkRepository {
     return result;
   }
 
+  async readArtworkWithArtistById(artworkId: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      `SELECT 
+        artwork.*,
+        user_account.firstname AS firstname,
+        user_account.lastname AS lastname,
+        user_account.image AS artist_image
+      FROM artwork
+      JOIN user_account ON artwork.user_account_id = user_account.id
+      WHERE artwork.id = ?`,
+      [artworkId],
+    );
+    return rows;
+  }
+
   async readUserAccount(id: number) {
     const [rows] = await databaseClient.query<Rows>(
       "SELECT * from artwork WHERE user_account_id = ?",

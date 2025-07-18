@@ -42,6 +42,7 @@ router.get(
   artworkActions.readArtworkCategory,
 );
 router.get("/api/artwork/:id", artworkActions.readArtworkById);
+router.get("/api/artwork/:id/artist", artworkActions.readArtworkWithArtistById);
 router.put("/api/artwork/:id", artworkActions.edit);
 router.get("/api/artist/:id/artworks", artworkActions.readUserAccount);
 router.get(
@@ -64,11 +65,15 @@ router.get(
 
 /* ************************************************************************* */
 router.get("/api/purchase", purchaseActions.browse);
-router.post("/api/purchase", purchaseActions.purchaseArtworks);
-
+router.post(
+  "/api/purchase",
+  auth.authenticateUser,
+  purchaseActions.purchaseArtworks,
+);
 /* ************************************************************************* */
 
 router.post("/api/favorite", FavoriteAction.addfavorite);
 router.get("/api/user/:userId/favorite", FavoriteAction.favoriteArtwork);
 router.get("/api/favorite", FavoriteAction.browse);
+
 export default router;
