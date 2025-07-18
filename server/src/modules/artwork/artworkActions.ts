@@ -1,6 +1,5 @@
 import type { RequestHandler } from "express";
 import artworkRepository from "./artworkRepository";
-
 const browse: RequestHandler = async (req, res, next) => {
   try {
     const result = await artworkRepository.readAll();

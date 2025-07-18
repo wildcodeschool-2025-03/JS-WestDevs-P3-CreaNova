@@ -10,6 +10,7 @@ import CartPage from "./pages/CartPage/CartPage";
 import CgvPage from "./pages/CgvPage/CgvPage";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
 import EditArtworkPage from "./pages/EditArtworkPage/EditArtworkPage";
+import FavoritePage from "./pages/FavoritePage/FavoritePage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
       {
         element: <UserFormPage />,
         path: "user-form",
+      },
+      {
+        element: <FavoritePage />,
+        path: "/favorite/:userId",
       },
       {
         element: <CgvPage />,
