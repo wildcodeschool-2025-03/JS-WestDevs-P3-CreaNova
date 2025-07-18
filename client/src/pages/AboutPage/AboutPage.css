@@ -16,12 +16,12 @@
       width: 100px;
       height: 150px;
     }
-    #github-link {
+    .github-link {
       width: 20px;
       height: 20px;
       margin: 0 5px;
     }
-    #linkedin-link {
+    .linkedin-link {
       width: 20px;
       height: 20px;
     }
@@ -47,8 +47,8 @@
       strong {
         font-size: 1.1rem;
       }
-      #github-link,
-      #linkedin-link {
+      .github-link,
+      .linkedin-link {
         width: 25px;
         height: 25px;
       }
