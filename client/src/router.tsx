@@ -9,12 +9,12 @@ import CartPage from "./pages/CartPage/CartPage";
 import CgvPage from "./pages/CgvPage/CgvPage";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
 import EditArtworkPage from "./pages/EditArtworkPage/EditArtworkPage";
-import HomePage from "./pages/HomePage/HomePage";
+import Favoritespage from "./pages/Favoritespage/Favoritespage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
+import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFound from "./pages/Notfound/Notfound";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
-import Favoritespage from "./pages/Favoritespage/Favoritespage";
 import UserFormPage from "./pages/UserFormPage/UserFormPage";
 
 const router = createBrowserRouter([
