@@ -9,7 +9,7 @@ function CollectionPage() {
   const { isLogged } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:3310/api/artwork/${id}`, {
+    fetch(`http://localhost:3310/api/artist/${id}/artworks`, {
       credentials: "include",
     })
       .then((res) => res.json())
