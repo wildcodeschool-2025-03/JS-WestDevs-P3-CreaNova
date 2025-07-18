@@ -71,6 +71,11 @@ function EditArtworkPage() {
     <>
       <main className="edit-artwork-page">
         <section>
+          <Link to={`/collection/${userId}`}>
+            <button className="back" type="button">
+              Retour
+            </button>
+          </Link>
           <h1>Modifier l'oeuvre</h1>
           <form className="form" onSubmit={handleOnSubmit}>
             <label htmlFor="title"> Titre de l'oeuvre </label>
@@ -84,7 +89,7 @@ function EditArtworkPage() {
             <label htmlFor="price"> Tarif:</label>
             <input type="text" name="price" defaultValue={artwork.price} />
             <label htmlFor="image"> Image URL:</label>
-            <input type="text" name="image" defaultValue={artwork.image} />
+            <input type="text" name="image" defaultValue={artwork.image} />{" "}
             <button type="submit">Modifier</button>
           </form>
         </section>
