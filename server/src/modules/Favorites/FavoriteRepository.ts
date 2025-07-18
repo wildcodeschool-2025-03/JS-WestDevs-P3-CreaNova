@@ -9,8 +9,24 @@ class favoriteRepository {
 
   async readByUserId(userId: number) {
     const [rows] = await databaseClient.query<Rows>(
-      "SELECT * FROM favorite join artwork on artwork.id= favorite.artwork_id WHERE favorite.user_account_id = ?",
+      `SELECT 
+  a.*,
+  ua.firstname,
+  ua.lastname,
+  ua.image AS artist_image
+FROM favorite AS f
+JOIN artwork AS a ON a.id = f.artwork_id 
+JOIN user_account AS ua ON a.user_account_id = ua.id
+WHERE f.user_account_id = ?;`,
       [userId],
+    );
+    return rows;
+  }
+
+  async create(userId: number, artworkId: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      "INSERT IGNORE INTO favorite (user_account_id, artwork_id) VALUES (?, ?)",
+      [userId, artworkId],
     );
     return rows;
   }

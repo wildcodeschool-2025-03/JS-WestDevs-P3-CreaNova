@@ -36,19 +36,12 @@ router.get("/api/artist", userActions.browseArtists);
 /* ************************************************************************* */
 router.get("/api/artwork", artworkActions.browse);
 router.get("/api/artwork/artwork-category", artworkActions.readArtworkCategory);
-<<<<<<< HEAD
-<<<<<<< HEAD
 router.get("/api/artwork/:id", artworkActions.readUserAccount);
-router.get("/api/user/:userId/favorite", FavoriteAction.favoriteArtwork);
-=======
-=======
 router.get(
   "/api/artwork/category/:categoryName",
   artworkActions.readArtworkCategory,
 );
->>>>>>> 8a1fa9f8308cfeef2e352c8a171d89df18d19311
 router.get("/api/artwork/:id", artworkActions.readArtworkById);
->>>>>>> dcc01915000f79272372ed96b181cbd8fddbbaa2
 router.put("/api/artwork/:id", artworkActions.edit);
 router.get("/api/artist/:id/artworks", artworkActions.readUserAccount);
 router.get(
@@ -72,4 +65,10 @@ router.get(
 /* ************************************************************************* */
 router.get("/api/purchase", purchaseActions.browse);
 router.post("/api/purchase", purchaseActions.purchaseArtworks);
+
+/* ************************************************************************* */
+
+router.post("/api/favorite", FavoriteAction.addfavorite);
+router.get("/api/user/:userId/favorite", FavoriteAction.favoriteArtwork);
+router.get("/api/favorite", FavoriteAction.browse);
 export default router;

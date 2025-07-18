@@ -66,7 +66,7 @@ const router = createBrowserRouter([
       },
       {
         element: <Favoritespage />,
-        path: "/favoritespage",
+        path: "/favorites/:userId",
       },
       {
         element: <CgvPage />,
