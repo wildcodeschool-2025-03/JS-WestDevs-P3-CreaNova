@@ -6,7 +6,6 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-import FavoriteAction from "./modules/Favorites/FavoriteAction";
 // Define item-related routes
 import artworkActions from "./modules/artwork/artworkActions";
 import itemActions from "./modules/item/itemActions";
@@ -14,6 +13,7 @@ import purchaseActions from "./modules/purchase/purchaseActions";
 import userActions from "./modules/user/userActions";
 import auth from "./utils/auth";
 import validation from "./utils/validation";
+import favoriteActions from "./modules/favorite/favoriteActions";
 
 router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
@@ -72,8 +72,8 @@ router.post(
 );
 /* ************************************************************************* */
 
-router.post("/api/favorite", FavoriteAction.addfavorite);
-router.get("/api/user/:userId/favorite", FavoriteAction.favoriteArtwork);
-router.get("/api/favorite", FavoriteAction.browse);
+router.post("/api/favorite", favoriteActions.addFavorite);
+router.get("/api/user/:userId/favorite", favoriteActions.favoriteArtwork);
+router.get("/api/favorite", favoriteActions.browse);
 
 export default router;

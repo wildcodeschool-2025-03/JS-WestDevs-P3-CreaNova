@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import "./Favoritespage.css";
+import "./FavoritePage.css";
 import { useParams } from "react-router";
 
-function Favoritespage() {
+function FavoritePage() {
   const [favorite, setFavorite] = useState<Favorite[]>([]);
   const { userId } = useParams();
 
@@ -13,7 +13,7 @@ function Favoritespage() {
   }, [userId]);
 
   return (
-    <main className="favorites_page">
+    <main className="favorite-page">
       <h1 className="title">Favoris</h1>
 
       {favorite.map((item) => (
@@ -33,7 +33,7 @@ function Favoritespage() {
               type="button"
               aria-label="Ajouter au panier"
             >
-              <img src="/img/shopping-cart-white-icon.png" alt="" />
+              <img src="/img/shopping-cart-white-icon.png" alt="shop" />
             </button>
           </figcaption>
         </figure>
@@ -41,4 +41,4 @@ function Favoritespage() {
     </main>
   );
 }
-export default Favoritespage;
+export default FavoritePage;

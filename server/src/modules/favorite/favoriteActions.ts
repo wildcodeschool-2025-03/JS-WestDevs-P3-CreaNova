@@ -1,9 +1,10 @@
 import type { RequestHandler } from "express";
-import favoriteRepository from "./FavoriteRepository";
+import FavoriteRepository from "./favoriteRepository";
+
 
 const browse: RequestHandler = async (req, res, next) => {
   try {
-    const result = await favoriteRepository.readAll();
+    const result = await FavoriteRepository.readAll();
     res.json(result);
   } catch (err) {
     next(err);
@@ -13,17 +14,17 @@ const browse: RequestHandler = async (req, res, next) => {
 const favoriteArtwork: RequestHandler = async (req, res, next) => {
   try {
     const userId = Number(req.params.userId);
-    const result = await favoriteRepository.readByUserId(userId);
+    const result = await FavoriteRepository.readByUserId(userId);
     res.json(result);
   } catch (err) {
     next(err);
   }
 };
 
-const addfavorite: RequestHandler = async (req, res, next) => {
+const addFavorite: RequestHandler = async (req, res, next) => {
   try {
     const { userId, artworkId } = req.body;
-    await favoriteRepository.create(userId, artworkId);
+    await FavoriteRepository.create(userId, artworkId);
     res.status(201).json("Favorite added");
   } catch (err) {
     next(err);
@@ -33,5 +34,5 @@ const addfavorite: RequestHandler = async (req, res, next) => {
 export default {
   browse,
   favoriteArtwork,
-  addfavorite,
+  addFavorite,
 };
