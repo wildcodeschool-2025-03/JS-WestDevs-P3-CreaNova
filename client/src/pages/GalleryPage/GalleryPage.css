@@ -1,4 +1,4 @@
-.gallery_page {
+.gallery-page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +7,7 @@
   .title {
     text-align: center;
   }
-  #search_bar {
+  .search-bar {
     flex-basis: 100%;
     display: flex;
     justify-content: center;
@@ -15,7 +15,6 @@
     .search {
       text-align: left;
       padding-left: 20px;
-      cursor: pointer;
       border-radius: 30px;
       box-shadow: #cdcccc29 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
       background-color: var(--color-component);
@@ -127,7 +126,7 @@
 
 /*DESKTOP*/
 @media screen and (min-width: 992px) {
-  .gallery_page {
+  .gallery-page {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -155,7 +154,7 @@
       }
     }
 
-    #search_bar {
+    .search-bar {
       .search {
         background-color: var(--color-component);
         width: 600px;
@@ -166,7 +165,7 @@
 }
 /*TABLETTE*/
 @media screen and (min-width: 455px) and (max-width: 1182px) {
-  .gallery_page {
+  .gallery-page {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -190,7 +189,7 @@
         }
       }
     }
-    #search_bar {
+    .search-bar {
       .search {
         background-color: var(--color-component);
         width: 250px;
