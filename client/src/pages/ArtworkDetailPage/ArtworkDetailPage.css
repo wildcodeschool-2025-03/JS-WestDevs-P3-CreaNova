@@ -1,0 +1,176 @@
+.artwork-detail-page {
+  h1 {
+    text-align: center;
+  }
+
+  .description {
+    margin: 10px 20px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  figure {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    box-shadow: 0 0 3px #3b3b3b;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0);
+      transition: background-color 0.3s ease;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .favorite {
+      position: absolute;
+      top: 2%;
+      right: 2%;
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  figcaption {
+    position: relative;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    padding: 0.5rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    font-size: 0.8rem;
+
+    .artwork-details {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      span {
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      p {
+        font-size: 0.8rem;
+        margin: 0;
+        opacity: 0.9;
+      }
+    }
+
+    .price {
+      justify-self: center;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .add-to-cart {
+      justify-self: end;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+        display: block;
+      }
+    }
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .artist {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+
+    figcaption {
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .artwork-detail-page {
+    .artwork-info {
+      width: 90vw;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        margin: auto auto;
+        text-align: inherit;
+        max-width: 250px;
+      }
+
+      figure {
+        width: 400px;
+        height: 400px;
+
+        figcaption {
+          font-size: 1rem;
+        }
+      }
+    }
+    .artist {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .artwork-detail-page {
+    .artwork-info {
+      p {
+        max-width: 400px;
+      }
+
+      figure {
+        width: 500px;
+        height: 500px;
+      }
+    }
+  }
+}

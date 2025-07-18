@@ -62,5 +62,9 @@ router.get(
 
 /* ************************************************************************* */
 router.get("/api/purchase", purchaseActions.browse);
-router.post("/api/purchase", purchaseActions.purchaseArtworks);
+router.post(
+  "/api/purchase",
+  auth.authenticateUser,
+  purchaseActions.purchaseArtworks,
+);
 export default router;
