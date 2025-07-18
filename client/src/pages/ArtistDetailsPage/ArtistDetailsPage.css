@@ -6,6 +6,7 @@
     }
     p {
       line-height: 32px;
+      word-break: break-word;
     }
     img {
       justify-self: center;

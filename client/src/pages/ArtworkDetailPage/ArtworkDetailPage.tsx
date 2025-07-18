@@ -26,16 +26,14 @@ function ArtworkDetailPage() {
     <main className="artwork-detail-page">
       <h1>{artwork.title}</h1>
       <section className="artwork-info">
-        <p className="description">{artwork.description}</p>
+        <p>{artwork.description}</p>
         <figure>
           <Link to={`/artwork/${artwork.id}`}>
             <img className="favorite" src="/img/favorite.png" alt="favorite" />
             <img src={artwork.image} alt={artwork.title} />
 
             <figcaption>
-              <div className="artwork-details">
-                <span>{artwork.title}</span>
-              </div>
+              <span>{artwork.title}</span>
               <span className="price">{artwork.price}€</span>
               <button
                 className="add-to-cart"
