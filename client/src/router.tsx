@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
+import AboutPage from "./pages/AboutPage/AboutPage";
 import AddArtworkPage from "./pages/AddArtworkPage/AddArtworkPage";
 import ArtistArtworkDetailPage from "./pages/ArtistArtworkDetailPage/ArtistArtworkDetailPage";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
       {
         element: <CgvPage />,
         path: "cgv",
+      },
+      {
+        element: <AboutPage />,
+        path: "about",
       },
       {
         element: <CartPage />,
