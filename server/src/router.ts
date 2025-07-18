@@ -12,8 +12,8 @@ import itemActions from "./modules/item/itemActions";
 import purchaseActions from "./modules/purchase/purchaseActions";
 import userActions from "./modules/user/userActions";
 import auth from "./utils/auth";
-import validation from "./utils/validation";
 import FavoriteAction from "./modules/Favorites/FavoriteAction";
+import validation from "./utils/validation";
 
 router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);

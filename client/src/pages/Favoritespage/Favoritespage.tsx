@@ -23,7 +23,9 @@ function Favoritespage() {
           <figcaption>
             <div className="container">
               <span>{item.title}</span>
-              <p>de {item.firstname} {item.lastname}</p>
+              <p>
+                de {item.firstname} {item.lastname}
+              </p>
             </div>
             <span className="price">{item.price}€</span>
             <button
