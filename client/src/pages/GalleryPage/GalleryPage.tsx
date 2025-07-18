@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router";
 
 function GalleryPage() {
   const [artwork, setArtwork] = useState<Artwork[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const { categoryName } = useParams();
 
   useEffect(() => {
@@ -14,16 +15,26 @@ function GalleryPage() {
       });
   }, [categoryName]);
 
+  const filteredArtwork = artwork.filter(
+    (artwork) =>
+      artwork.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      artwork.artist_name?.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
   return (
-    <main className="gallery_page">
+    <main className="gallery-page">
       <h1 className="title">{categoryName}</h1>
-      <div id="search_bar">
-        <button className="search" type="button">
-          Rechercher une oeuvre...
-        </button>
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Rechercher une oeuvre ou un artiste..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search"
+        />
       </div>
 
-      {artwork.map((artwork) => (
+      {filteredArtwork.map((artwork) => (
         <Link to={`/artwork/${artwork.id}`} key={artwork.id}>
           <figure>
             <img className="favorite" src="/img/favorite.png" alt="favorite" />
