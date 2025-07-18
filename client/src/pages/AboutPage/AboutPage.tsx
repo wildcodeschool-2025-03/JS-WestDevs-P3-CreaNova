@@ -6,7 +6,7 @@ function AboutPage() {
     <main className="about-page">
       <section className="text">
         <h1>Notre histoire</h1>
-        <p>
+        {/* <p>
           Dans un petit bureau lumineux situé au cœur d'un quartier dynamique,
           une équipe de développeurs passionnés s'est réunie autour d'un projet
           ambitieux : créer une plateforme en ligne dédiée aux artistes, un
@@ -25,35 +25,35 @@ function AboutPage() {
           mettant en valeur les œuvres d'art de manière élégante et
           professionnelle. Tristan, le designer UX/UI, a veillé à ce que chaque
           interaction sur le site soit fluide et agréable.{" "}
-        </p>
+        </p> */}
         <p>
-          Le site, baptisé "CreaNova", est rapidement devenu un havre pour les
-          artistes du monde entier. Les peintres, dessinateurs, photographes ont
-          trouvé en CreaNova un espace où ils pouvaient non seulement vendre
+          Le site, baptisé 'CreaNova', devient rapidement un havre pour les
+          artistes du monde entier. Les peintres, dessinateurs, photographes
+          trouvent en CreaNova un espace où ils peuvent non seulement vendre
           leurs œuvres, mais aussi raconter leur histoire et entrer en contact
           avec une communauté d'amateurs d'art.{" "}
         </p>
-        <p>
+        {/* <p>
           L'une des fonctionnalités les plus appréciées de CreaNova était la
           possibilité pour les artistes de créer des galeries virtuelles
           personnalisées. Ces galeries permettaient aux visiteurs de découvrir
           les œuvres dans un environnement immersif, presque comme s'ils
           visitaient une galerie d'art physique.{" "}
+        </p> */}
+        <p>
+          Grâce à CreaNova, de nombreux artistes peuvent vivre de leur passion
+          et atteindre un public mondial. Des talents cachés sont découverts,
+          des carrières sont lancées et des communautés artistiques se forment.
+          L'équipe de développeurs, fière de sa création, continue d'innover et
+          d'améliorer la plateforme, toujours à l'écoute des besoins et des
+          retours des artistes.
         </p>
         <p>
-          Grâce à CreaNova, de nombreux artistes ont pu vivre de leur passion et
-          atteindre un public mondial. Des talents cachés ont été découverts,
-          des carrières ont été lancées et des communautés artistiques se sont
-          formées. L'équipe de développeurs, fière de leur création, continuait
-          à innover et à améliorer la plateforme, toujours à l'écoute des
-          besoins et des retours des artistes.
-        </p>
-        <p>
-          CreaNova était bien plus qu'un simple site de vente d'œuvres d'art.
-          C'était un lieu où l'art et la technologie se rencontraient pour créer
-          quelque chose de vraiment spécial. Et tout cela avait été rendu
-          possible grâce à la passion, au dévouement et au talent d'une équipe
-          de développeurs qui avaient osé rêver grand.
+          CreaNova est bien plus qu'un simple site de vente d'œuvres d'art.
+          C'est un lieu où l'art et la technologie se rencontrent pour créer
+          quelque chose de vraiment spécial. Et tout cela est rendu possible
+          grâce à la passion, au dévouement et au talent d'une équipe de
+          développeurs qui osent rêver grand.
         </p>
         <h1>Notre équipe</h1>
         <span>
