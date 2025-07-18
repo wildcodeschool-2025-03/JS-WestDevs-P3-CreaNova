@@ -8,12 +8,12 @@ const router = express.Router();
 
 // Define item-related routes
 import artworkActions from "./modules/artwork/artworkActions";
+import favoriteActions from "./modules/favorite/favoriteActions";
 import itemActions from "./modules/item/itemActions";
 import purchaseActions from "./modules/purchase/purchaseActions";
 import userActions from "./modules/user/userActions";
 import auth from "./utils/auth";
 import validation from "./utils/validation";
-import favoriteActions from "./modules/favorite/favoriteActions";
 
 router.get("/api/items", itemActions.browse);
 router.get("/api/items/:id", itemActions.read);
