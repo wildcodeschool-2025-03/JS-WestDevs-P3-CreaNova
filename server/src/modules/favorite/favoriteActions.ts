@@ -1,7 +1,6 @@
 import type { RequestHandler } from "express";
 import FavoriteRepository from "./favoriteRepository";
 
-
 const browse: RequestHandler = async (req, res, next) => {
   try {
     const result = await FavoriteRepository.readAll();
