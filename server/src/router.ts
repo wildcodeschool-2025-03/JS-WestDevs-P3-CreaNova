@@ -43,13 +43,21 @@ router.get(
 );
 router.get("/api/artwork/:id", artworkActions.readArtworkById);
 router.get("/api/artwork/:id/artist", artworkActions.readArtworkWithArtistById);
-router.put("/api/artwork/:id", artworkActions.edit);
-router.get("/api/artist/:id/artworks", artworkActions.readUserAccount);
+router.put("/api/artwork/:id", auth.authenticateUser, artworkActions.edit);
+router.get(
+  "/api/artist/:id/artworks",
+  auth.authenticateUser,
+  artworkActions.readUserAccount,
+);
 router.get(
   "/api/artist/:userId/artworks/:artworkId",
   artworkActions.readArtworkUserById,
 );
-router.delete("/api/artworks/:id", artworkActions.deleteArtwork);
+router.delete(
+  "/api/artworks/:id",
+  auth.authenticateUser,
+  artworkActions.deleteArtwork,
+);
 router.post("/api/artworks", artworkActions.createArtwork);
 
 router.get("/api/artist/:id", userActions.browseArtistArtworks);

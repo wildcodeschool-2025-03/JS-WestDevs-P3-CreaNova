@@ -1,8 +1,8 @@
-import { Link, useParams } from "react-router";
-import "./EditArtworkPage.css";
 import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
+import "./EditArtworkPage.css";
 
 function EditArtworkPage() {
   const [artwork, setArtwork] = useState<Artwork>();
@@ -34,7 +34,7 @@ function EditArtworkPage() {
       .then(() => {
         toast.success("Oeuvre modifiée !");
         fetch(
-          `http://localhost:3310/api/artist/${userId}artworks/${artworkId}`,
+          `http://localhost:3310/api/artist/${userId}/artworks/${artworkId}`,
           {
             credentials: "include",
           },
