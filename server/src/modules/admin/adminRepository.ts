@@ -9,6 +9,14 @@ class AdminRepository {
         SELECT * FROM user_account`);
     return rows;
   }
+  async deleteUser(id: number) {
+    const [result] = await databaseClient.query<Result>(
+      `
+      DELETE FROM user_account WHERE id = ?`,
+      [id],
+    );
+    return result.affectedRows;
+  }
   async readAllArtworks() {
     const [rows] = await databaseClient.query<Rows>(`
         SELECT * FROM artwork`);

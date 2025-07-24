@@ -79,6 +79,12 @@ router.get("/api/user/:userId/favorite", favoriteActions.favoriteArtwork);
 router.get("/api/favorite", favoriteActions.browse);
 /* ************************************************************************* */
 router.delete(
+  "/api/admin/user/:id",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.deleteUser,
+);
+router.delete(
   "/api/admin/artwork/:id",
   auth.authenticateUser,
   admin.adminAuth,

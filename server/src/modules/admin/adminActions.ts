@@ -1,6 +1,31 @@
 import type { RequestHandler } from "express";
 import adminRepository from "./adminRepository";
 
+const browseUsers: RequestHandler = async (req, res, next) => {
+  try {
+    const users = await adminRepository.readAllUsers();
+    res.json(users);
+  } catch (err) {
+    next(err);
+  }
+};
+const deleteUser: RequestHandler = async (req, res, next) => {
+  try {
+    const userId = Number(req.params.id);
+    if (!userId || userId <= 0) {
+      res.status(404).json("Cannot be null");
+    }
+    const deleteUser = await adminRepository.deleteUser(userId);
+    if (deleteUser === 0) {
+      res.status(404).json("User not found");
+      return;
+    }
+    res.status(200).json("User deleted");
+  } catch (err) {
+    next(err);
+  }
+};
+
 const browseArtworks: RequestHandler = async (req, res, next) => {
   try {
     const artworks = await adminRepository.readAllArtworks();
@@ -27,4 +52,4 @@ const deleteArtwork: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browseArtworks, deleteArtwork };
+export default { browseUsers, deleteUser, browseArtworks, deleteArtwork };
