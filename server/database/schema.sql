@@ -121,7 +121,7 @@ CREATE TABLE favorite (
 user_account_id INT NOT NULL,
 artwork_id INT NOT NULL,
 PRIMARY KEY (user_account_id, artwork_id),
-FOREIGN KEY (user_account_id) REFERENCES user_account(id),
+FOREIGN KEY (user_account_id) REFERENCES user_account(id) ON DELETE CASCADE,
 FOREIGN KEY (artwork_id) REFERENCES artwork(id) ON DELETE CASCADE
 );
 INSERT INTO favorite (user_account_id, artwork_id)
@@ -137,10 +137,30 @@ date TIMESTAMP NOT NULL DEFAULT NOW(),
 means_of_payment VARCHAR(55) NOT NULL,
 payment_validated BOOLEAN DEFAULT FALSE,
 PRIMARY KEY (user_account_id, artwork_id),
-FOREIGN KEY (user_account_id) REFERENCES user_account(id),
+FOREIGN KEY (user_account_id) REFERENCES user_account(id) ON DELETE CASCADE,
 FOREIGN KEY (artwork_id) REFERENCES artwork(id) ON DELETE CASCADE
 );
 INSERT INTO purchase (user_account_id, artwork_id, means_of_payment, payment_validated)
 VALUES
 (4, 1, "Credit Card", TRUE),
 (6, 5, "Credit card", TRUE);
+
+CREATE TABLE news (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  image VARCHAR(500),
+  text VARCHAR(3000) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  created_by INT NOT NULL,
+  FOREIGN KEY (created_by) REFERENCES user_account(id) ON DELETE CASCADE
+);
+
+CREATE TABLE event (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  image VARCHAR(500),
+  text VARCHAR(3000) NOT NULL,
+  date VARCHAR(100) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  created_by INT NOT NULL,
+  FOREIGN KEY (created_by) REFERENCES user_account(id) ON DELETE CASCADE
+);
