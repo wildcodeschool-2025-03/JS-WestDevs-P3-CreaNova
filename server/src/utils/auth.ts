@@ -106,6 +106,17 @@ const authenticateUser: RequestHandler = (req, res, next) => {
 
     const decoded = jwt.verify(token, secretKey) as jwt.JwtPayload;
     req.body.user_account_id = decoded.id;
+    // Des modifications vont être nécessaires,
+    // j'ai une PR déjà en cours.
+    // La ligne 108 sera supprimé.
+    // (id étant déjà dispo ligne 112)
+    req.user = {
+      id: decoded.id,
+      is_admin: decoded.isAdmin,
+      email: decoded.email,
+      firstname: decoded.firstname,
+      lastname: decoded.lastname,
+    };
     next();
   } catch (err) {
     res.status(401).json({ error: "Invalid token" });
