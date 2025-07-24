@@ -29,7 +29,9 @@ VALUES
 ", TRUE, FALSE, TRUE),
 ("Sema", "Martin", "sema@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "7 allée des Cyprès", "Toulouse", "31000", "France", "http://localhost:3310/sema-martin.webp", "Dessin = ma passion. Sema Martin est une artiste dont le trait délicat et précis donne vie à des univers empreints de poésie. Inspirée par la nature et les émotions humaines, elle réalise des dessins qui racontent des histoires et suscitent l'imaginaire. Son style, à la fois doux et expressif, séduit par sa capacité à transmettre des sentiments profonds à travers la simplicité du crayon.
 ", TRUE, FALSE, TRUE),
-("Gisèle", "Thomas", "gisele@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "3 impasse des Érables", "Bordeaux", "33000", "France", NULL, NULL, FALSE, FALSE, TRUE);
+("Gisèle", "Thomas", "gisele@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "3 impasse des Érables", "Bordeaux", "33000", "France", NULL, NULL, FALSE, FALSE, TRUE),
+("Admin", "User", "admin@creanova.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "1 rue de l'Admin", "Paris", "75000", "France", NULL, NULL, FALSE, TRUE, TRUE);
+
 
 
 CREATE TABLE artwork (
