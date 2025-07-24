@@ -3,10 +3,11 @@
     text-align: center;
   }
 
-  .description {
+  p {
     margin: 10px 20px;
     text-align: center;
     margin-bottom: 50px;
+    word-break: break-word;
   }
 
   img {
@@ -70,22 +71,10 @@
     align-items: center;
     font-size: 0.8rem;
 
-    .artwork-details {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-
-      span {
-        font-size: 0.9rem;
-        font-weight: bold;
-        margin: 0;
-      }
-
-      p {
-        font-size: 0.8rem;
-        margin: 0;
-        opacity: 0.9;
-      }
+    span {
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin: 0;
     }
 
     .price {
