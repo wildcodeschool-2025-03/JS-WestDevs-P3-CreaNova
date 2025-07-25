@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
+import ProtectedRoute from "./components/ProtectedRoute";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import AddArtworkPage from "./pages/AddArtworkPage/AddArtworkPage";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
@@ -18,7 +19,6 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFound from "./pages/Notfound/Notfound";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import UserFormPage from "./pages/UserFormPage/UserFormPage";
-import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
