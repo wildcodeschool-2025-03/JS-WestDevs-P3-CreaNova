@@ -7,6 +7,7 @@ interface Users {
 }
 function UsersSection() {
   const [users, setUsers] = useState<Users[]>([]);
+
   useEffect(() => {
     fetch("http://localhost:3310/api/admin/users", {
       credentials: "include",
@@ -16,6 +17,18 @@ function UsersSection() {
         setUsers(data);
       });
   }, []);
+
+  const handleDelete = (id: number) => {
+    fetch(`http://localhost:3310/admin/user/${id}`, {
+      method: "DELETE",
+      credentials: "include",
+    }).then((res) => {
+      if (res.ok) {
+        setUsers((prev) => prev.filter((u) => u.id !== id));
+      }
+    });
+  };
+
   if (!users) {
     return <h1>non</h1>;
   }
@@ -27,6 +40,7 @@ function UsersSection() {
             <th>Prénom</th>
             <th>Nom</th>
             <th>Email</th>
+            <th>Supprimer</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +49,11 @@ function UsersSection() {
               <td>{user.firstname}</td>
               <td>{user.lastname}</td>
               <td>{user.email}</td>
+              <td>
+                <button type="button" onClick={() => handleDelete(user.id)}>
+                  Supprimer
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
