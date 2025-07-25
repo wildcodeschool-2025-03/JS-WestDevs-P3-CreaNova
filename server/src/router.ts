@@ -38,7 +38,6 @@ router.get("/api/artist", userActions.browseArtists);
 /* ************************************************************************* */
 router.get("/api/artwork", artworkActions.browse);
 router.get("/api/artwork/artwork-category", artworkActions.readArtworkCategory);
-router.get("/api/artwork/:id", artworkActions.readUserAccount);
 router.get(
   "/api/artwork/category/:categoryName",
   artworkActions.readArtworkCategory,
@@ -78,6 +77,12 @@ router.post("/api/favorite", favoriteActions.addFavorite);
 router.get("/api/user/:userId/favorite", favoriteActions.favoriteArtwork);
 router.get("/api/favorite", favoriteActions.browse);
 /* ************************************************************************* */
+router.get(
+  "/api/admin/users",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.browseUsers,
+);
 router.delete(
   "/api/admin/user/:id",
   auth.authenticateUser,
