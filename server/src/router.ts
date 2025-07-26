@@ -90,7 +90,7 @@ router.delete(
   adminActions.deleteUser,
 );
 router.get(
-  "api/admin/artworks",
+  "/api/admin/artworks",
   auth.authenticateUser,
   admin.adminAuth,
   adminActions.browseArtworks,
