@@ -89,6 +89,12 @@ router.delete(
   admin.adminAuth,
   adminActions.deleteUser,
 );
+router.get(
+  "api/admin/artworks",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.browseArtworks,
+);
 router.delete(
   "/api/admin/artwork/:id",
   auth.authenticateUser,
