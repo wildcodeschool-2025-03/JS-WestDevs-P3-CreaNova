@@ -19,7 +19,11 @@ function UsersSection() {
   }, []);
 
   const handleDelete = (id: number) => {
-    fetch(`http://localhost:3310/admin/user/${id}`, {
+    const confirmDelete = window.confirm(
+      "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
+    );
+    if (!confirmDelete) return;
+    fetch(`http://localhost:3310/api/admin/user/${id}`, {
       method: "DELETE",
       credentials: "include",
     }).then((res) => {

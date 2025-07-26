@@ -95,6 +95,29 @@ header {
     width: 30px;
     margin-top: 6px;
   }
+  .nav-menu #admin-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-menu #admin-button a {
+    border: 1px solid black;
+    padding: 4px;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: gray;
+    }
+  }
+  .nav-menu #admin-button button {
+    font-size: 1rem;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 4px;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: gray;
+    }
+  }
 
   button {
     border: none;
