@@ -68,18 +68,12 @@ function NewsSection() {
       {modalOpen && selectedNews && (
         <div className="modal">
           <form onSubmit={handleSubmit}>
-            <label>
-              Titre:
-              <input name="title" defaultValue={selectedNews.title} />
-            </label>
-            <label>
-              Image:
-              <input name="image" defaultValue={selectedNews.image} />
-            </label>
-            <label>
-              Description:
-              <textarea name="text" defaultValue={selectedNews.text} />
-            </label>
+            <label htmlFor="title">Titre:</label>
+            <input name="title" defaultValue={selectedNews.title} />
+            <label htmlFor="image">Image:</label>
+            <input name="image" defaultValue={selectedNews.image} />
+            <label htmlFor="text">Description:</label>
+            <textarea name="text" defaultValue={selectedNews.text} />
             <button type="submit">Enregistrer</button>
             <button type="button" onClick={() => setModalOpen(false)}>
               Annuler
