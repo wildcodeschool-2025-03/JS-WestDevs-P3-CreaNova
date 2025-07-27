@@ -3,21 +3,6 @@ import databaseClient, {
   type Rows,
 } from "../../../database/client";
 
-interface New {
-  id: number;
-  title: string;
-  image: string;
-  text: string;
-  created_by: number;
-}
-interface Event {
-  id: number;
-  title: string;
-  image: string;
-  text: string;
-  date: string;
-  created_by: number;
-}
 class AdminRepository {
   async readAllUsers() {
     const [rows] = await databaseClient.query<Rows>(`
@@ -76,7 +61,7 @@ class AdminRepository {
         SELECT * FROM event`);
     return rows;
   }
-  async updateEvent(event: Event) {
+  async updateEvent(event: AdminEvent) {
     const [result] = await databaseClient.query<Result>(
       `
       UPDATE event
