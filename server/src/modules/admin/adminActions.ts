@@ -52,4 +52,70 @@ const deleteArtwork: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browseUsers, deleteUser, browseArtworks, deleteArtwork };
+const browseNews: RequestHandler = async (req, res, next) => {
+  try {
+    const news = await adminRepository.readAllNews();
+    res.json(news);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const editNews: RequestHandler = async (req, res, next) => {
+  try {
+    const updatedNew = {
+      id: Number(req.params.id),
+      title: req.body.title,
+      image: req.body.image,
+      text: req.body.text,
+      created_by: 8,
+    };
+    const result = await adminRepository.updateNew(updatedNew);
+    if (result === 0) {
+      res.sendStatus(404);
+    } else {
+      res.status(200).json(updatedNew);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+const browseEvents: RequestHandler = async (req, res, next) => {
+  try {
+    const events = await adminRepository.readAllEvents();
+    res.json(events);
+  } catch (err) {
+    next(err);
+  }
+};
+const editEvent: RequestHandler = async (req, res, next) => {
+  try {
+    const updatedEvent = {
+      id: Number(req.params.id),
+      title: req.body.title,
+      image: req.body.image,
+      text: req.body.text,
+      date: req.body.date,
+      created_by: 8,
+    };
+    const result = await adminRepository.updateEvent(updatedEvent);
+    if (result === 0) {
+      res.sendStatus(404);
+    } else {
+      res.status(200).json(updatedEvent);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default {
+  browseUsers,
+  deleteUser,
+  browseArtworks,
+  deleteArtwork,
+  browseNews,
+  editNews,
+  browseEvents,
+  editEvent,
+};
