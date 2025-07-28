@@ -6,12 +6,20 @@ import { useAuth } from "../../hooks/useAuth";
 function AddArtworkPage() {
   const { userId } = useParams();
   const { isLogged } = useAuth();
+
   const handleSubmit = (data: FormData) => {
     const values = Object.fromEntries(data);
+
+    const tags = [values.tag1, values.tag2, values.tag3]
+      .filter((tag) => typeof tag === "string" && tag.trim() !== "")
+      .map((tag) => (typeof tag === "string" ? tag.trim() : ""));
+
     const formData = {
       ...values,
       user_account_id: Number(userId),
       price: Number(values.price),
+      tags,
+      mainCategory: values.mainCategory,
     };
     fetch("http://localhost:3310/api/artworks", {
       method: "POST",
@@ -53,6 +61,22 @@ function AddArtworkPage() {
 
             <label htmlFor="price"> Tarif:</label>
             <input type="text" name="price" />
+
+            <label htmlFor="mainCategory"> Catégorie principale</label>
+            <select name="mainCategory" id="mainCategory">
+              <option value="">Sélectionner une catégorie</option>
+              <option value="peinture">Peinture</option>
+              <option value="sculpture">Sculpture</option>
+              <option value="photographie">Photographie</option>
+            </select>
+
+            <label htmlFor="tag1"> Tag 1</label>
+            <input type="text" name="tag1" id="tag1" />
+            <label htmlFor="tag2"> Tag 2</label>
+            <input type="text" name="tag2" id="tag2" />
+            <label htmlFor="tag3"> Tag 3</label>
+            <input type="text" name="tag3" id="tag3" />
+
             <button type="submit">Ajouter</button>
           </form>
         </section>

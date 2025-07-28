@@ -5,6 +5,8 @@ interface Artwork {
   price: string;
   image: string;
   user_account_id?: number;
+  mainCategory?: string;
+  tags?: string[];
 }
 
 interface artwork_category {

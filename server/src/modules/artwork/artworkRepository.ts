@@ -23,7 +23,7 @@ class ArtworkRepository {
       a.title,
       a.price,
       CONCAT(ua.firstname, ' ', ua.lastname) AS artist_name,
-      GROUP_CONCAT(DISTINCT CASE WHEN c.name <> ? THEN c.name END SEPARATOR ', ') AS tags
+      GROUP_CONCAT(DISTINCT CASE WHEN c.name <> ? THEN c.name END SEPARATOR ' - ') AS tags
    FROM artwork AS a
    JOIN artwork_category AS ac ON a.id = ac.artwork_id
    JOIN category AS c ON ac.category_id = c.id
@@ -72,6 +72,11 @@ class ArtworkRepository {
   }
 
   async createArtwork(body: Artwork) {
+    if (!body.mainCategory || body.mainCategory.trim() === "") {
+      throw new Error("La catégorie principale est obligatoire");
+    }
+
+    // 1. Insertion de l'œuvre
     const [result] = await databaseClient.query<Result>(
       "INSERT INTO artwork (title, description, price, image, user_account_id) VALUES (?, ?, ?, ?, ?)",
       [
@@ -82,8 +87,69 @@ class ArtworkRepository {
         body.user_account_id,
       ],
     );
+
+    const artworkId = result.insertId;
+
+    // 2. Ajout de la catégorie principale si présente
+    if (body.mainCategory) {
+      const [mainRows] = await databaseClient.query<Rows>(
+        "SELECT id FROM category WHERE name = ? AND is_sub_cat = FALSE",
+        [body.mainCategory],
+      );
+
+      let mainCategoryId: number;
+
+      if (mainRows.length > 0) {
+        mainCategoryId = (mainRows[0] as { id: number }).id;
+      } else {
+        const [insertMain] = await databaseClient.query<Result>(
+          "INSERT INTO category (name, is_sub_cat) VALUES (?, FALSE)",
+          [body.mainCategory],
+        );
+        mainCategoryId = insertMain.insertId;
+      }
+
+      // Liaison de l'œuvre avec la catégorie principale
+      await databaseClient.query<Result>(
+        "INSERT INTO artwork_category (artwork_id, category_id) VALUES (?, ?)",
+        [artworkId, mainCategoryId],
+      );
+    }
+
+    // 2. Si on a des tags à ajouter
+    if (body.tags && body.tags.length > 0) {
+      for (const tagName of body.tags) {
+        // Vérifier si la catégorie/tag existe déjà
+        const [rows] = await databaseClient.query<Rows>(
+          "SELECT id FROM category WHERE name = ?",
+          [tagName],
+        );
+
+        let categoryId: number;
+
+        if (rows.length > 0) {
+          // Tag existant
+          categoryId = (rows[0] as { id: number }).id;
+        } else {
+          // Tag inexistant => création
+          const [insertCatResult] = await databaseClient.query<Result>(
+            "INSERT INTO category (name) VALUES (?)",
+            [tagName],
+          );
+          categoryId = insertCatResult.insertId;
+        }
+
+        // Liaison œuvre <-> catégorie
+        await databaseClient.query<Result>(
+          "INSERT INTO artwork_category (artwork_id, category_id) VALUES (?, ?)",
+          [artworkId, categoryId],
+        );
+      }
+    }
+
     return result.affectedRows;
   }
+
   async delete(id: number) {
     const [result] = await databaseClient.query<Result>(
       "DELETE FROM artwork WHERE id = ?",

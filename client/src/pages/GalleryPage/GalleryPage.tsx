@@ -21,7 +21,8 @@ function GalleryPage() {
   const filteredArtwork = artwork.filter(
     (artwork) =>
       artwork.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      artwork.artist_name?.toLowerCase().includes(searchTerm.toLowerCase()),
+      artwork.artist_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      artwork.tags.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
