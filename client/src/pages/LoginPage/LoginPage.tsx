@@ -1,11 +1,27 @@
 import "./LoginPage.css";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
 
 function LoginPage() {
   const { setIsLogged, setUser } = useAuth();
+  const [second, setSecond] = useState(3);
   const navigate = useNavigate();
+  useEffect(() => {
+    const countdown = setInterval(() => {
+      setSecond((sec) => {
+        toast.info(`Redirection dans ${second}`);
+        if (sec <= 1) {
+          clearInterval(countdown);
+          navigate("/");
+        }
+        return sec - 1;
+      });
+    }, 1000);
+    return () => clearInterval(countdown);
+  }, [navigate, second]);
+
   const handleSubmit = (data: FormData) => {
     const values = Object.fromEntries(data);
 
