@@ -1,13 +1,15 @@
+import "./AdminDashboard.css";
+import ArtworksSection from "./ArtworksSection";
 import EventsSection from "./EventsSection";
 import NewsSection from "./NewsSection";
 import UsersSection from "./UsersSection";
-import "./AdminDashboard.css";
 
 function AdminDashboard() {
   return (
-    <main className="admin-dashboard-main">
-      <h1>test</h1>
+    <main className="admin-dashboard">
+      <h1>Dashboard</h1>
       <UsersSection />
+      <ArtworksSection />
       <NewsSection />
       <EventsSection />
     </main>
