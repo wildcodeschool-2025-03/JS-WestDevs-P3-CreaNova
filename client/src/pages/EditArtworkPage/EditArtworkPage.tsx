@@ -71,11 +71,6 @@ function EditArtworkPage() {
     <>
       <main className="edit-artwork-page">
         <section>
-          <Link to={`/collection/${userId}`}>
-            <button className="back" type="button">
-              Retour
-            </button>
-          </Link>
           <h1>Modifier l'oeuvre</h1>
           <form className="form" onSubmit={handleOnSubmit}>
             <label htmlFor="title"> Titre de l'oeuvre </label>
