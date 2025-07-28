@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "./GalleryPage.css";
 import { Link, useParams } from "react-router";
-import { toast, ToastContainer } from "react-toastify";
-import { useCart } from "../../hooks/useCart";
+import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
+import { useCart } from "../../hooks/useCart";
 
 function GalleryPage() {
   const [artwork, setArtwork] = useState<Artwork[]>([]);
