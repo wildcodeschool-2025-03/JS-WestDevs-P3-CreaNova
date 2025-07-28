@@ -17,18 +17,26 @@ class ArtworkRepository {
 
   async readArtworkCategory(categoryName: string) {
     const [result] = await databaseClient.query<Rows>(
-      `SELECT DISTINCT
-        a.id,
-        a.image,
-        a.title,
-        a.price,
-        CONCAT(ua.firstname, ' ', ua.lastname) AS artist_name
-      FROM artwork a
-      JOIN artwork_category ac ON a.id = ac.artwork_id
-      JOIN category c ON ac.category_id = c.id
-      JOIN user_account ua ON a.user_account_id = ua.id
-      WHERE c.name = ?`,
-      [categoryName],
+      `SELECT 
+      a.id,
+      a.image,
+      a.title,
+      a.price,
+      CONCAT(ua.firstname, ' ', ua.lastname) AS artist_name,
+      GROUP_CONCAT(DISTINCT CASE WHEN c.name <> ? THEN c.name END SEPARATOR ', ') AS tags
+   FROM artwork AS a
+   JOIN artwork_category AS ac ON a.id = ac.artwork_id
+   JOIN category AS c ON ac.category_id = c.id
+   JOIN user_account AS ua ON a.user_account_id = ua.id
+   WHERE a.id IN (
+       SELECT a2.id
+       FROM artwork AS a2
+       JOIN artwork_category AS ac2 ON a2.id = ac2.artwork_id
+       JOIN category AS c2 ON ac2.category_id = c2.id
+       WHERE c2.name = ?
+   )
+   GROUP BY a.id;`,
+      [categoryName, categoryName],
     );
     return result;
   }

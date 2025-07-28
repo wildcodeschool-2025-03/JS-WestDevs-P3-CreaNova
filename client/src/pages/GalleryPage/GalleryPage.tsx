@@ -49,6 +49,7 @@ function GalleryPage() {
               <div className="artwork-details">
                 <span>{artwork.title}</span>
                 <p>de {artwork.artist_name}</p>
+                <div className="tags">{artwork.tags}</div>
               </div>
               <span className="price">{artwork.price}€</span>
               <button
