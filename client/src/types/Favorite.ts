@@ -5,4 +5,5 @@ interface Favorite {
   price: number;
   firstname: string;
   lastname: string;
+  artwork_id: number;
 }

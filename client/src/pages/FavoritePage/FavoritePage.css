@@ -108,7 +108,7 @@
 }
 
 /*DESKTOP*/
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
   .favorite-page {
     display: flex;
     flex-direction: row;
