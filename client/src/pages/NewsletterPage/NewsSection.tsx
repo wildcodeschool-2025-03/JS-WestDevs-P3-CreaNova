@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-interface New {
-  id: number;
-  title: string;
-  image: string;
-  text: string;
-}
+
 function NewsSection() {
   const [news, setNews] = useState<New[]>([]);
   useEffect(() => {

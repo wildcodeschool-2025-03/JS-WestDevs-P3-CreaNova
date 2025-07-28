@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react";
-interface Event {
-  id: number;
-  title: string;
-  image: string;
-  text: string;
-  date: string;
-}
+
 function EventsSection() {
   const [events, setEvents] = useState<Event[]>([]);
   useEffect(() => {
