@@ -1,0 +1,100 @@
+.newsletter-page-main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 12px;
+
+  .events-section-newsletter,
+  .news-section-newsletter {
+    > section {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px 0 rgba(60, 60, 100, 0.08);
+      overflow: hidden;
+      margin-bottom: 16px;
+      transition: box-shadow 0.2s;
+      border: 1px solid #e5e7eb;
+      &:hover {
+        box-shadow: 0 8px 32px 0 rgba(60, 60, 100, 0.16);
+      }
+      article {
+        padding: 32px 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h2,
+        h3 {
+          margin-bottom: 12px;
+          color: #2d3748;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+        }
+        h3 {
+          font-size: 1.5rem;
+        }
+        p {
+          color: #4b5563;
+          line-height: 1.6;
+        }
+      }
+      img {
+        width: 100%;
+        border-radius: 0 0 16px 16px;
+        object-fit: cover;
+        transition: transform 0.2s;
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      font-size: 2.1rem;
+    }
+    p {
+      font-size: 1.3rem;
+    }
+    .events-section-newsletter,
+    .news-section-newsletter {
+      > section {
+        article {
+          h3 {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+    .news-section-newsletter {
+      section {
+        display: flex;
+        img {
+          width: 50%;
+          border-radius: 0 16px 16px 0;
+        }
+      }
+    }
+    .events-section-newsletter {
+      section {
+        display: flex;
+        img {
+          width: 40%;
+          border-radius: 0 16px 16px 0;
+        }
+        article {
+          width: 60%;
+        }
+      }
+      section:nth-child(1) {
+        flex-direction: row-reverse;
+        img {
+          border-radius: 16px 0 0 16px;
+        }
+      }
+    }
+  }
+}
