@@ -28,7 +28,7 @@ function ArtistArtworkDetailPage() {
     });
   };
 
-  if (!artwork) {
+  if (!artwork || !artwork.id) {
     return (
       <main className="no-data">
         <h1>Vous n'avez pas d'oeuvre disponible ici.</h1>
