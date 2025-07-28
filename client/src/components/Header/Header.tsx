@@ -126,7 +126,7 @@ const Header = () => {
           <Link to="/dark_mode">
             <img src="/img/soleil.png" alt="dark_mode" />
           </Link>
-          <Link to="/favoris">
+          <Link to={`/favorite/${user?.id}`}>
             <img src="/img/amour-du-coeur.png" alt="coeur" />
           </Link>
           <Link to="/panier">

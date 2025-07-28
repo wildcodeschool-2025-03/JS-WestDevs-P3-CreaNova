@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import "./GalleryPage.css";
 import { Link, useParams } from "react-router";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { useCart } from "../../hooks/useCart";
+import { useAuth } from "../../hooks/useAuth";
 
 function GalleryPage() {
   const [artwork, setArtwork] = useState<Artwork[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const { categoryName } = useParams();
   const { addToCart } = useCart();
+  const { user } = useAuth();
 
   useEffect(() => {
     fetch(`http://localhost:3310/api/artwork/category/${categoryName}`)
@@ -23,6 +25,20 @@ function GalleryPage() {
       artwork.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       artwork.artist_name?.toLowerCase().includes(searchTerm.toLowerCase()),
   );
+
+  const handleAddToFavorites = (artworkId: number) => {
+    const userId = user?.id;
+    fetch("http://localhost:3310/api/favorite", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId, artworkId }),
+    }).then((res) => {
+      if (res.ok) {
+        toast.success("Oeuvre ajoutée au favori ");
+      }
+    });
+  };
 
   return (
     <>
@@ -40,7 +56,14 @@ function GalleryPage() {
 
         {filteredArtwork.map((artwork) => (
           <figure key={artwork.id}>
-            <img className="favorite" src="/img/favorite.png" alt="favorite" />
+            <button
+              type="button"
+              onClick={() => handleAddToFavorites(artwork.id)}
+              className="favorite"
+            >
+              <img src="/img/favorite.png" alt="favorite" />
+            </button>
+
             <Link to={`/artwork/${artwork.id}`}>
               <img src={artwork.image} alt={artwork.title} />
             </Link>
