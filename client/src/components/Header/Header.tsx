@@ -132,10 +132,18 @@ const Header = () => {
           <Link to="/panier">
             <img src="/img/panier.png" alt="panier" />
           </Link>
-
-          <button type="button" popoverTarget="contact-modal">
-            <img src="/img/contact.png" alt="contact" />
-          </button>
+          {user?.isAdmin && isLogged ? (
+            <div id="admin-button">
+              <Link to="/admin">Admin</Link>
+              <button type="button" onClick={handleLogout}>
+                Déconnexion
+              </button>
+            </div>
+          ) : (
+            <button type="button" popoverTarget="contact-modal">
+              <img src="/img/contact.png" alt="contact" />
+            </button>
+          )}
           <dialog popover="auto" id="contact-modal">
             <nav>
               <Link to="/user-form" id="contact_logo">
