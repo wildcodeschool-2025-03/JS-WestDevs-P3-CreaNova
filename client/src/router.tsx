@@ -16,6 +16,7 @@ import FavoritePage from "./pages/FavoritePage/FavoritePage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import Newsletter from "./pages/NewsletterPage/NewsletterPage";
 import NotFound from "./pages/Notfound/Notfound";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import UserFormPage from "./pages/UserFormPage/UserFormPage";
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
       {
         element: <CartPage />,
         path: "panier",
+      },
+      {
+        element: <Newsletter />,
+        path: "newsletter",
       },
     ],
   },
