@@ -109,5 +109,28 @@ router.delete(
   admin.adminAuth,
   adminActions.deleteArtwork,
 );
-
+router.get(
+  "/api/admin/events",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.browseEvents,
+);
+router.put(
+  "/api/admin/event/:id",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.editEvent,
+);
+router.get(
+  "/api/admin/news",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.browseNews,
+);
+router.put(
+  "/api/admin/new/:id",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.editNews,
+);
 export default router;

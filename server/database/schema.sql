@@ -149,6 +149,7 @@ VALUES
 
 CREATE TABLE news (
   id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(255),
   image VARCHAR(500),
   text VARCHAR(3000) NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
@@ -166,3 +167,15 @@ CREATE TABLE event (
   created_by INT NOT NULL,
   FOREIGN KEY (created_by) REFERENCES user_account(id) ON DELETE CASCADE
 );
+
+INSERT INTO news (title, image, text, created_by)
+VALUES (
+  "Actualité", "http://localhost:3310/new-marche-nocturne.webp",
+  "Le 27 octobre 2025, venez découvrir notre exposition d'aquarelle sur les marchés nocturnes de Lyon.",
+  8
+);
+
+INSERT INTO event (title, image, text, date, created_by)
+VALUES
+  ("Rencontre avec M. Brioul", "http://localhost:3310/rencontre.webp", "Venez à la rencontre de M. Brioul pour échanger sur les techniques d'utilisations.", "2025-09-28", 8),
+  ("Atelier découverte photo", "http://localhost:3310/event-photo.webp", "Un atelier découverte, pour apprendre les techniques de base de la photographie.", "2025-09-05", 8);

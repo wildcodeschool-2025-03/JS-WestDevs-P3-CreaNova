@@ -1,6 +1,8 @@
-import ArtworksSection from "./ArtworksSection";
-import UsersSection from "./UsersSection";
 import "./AdminDashboard.css";
+import ArtworksSection from "./ArtworksSection";
+import EventsSection from "./EventsSection";
+import NewsSection from "./NewsSection";
+import UsersSection from "./UsersSection";
 
 function AdminDashboard() {
   return (
@@ -8,6 +10,8 @@ function AdminDashboard() {
       <h1>Dashboard</h1>
       <UsersSection />
       <ArtworksSection />
+      <NewsSection />
+      <EventsSection />
     </main>
   );
 }

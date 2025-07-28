@@ -45,10 +45,33 @@ class AdminRepository {
         SELECT * FROM news`);
     return rows;
   }
+  async updateNew(news: New) {
+    const [result] = await databaseClient.query<Result>(
+      `
+      UPDATE news 
+      SET title = ?, image = ?,
+      text = ?, created_by = ?
+      WHERE id = ?`,
+      [news.title, news.image, news.text, 8, news.id],
+    );
+    return result.affectedRows;
+  }
   async readAllEvents() {
     const [rows] = await databaseClient.query<Rows>(`
         SELECT * FROM event`);
     return rows;
+  }
+  async updateEvent(event: AdminEvent) {
+    const [result] = await databaseClient.query<Result>(
+      `
+      UPDATE event
+      SET title = ?, image = ?,
+      text = ?, date = ?, 
+      created_by = ?
+      WHERE id = ?`,
+      [event.title, event.image, event.text, event.date, 8, event.id],
+    );
+    return result.affectedRows;
   }
 }
 
