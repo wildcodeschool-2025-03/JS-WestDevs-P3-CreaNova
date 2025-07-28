@@ -1,44 +1,73 @@
 import { useEffect, useState } from "react";
 import "./FavoritePage.css";
-import { useParams } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
+import { useAuth } from "../../hooks/useAuth";
 
 function FavoritePage() {
   const [favorite, setFavorite] = useState<Favorite[]>([]);
-  const { userId } = useParams();
-
+  const { user } = useAuth();
   useEffect(() => {
-    fetch(`http://localhost:3310/api/user/${userId}/favorite`)
+    if (!user?.id) return;
+    fetch(`http://localhost:3310/api/user/${user?.id}/favorite`)
       .then((res) => res.json())
       .then((data) => setFavorite(data));
-  }, [userId]);
+  }, [user?.id]);
 
+  const handleRemoveFavorite = (artworkId: number) => {
+    if (!user?.id) return;
+    fetch(`http://localhost:3310/api/user/${user?.id}/favorite/${artworkId}`, {
+      method: "DELETE",
+      credentials: "include",
+    }).then((res) => {
+      if (res.ok) {
+        setFavorite((prev) => prev.filter((item) => item.id !== artworkId));
+        toast.success("Article retiré des favoris");
+      }
+    });
+  };
+  if (favorite.length === 0) {
+    return (
+      <main className="place-items">
+        <h1>Vous n'avez pas d'article dans vos favoris</h1>
+      </main>
+    );
+  }
   return (
-    <main className="favorite-page">
-      <h1 className="title">Favoris</h1>
+    <>
+      <main className="favorite-page">
+        <h1 className="title">Favoris</h1>
 
-      {favorite.map((item) => (
-        <figure key={item.id}>
-          <img className="favorite" src="/img/favorite.png" alt="favorite" />
-          <img src={item.image} alt={item.title} />
-          <figcaption>
-            <div className="container">
-              <span>{item.title}</span>
-              <p>
-                de {item.firstname} {item.lastname}
-              </p>
-            </div>
-            <span className="price">{item.price}€</span>
+        {favorite.map((item) => (
+          <figure key={item.id}>
             <button
-              className="add-to-cart"
               type="button"
-              aria-label="Ajouter au panier"
+              className="remove-favorite"
+              onClick={() => handleRemoveFavorite(item.id)}
             >
-              <img src="/img/shopping-cart-white-icon.png" alt="shop" />
+              <img src="/img/favorite.png" alt="favorite" />
             </button>
-          </figcaption>
-        </figure>
-      ))}
-    </main>
+            <img src={item.image} alt={item.title} />
+            <figcaption>
+              <div className="container">
+                <span>{item.title}</span>
+                <p>
+                  de {item.firstname} {item.lastname}
+                </p>
+              </div>
+              <span className="price">{item.price}€</span>
+              <button
+                className="add-to-cart"
+                type="button"
+                aria-label="Ajouter au panier"
+              >
+                <img src="/img/shopping-cart-white-icon.png" alt="shop" />
+              </button>
+            </figcaption>
+          </figure>
+        ))}
+      </main>
+      <ToastContainer position="bottom-right" />
+    </>
   );
 }
 export default FavoritePage;

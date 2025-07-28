@@ -30,8 +30,24 @@ const addFavorite: RequestHandler = async (req, res, next) => {
   }
 };
 
+const removeFavorite: RequestHandler = async (req, res, next) => {
+  try {
+    const userId = Number(req.params.userId);
+    const artworkId = Number(req.params.artworkId);
+    if (!userId || !artworkId) {
+      res.status(404).json("Favorite not found");
+      return;
+    }
+    await FavoriteRepository.delete(userId, artworkId);
+    res.status(204).send();
+  } catch (err) {
+    next(err);
+  }
+};
+
 export default {
   browse,
   favoriteArtwork,
   addFavorite,
+  removeFavorite,
 };
