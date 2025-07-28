@@ -74,15 +74,31 @@ const refreshToken: RequestHandler = (req, res, next) => {
     const decoded = jwt.verify(token, secretKey);
     if (decoded) {
       const payload = decoded as JwtPayload;
-      const newToken = jwt.sign({ id: payload.id }, secretKey, {
-        expiresIn: "1d",
-      });
+      const newToken = jwt.sign(
+        {
+          id: payload.id,
+          firstname: payload.firstname,
+          lastname: payload.lastname,
+          email: payload.email,
+          isAdmin: payload.isAdmin,
+        },
+        secretKey,
+        {
+          expiresIn: "1d",
+        },
+      );
 
       res.cookie("token", newToken, {
         httpOnly: true,
         secure: false,
       });
-      res.status(200).json(payload);
+      res.status(200).json({
+        id: payload.id,
+        firstname: payload.firstname,
+        lastname: payload.lastname,
+        email: payload.email,
+        isAdmin: payload.isAdmin,
+      });
     } else {
       res.sendStatus(403);
     }
@@ -106,6 +122,17 @@ const authenticateUser: RequestHandler = (req, res, next) => {
 
     const decoded = jwt.verify(token, secretKey) as jwt.JwtPayload;
     req.body.user_account_id = decoded.id;
+    // Des modifications vont être nécessaires,
+    // j'ai une PR déjà en cours.
+    // La ligne 108 sera supprimé.
+    // (id étant déjà dispo ligne 112)
+    req.user = {
+      id: decoded.id,
+      isAdmin: decoded.isAdmin,
+      email: decoded.email,
+      firstname: decoded.firstname,
+      lastname: decoded.lastname,
+    };
     next();
   } catch (err) {
     res.status(401).json({ error: "Invalid token" });

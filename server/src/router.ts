@@ -6,12 +6,14 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
+import adminActions from "./modules/admin/adminActions";
 // Define item-related routes
 import artworkActions from "./modules/artwork/artworkActions";
 import favoriteActions from "./modules/favorite/favoriteActions";
 import itemActions from "./modules/item/itemActions";
 import purchaseActions from "./modules/purchase/purchaseActions";
 import userActions from "./modules/user/userActions";
+import admin from "./utils/admin";
 import auth from "./utils/auth";
 import validation from "./utils/validation";
 
@@ -36,7 +38,6 @@ router.get("/api/artist", userActions.browseArtists);
 /* ************************************************************************* */
 router.get("/api/artwork", artworkActions.browse);
 router.get("/api/artwork/artwork-category", artworkActions.readArtworkCategory);
-router.get("/api/artwork/:id", artworkActions.readUserAccount);
 router.get(
   "/api/artwork/category/:categoryName",
   artworkActions.readArtworkCategory,
@@ -75,5 +76,24 @@ router.post(
 router.post("/api/favorite", favoriteActions.addFavorite);
 router.get("/api/user/:userId/favorite", favoriteActions.favoriteArtwork);
 router.get("/api/favorite", favoriteActions.browse);
+/* ************************************************************************* */
+router.get(
+  "/api/admin/users",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.browseUsers,
+);
+router.delete(
+  "/api/admin/user/:id",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.deleteUser,
+);
+router.delete(
+  "/api/admin/artwork/:id",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.deleteArtwork,
+);
 
 export default router;

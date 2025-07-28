@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
+import ProtectedRoute from "./components/ProtectedRoute";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import AddArtworkPage from "./pages/AddArtworkPage/AddArtworkPage";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import ArtistArtworkDetailPage from "./pages/ArtistArtworkDetailPage/ArtistArtworkDetailPage";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
       {
         element: <HomePage />,
         path: "",
+      },
+      {
+        element: (
+          <ProtectedRoute>
+            <AdminDashboard />
+          </ProtectedRoute>
+        ),
+        path: "admin",
       },
       {
         element: <RegistrationPage />,

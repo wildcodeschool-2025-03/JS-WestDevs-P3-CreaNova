@@ -15,4 +15,6 @@ export interface Auth {
   setIsLogged: (value: boolean) => void;
   user: UserPayload | null;
   setUser: (value: UserPayload | null) => void;
+  isLoading: boolean;
+  setIsLoading: (value: boolean) => void;
 }
