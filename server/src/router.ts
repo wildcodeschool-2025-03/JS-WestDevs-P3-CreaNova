@@ -11,6 +11,8 @@ import adminActions from "./modules/admin/adminActions";
 import artworkActions from "./modules/artwork/artworkActions";
 import favoriteActions from "./modules/favorite/favoriteActions";
 import itemActions from "./modules/item/itemActions";
+import eventActions from "./modules/newsletter/event/eventActions";
+import newActions from "./modules/newsletter/new/newActions";
 import purchaseActions from "./modules/purchase/purchaseActions";
 import userActions from "./modules/user/userActions";
 import admin from "./utils/admin";
@@ -84,6 +86,9 @@ router.post(
 router.post("/api/favorite", favoriteActions.addFavorite);
 router.get("/api/user/:userId/favorite", favoriteActions.favoriteArtwork);
 router.get("/api/favorite", favoriteActions.browse);
+/* ************************************************************************* */
+router.get("/api/news", newActions.browse);
+router.get("/api/events", eventActions.browse);
 /* ************************************************************************* */
 router.get(
   "/api/admin/users",
