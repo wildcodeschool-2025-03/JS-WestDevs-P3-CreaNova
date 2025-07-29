@@ -23,7 +23,8 @@ function GalleryPage() {
   const filteredArtwork = artwork.filter(
     (artwork) =>
       artwork.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      artwork.artist_name?.toLowerCase().includes(searchTerm.toLowerCase()),
+      artwork.artist_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      artwork.tags.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   const handleAddToFavorites = (artworkId: number) => {
@@ -72,6 +73,7 @@ function GalleryPage() {
               <div className="artwork-details">
                 <span>{artwork.title}</span>
                 <p>de {artwork.artist_name}</p>
+                <div className="tags">{artwork.tags}</div>
               </div>
               <span className="price">{artwork.price}€</span>
               <button

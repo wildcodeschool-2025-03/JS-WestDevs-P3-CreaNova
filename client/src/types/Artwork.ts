@@ -9,4 +9,5 @@ interface Artwork {
   artist_name?: string;
   artist_image: string;
   user_account_id: number;
+  tags: string;
 }

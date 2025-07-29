@@ -77,30 +77,41 @@
       margin: 0;
     }
 
-    .price {
-      justify-self: center;
-      font-weight: bold;
-      font-size: 1rem;
+    .tags {
+      font-weight: 300;
+      display: block;
     }
 
-    .add-to-cart {
-      justify-self: end;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-      border-radius: 4px;
-      transition: background-color 0.2s;
+    p {
+      font-size: 0.8rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+  }
 
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
+  .price {
+    justify-self: center;
+    font-weight: bold;
+    font-size: 1rem;
+  }
 
-      img {
-        width: 30px;
-        height: 30px;
-        display: block;
-      }
+  .add-to-cart {
+    justify-self: end;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+      display: block;
     }
   }
 

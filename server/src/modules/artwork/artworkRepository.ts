@@ -17,18 +17,26 @@ class ArtworkRepository {
 
   async readArtworkCategory(categoryName: string) {
     const [result] = await databaseClient.query<Rows>(
-      `SELECT DISTINCT
-        a.id,
-        a.image,
-        a.title,
-        a.price,
-        CONCAT(ua.firstname, ' ', ua.lastname) AS artist_name
-      FROM artwork a
-      JOIN artwork_category ac ON a.id = ac.artwork_id
-      JOIN category c ON ac.category_id = c.id
-      JOIN user_account ua ON a.user_account_id = ua.id
-      WHERE c.name = ?`,
-      [categoryName],
+      `SELECT 
+      a.id,
+      a.image,
+      a.title,
+      a.price,
+      CONCAT(ua.firstname, ' ', ua.lastname) AS artist_name,
+      GROUP_CONCAT(DISTINCT CASE WHEN c.name <> ? THEN c.name END SEPARATOR ' - ') AS tags
+   FROM artwork AS a
+   JOIN artwork_category AS ac ON a.id = ac.artwork_id
+   JOIN category AS c ON ac.category_id = c.id
+   JOIN user_account AS ua ON a.user_account_id = ua.id
+   WHERE a.id IN (
+       SELECT a2.id
+       FROM artwork AS a2
+       JOIN artwork_category AS ac2 ON a2.id = ac2.artwork_id
+       JOIN category AS c2 ON ac2.category_id = c2.id
+       WHERE c2.name = ?
+   )
+   GROUP BY a.id;`,
+      [categoryName, categoryName],
     );
     return result;
   }
@@ -36,13 +44,17 @@ class ArtworkRepository {
   async readArtworkWithArtistById(artworkId: number) {
     const [rows] = await databaseClient.query<Rows>(
       `SELECT 
-        artwork.*,
-        user_account.firstname AS firstname,
-        user_account.lastname AS lastname,
-        user_account.image AS artist_image
-      FROM artwork
-      JOIN user_account ON artwork.user_account_id = user_account.id
-      WHERE artwork.id = ?`,
+       a.*,
+       ua.firstname AS firstname,
+       ua.lastname AS lastname,
+       ua.image AS artist_image,
+       GROUP_CONCAT(DISTINCT CASE WHEN c.is_sub_cat = TRUE THEN c.name ELSE NULL END SEPARATOR ' - ') AS tags
+     FROM artwork AS a
+     JOIN user_account AS ua ON a.user_account_id = ua.id
+     LEFT JOIN artwork_category AS ac ON a.id = ac.artwork_id
+     LEFT JOIN category AS c ON ac.category_id = c.id
+     WHERE a.id = ?
+     GROUP BY a.id, ua.firstname, ua.lastname, ua.image;`,
       [artworkId],
     );
     return rows;
@@ -74,8 +86,62 @@ class ArtworkRepository {
         body.user_account_id,
       ],
     );
+
+    const artworkId = result.insertId;
+
+    if (body.mainCategory) {
+      const [mainRows] = await databaseClient.query<Rows>(
+        "SELECT id FROM category WHERE name = ? AND is_sub_cat = FALSE",
+        [body.mainCategory],
+      );
+
+      let mainCategoryId: number;
+
+      if (mainRows.length > 0) {
+        mainCategoryId = (mainRows[0] as { id: number }).id;
+      } else {
+        const [insertMain] = await databaseClient.query<Result>(
+          "INSERT INTO category (name, is_sub_cat) VALUES (?, FALSE)",
+          [body.mainCategory],
+        );
+        mainCategoryId = insertMain.insertId;
+      }
+
+      await databaseClient.query<Result>(
+        "INSERT INTO artwork_category (artwork_id, category_id) VALUES (?, ?)",
+        [artworkId, mainCategoryId],
+      );
+    }
+
+    if (body.tags && body.tags.length > 0) {
+      for (const tagName of body.tags) {
+        const [rows] = await databaseClient.query<Rows>(
+          "SELECT id FROM category WHERE name = ?",
+          [tagName],
+        );
+
+        let categoryId: number;
+
+        if (rows.length > 0) {
+          categoryId = (rows[0] as { id: number }).id;
+        } else {
+          const [insertCatResult] = await databaseClient.query<Result>(
+            "INSERT INTO category (name) VALUES (?)",
+            [tagName],
+          );
+          categoryId = insertCatResult.insertId;
+        }
+
+        await databaseClient.query<Result>(
+          "INSERT INTO artwork_category (artwork_id, category_id) VALUES (?, ?)",
+          [artworkId, categoryId],
+        );
+      }
+    }
+
     return result.affectedRows;
   }
+
   async delete(id: number) {
     const [result] = await databaseClient.query<Result>(
       "DELETE FROM artwork WHERE id = ?",

@@ -33,7 +33,10 @@ function ArtworkDetailPage() {
             <img src={artwork.image} alt={artwork.title} />
 
             <figcaption>
-              <span>{artwork.title}</span>
+              <div className="artwork-details">
+                <span>{artwork.title}</span>
+                <span className="tags">{artwork.tags}</span>
+              </div>
               <span className="price">{artwork.price}€</span>
               <button
                 className="add-to-cart"
