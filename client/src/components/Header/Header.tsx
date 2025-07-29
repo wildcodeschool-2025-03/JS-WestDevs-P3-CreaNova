@@ -2,9 +2,9 @@ import { slide as Menu } from "react-burger-menu";
 import "./Header.css";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
+import { useLocation } from "react-router";
 import { toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
-import { useLocation } from "react-router";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
