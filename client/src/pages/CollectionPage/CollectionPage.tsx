@@ -53,7 +53,7 @@ function CollectionPage() {
       {artwork.map((item) => (
         <figure key={item.id}>
           <Link to={`/artist/${id}/artwork/${item.id}`}>
-            <img src={item.image} alt={item.title} />
+            <img src={`http://localhost:3310/${item.image}`} alt={item.title} />
             <figcaption>{item.title}</figcaption>
           </Link>
         </figure>

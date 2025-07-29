@@ -20,7 +20,10 @@ function NewsSection() {
             <h3>{newItem.title}</h3>
             <p>{newItem.text}</p>
           </article>
-          <img src={newItem.image} alt="Illustration de l'actualité" />
+          <img
+            src={`http://localhost:3310/${newItem.image}`}
+            alt="Illustration de l'actualité"
+          />
         </section>
       ))}
     </section>

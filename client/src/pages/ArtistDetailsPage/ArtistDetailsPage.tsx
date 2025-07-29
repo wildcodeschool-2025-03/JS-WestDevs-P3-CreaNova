@@ -39,7 +39,7 @@ function ArtistDetailsPage() {
         </article>
         <div className="image-artist">
           <img
-            src={artist.artist_image}
+            src={`http://localhost:3310/${artist.artist_image}`}
             alt={`${artist.firstname} ${artist.lastname}`}
           />
         </div>
@@ -47,7 +47,11 @@ function ArtistDetailsPage() {
       <section className="artist-artwork-section">
         <h2>Oeuvres</h2>
         {artworks.map((artwork) => (
-          <img src={artwork.image} alt={artwork.title} key={artwork.id} />
+          <img
+            src={`http://localhost:3310/${artwork.image}`}
+            alt={artwork.title}
+            key={artwork.id}
+          />
         ))}
       </section>
     </main>
