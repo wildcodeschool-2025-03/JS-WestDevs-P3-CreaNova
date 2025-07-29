@@ -94,7 +94,7 @@ function GalleryPage() {
           </figure>
         ))}
       </main>
-      <ToastContainer />
+      <ToastContainer position="bottom-right" autoClose={3000} />
     </>
   );
 }
