@@ -52,7 +52,13 @@ function UserFormPage() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value } = e.target;
+    const { name, value, type, files } = e.target as HTMLInputElement;
+    if (type === "file" && files) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: files[0],
+      }));
+    }
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
@@ -62,13 +68,14 @@ function UserFormPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!user) return;
+    const data = new FormData();
+    for (const [key, value] of Object.entries(formData)) {
+      if (value !== "") data.append(key, value as string);
+    }
     fetch(`http://localhost:3310/api/user/${user.id}`, {
       method: "PUT",
       credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+      body: data,
     })
       .then((response) => {
         if (response.ok) {
@@ -134,14 +141,17 @@ function UserFormPage() {
               value={formData.email}
               onChange={handleChange}
             />
-            <label htmlFor="image">Image url</label>
             <input
-              type="text"
-              placeholder="ex: jean.dupont@example.com"
+              type="file"
               name="image"
-              value={formData.image}
+              accept="image/png, image/jpg, image/jpeg"
+              id="user-image"
               onChange={handleChange}
             />
+            <label htmlFor="user-image" className="file-label">
+              Choisir une image
+            </label>
+
             <label htmlFor="description">Description</label>
             <textarea
               rows={5}

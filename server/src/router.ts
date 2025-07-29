@@ -17,6 +17,7 @@ import purchaseActions from "./modules/purchase/purchaseActions";
 import userActions from "./modules/user/userActions";
 import admin from "./utils/admin";
 import auth from "./utils/auth";
+import file from "./utils/file";
 import validation from "./utils/validation";
 
 router.get("/api/items", itemActions.browse);
@@ -66,7 +67,12 @@ router.post("/api/artworks", artworkActions.createArtwork);
 router.get("/api/artist/:id", userActions.browseArtistArtworks);
 
 router.get("/api/user/:id", userActions.getUserById);
-router.put("/api/user/:id", userActions.editUser);
+router.put(
+  "/api/user/:id",
+  file.imageUpload,
+  file.appImage,
+  userActions.editUser,
+);
 
 /* ************************************************************************* */
 router.get(
