@@ -79,6 +79,7 @@
 
     .tags {
       font-weight: 300;
+      display: block;
     }
 
     p {
