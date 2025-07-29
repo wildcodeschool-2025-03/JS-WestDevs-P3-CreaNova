@@ -30,6 +30,16 @@ WHERE f.user_account_id = ?;`,
     );
     return rows;
   }
+  async delete(userId: number, artworkId: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      `
+      DELETE FROM favorite 
+      WHERE user_account_id = ? 
+      AND artwork_id = ?`,
+      [userId, artworkId],
+    );
+    return rows;
+  }
 }
 
 export default new favoriteRepository();

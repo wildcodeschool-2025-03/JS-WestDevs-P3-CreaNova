@@ -86,6 +86,10 @@ router.post(
 router.post("/api/favorite", favoriteActions.addFavorite);
 router.get("/api/user/:userId/favorite", favoriteActions.favoriteArtwork);
 router.get("/api/favorite", favoriteActions.browse);
+router.delete(
+  "/api/user/:userId/favorite/:artworkId",
+  favoriteActions.removeFavorite,
+);
 /* ************************************************************************* */
 router.get("/api/news", newActions.browse);
 router.get("/api/events", eventActions.browse);
