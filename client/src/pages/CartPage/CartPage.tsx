@@ -84,7 +84,10 @@ function CartPage() {
                 src="/img/favorite.png"
                 alt="favorite"
               />
-              <img src={artwork.image} alt={artwork.title} />
+              <img
+                src={`http://localhost:3310/${artwork.image}`}
+                alt={artwork.title}
+              />
               <figcaption>
                 <div className="artwork-details">
                   <span>{artwork.title}</span>

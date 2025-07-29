@@ -21,7 +21,10 @@ function EventsSection() {
             <p>{event.text}</p>
           </article>
 
-          <img src={event.image} alt="illustration évènement" />
+          <img
+            src={`http://localhost:3310/${event.image}`}
+            alt="illustration évènement"
+          />
         </section>
       ))}
     </section>

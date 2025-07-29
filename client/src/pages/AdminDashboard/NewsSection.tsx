@@ -55,7 +55,11 @@ function NewsSection() {
             <tr key={n.id}>
               <td>{n.title}</td>
               <td>{n.text}</td>
-              <td>{n.image && <img src={n.image} alt={n.title} />}</td>
+              <td>
+                {n.image && (
+                  <img src={`http://localhost:3310/${n.image}`} alt={n.title} />
+                )}
+              </td>
               <td>
                 <button type="button" onClick={() => openModal(n)}>
                   Editer
