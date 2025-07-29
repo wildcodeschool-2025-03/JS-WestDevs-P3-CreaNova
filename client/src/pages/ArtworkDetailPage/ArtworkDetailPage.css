@@ -114,19 +114,19 @@
       display: block;
     }
   }
-}
 
-h2 {
-  text-align: center;
-  font-size: 2rem;
-}
-.artist {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  .artist {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
 
-  figcaption {
-    display: block;
+    figcaption {
+      display: block;
+    }
   }
 }
 
