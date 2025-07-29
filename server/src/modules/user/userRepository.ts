@@ -22,7 +22,7 @@ class userRepository {
       LEFT JOIN artwork AS a ON ua.id = a.user_account_id
       WHERE ua.is_artist = TRUE
       AND (ua.description IS NOT NULL 
-      OR a.id IS NOT NULL)
+      AND a.id IS NOT NULL)
       GROUP BY ua.id`,
     );
     return result;
