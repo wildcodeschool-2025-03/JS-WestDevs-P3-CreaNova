@@ -1,0 +1,12 @@
+.admin-dashboard {
+  img {
+    width: 50px;
+  }
+  .admin-dashboard-artwork-section {
+    img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+    }
+  }
+}

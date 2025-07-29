@@ -26,7 +26,7 @@ function ArtworkDetailPage() {
     <main className="artwork-detail-page">
       <h1>{artwork.title}</h1>
       <section className="artwork-info">
-        <p className="description">{artwork.description}</p>
+        <p>{artwork.description}</p>
         <figure>
           <Link to={`/artwork/${artwork.id}`}>
             <img className="favorite" src="/img/favorite.png" alt="favorite" />

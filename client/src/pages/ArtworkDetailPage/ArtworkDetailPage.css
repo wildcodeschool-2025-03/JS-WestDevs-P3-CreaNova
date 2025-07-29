@@ -3,10 +3,11 @@
     text-align: center;
   }
 
-  .description {
+  p {
     margin: 10px 20px;
     text-align: center;
     margin-bottom: 50px;
+    word-break: break-word;
   }
 
   img {
@@ -69,11 +70,6 @@
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     font-size: 0.8rem;
-
-    .artwork-details {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
 
       span {
         font-size: 0.9rem;

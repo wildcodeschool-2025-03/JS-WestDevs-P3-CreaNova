@@ -13,12 +13,10 @@ function CollectionPage() {
       credentials: "include",
     })
       .then((res) => res.json())
-      .then((data) => setArtwork(data));
+      .then((data) => {
+        setArtwork(data);
+      });
   }, [id]);
-
-  if (!artwork) {
-    return <h1>Vous n'avez aucune oeuvre</h1>;
-  }
 
   if (!isLogged) {
     return (
@@ -29,6 +27,19 @@ function CollectionPage() {
             <button type="button">Accéder à la page de connexion</button>
           </Link>
         </section>
+      </main>
+    );
+  }
+
+  if (!Array.isArray(artwork) || artwork.length === 0) {
+    return (
+      <main className="place-items">
+        <Link to={`/artist/${id}/add-artwork`} className="add-artwork-link">
+          Ajouter
+        </Link>
+        <h1>
+          Vous n'avez aucune oeuvre ou vous n'avez pas accès à cette collection
+        </h1>
       </main>
     );
   }

@@ -6,12 +6,16 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
+import adminActions from "./modules/admin/adminActions";
 // Define item-related routes
 import artworkActions from "./modules/artwork/artworkActions";
 import favoriteActions from "./modules/favorite/favoriteActions";
 import itemActions from "./modules/item/itemActions";
+import eventActions from "./modules/newsletter/event/eventActions";
+import newActions from "./modules/newsletter/new/newActions";
 import purchaseActions from "./modules/purchase/purchaseActions";
 import userActions from "./modules/user/userActions";
+import admin from "./utils/admin";
 import auth from "./utils/auth";
 import validation from "./utils/validation";
 
@@ -36,20 +40,27 @@ router.get("/api/artist", userActions.browseArtists);
 /* ************************************************************************* */
 router.get("/api/artwork", artworkActions.browse);
 router.get("/api/artwork/artwork-category", artworkActions.readArtworkCategory);
-router.get("/api/artwork/:id", artworkActions.readUserAccount);
 router.get(
   "/api/artwork/category/:categoryName",
   artworkActions.readArtworkCategory,
 );
 router.get("/api/artwork/:id", artworkActions.readArtworkById);
 router.get("/api/artwork/:id/artist", artworkActions.readArtworkWithArtistById);
-router.put("/api/artwork/:id", artworkActions.edit);
-router.get("/api/artist/:id/artworks", artworkActions.readUserAccount);
+router.put("/api/artwork/:id", auth.authenticateUser, artworkActions.edit);
+router.get(
+  "/api/artist/:id/artworks",
+  auth.authenticateUser,
+  artworkActions.readUserAccount,
+);
 router.get(
   "/api/artist/:userId/artworks/:artworkId",
   artworkActions.readArtworkUserById,
 );
-router.delete("/api/artworks/:id", artworkActions.deleteArtwork);
+router.delete(
+  "/api/artworks/:id",
+  auth.authenticateUser,
+  artworkActions.deleteArtwork,
+);
 router.post("/api/artworks", artworkActions.createArtwork);
 
 router.get("/api/artist/:id", userActions.browseArtistArtworks);
@@ -75,5 +86,60 @@ router.post(
 router.post("/api/favorite", favoriteActions.addFavorite);
 router.get("/api/user/:userId/favorite", favoriteActions.favoriteArtwork);
 router.get("/api/favorite", favoriteActions.browse);
-
+router.delete(
+  "/api/user/:userId/favorite/:artworkId",
+  favoriteActions.removeFavorite,
+);
+/* ************************************************************************* */
+router.get("/api/news", newActions.browse);
+router.get("/api/events", eventActions.browse);
+/* ************************************************************************* */
+router.get(
+  "/api/admin/users",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.browseUsers,
+);
+router.delete(
+  "/api/admin/user/:id",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.deleteUser,
+);
+router.get(
+  "/api/admin/artworks",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.browseArtworks,
+);
+router.delete(
+  "/api/admin/artwork/:id",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.deleteArtwork,
+);
+router.get(
+  "/api/admin/events",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.browseEvents,
+);
+router.put(
+  "/api/admin/event/:id",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.editEvent,
+);
+router.get(
+  "/api/admin/news",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.browseNews,
+);
+router.put(
+  "/api/admin/new/:id",
+  auth.authenticateUser,
+  admin.adminAuth,
+  adminActions.editNews,
+);
 export default router;

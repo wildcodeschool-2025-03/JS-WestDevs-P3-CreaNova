@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
+import ProtectedRoute from "./components/ProtectedRoute";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import AddArtworkPage from "./pages/AddArtworkPage/AddArtworkPage";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import ArtistArtworkDetailPage from "./pages/ArtistArtworkDetailPage/ArtistArtworkDetailPage";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage/ArtistDetailsPage";
 import ArtistPage from "./pages/ArtistPage/ArtistPage";
@@ -14,6 +16,7 @@ import FavoritePage from "./pages/FavoritePage/FavoritePage";
 import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import Newsletter from "./pages/NewsletterPage/NewsletterPage";
 import NotFound from "./pages/Notfound/Notfound";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 import UserFormPage from "./pages/UserFormPage/UserFormPage";
@@ -26,6 +29,14 @@ const router = createBrowserRouter([
       {
         element: <HomePage />,
         path: "",
+      },
+      {
+        element: (
+          <ProtectedRoute>
+            <AdminDashboard />
+          </ProtectedRoute>
+        ),
+        path: "admin",
       },
       {
         element: <RegistrationPage />,
@@ -86,6 +97,10 @@ const router = createBrowserRouter([
       {
         element: <CartPage />,
         path: "panier",
+      },
+      {
+        element: <Newsletter />,
+        path: "newsletter",
       },
     ],
   },

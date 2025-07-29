@@ -13,12 +13,15 @@ const readArtworkById: RequestHandler = async (req, res, next) => {
   try {
     const artworkId = Number(req.params.id);
     const result = await artworkRepository.readArtworkById(artworkId);
-
-    if (!result) {
+    if (!result || !result[0]) {
       res.status(404).json("Artwork not found");
-    } else {
-      res.json(result);
+      return;
     }
+    if (result[0].user_account_id !== req.body.user_account_id) {
+      res.status(403).json("Unauthorized: You cannot view this artwork");
+      return;
+    }
+    res.json(result);
   } catch (err) {
     next(err);
   }
@@ -52,6 +55,12 @@ const readArtworkCategory: RequestHandler = async (req, res, next) => {
 const readUserAccount: RequestHandler = async (req, res, next) => {
   try {
     const user_account_id = Number(req.params.id);
+    if (user_account_id !== req.body.user_account_id) {
+      res
+        .status(403)
+        .json("Unauthorized: You cannot view artworks of another user");
+      return;
+    }
     const result = await artworkRepository.readUserAccount(user_account_id);
 
     if (result == null) {
@@ -68,15 +77,16 @@ const readArtworkUserById: RequestHandler = async (req, res, next) => {
   try {
     const artwork_id = Number(req.params.artworkId);
     const user_account_id = Number(req.params.userId);
+
     const result = await artworkRepository.readArtworkUserById(
       user_account_id,
       artwork_id,
     );
-    if (!result) {
+    if (!result || !result[0]) {
       res.status(404).json("There is a problem on your reader by id");
-    } else {
-      res.json(result);
+      return;
     }
+    res.json(result);
   } catch (err) {
     next(err);
   }
@@ -125,6 +135,19 @@ const browseCarouselArtworks: RequestHandler = async (req, res) => {
 
 const edit: RequestHandler = async (req, res, next) => {
   try {
+    const artworkId = Number(req.params.id);
+    const artwork = await artworkRepository.readArtworkById(artworkId);
+    if (!artwork) {
+      res.status(404).json("Artwork not found");
+      return;
+    }
+    if (artwork[0].user_account_id !== req.body.user_account_id) {
+      res
+        .status(403)
+        .json("Unauthorized: You are not the owner of this artwork");
+      return;
+    }
+
     const newArtwork = {
       id: Number(req.params.id),
       title: req.body.title,

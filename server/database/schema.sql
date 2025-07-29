@@ -29,7 +29,9 @@ VALUES
 ", TRUE, FALSE, TRUE),
 ("Sema", "Martin", "sema@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "7 allée des Cyprès", "Toulouse", "31000", "France", "http://localhost:3310/sema-martin.webp", "Dessin = ma passion. Sema Martin est une artiste dont le trait délicat et précis donne vie à des univers empreints de poésie. Inspirée par la nature et les émotions humaines, elle réalise des dessins qui racontent des histoires et suscitent l'imaginaire. Son style, à la fois doux et expressif, séduit par sa capacité à transmettre des sentiments profonds à travers la simplicité du crayon.
 ", TRUE, FALSE, TRUE),
-("Gisèle", "Thomas", "gisele@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "3 impasse des Érables", "Bordeaux", "33000", "France", NULL, NULL, FALSE, FALSE, TRUE);
+("Gisèle", "Thomas", "gisele@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "3 impasse des Érables", "Bordeaux", "33000", "France", NULL, NULL, FALSE, FALSE, TRUE),
+("Admin", "User", "admin@creanova.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "1 rue de l'Admin", "Paris", "75000", "France", NULL, NULL, FALSE, TRUE, TRUE);
+
 
 
 CREATE TABLE artwork (
@@ -121,7 +123,7 @@ CREATE TABLE favorite (
 user_account_id INT NOT NULL,
 artwork_id INT NOT NULL,
 PRIMARY KEY (user_account_id, artwork_id),
-FOREIGN KEY (user_account_id) REFERENCES user_account(id),
+FOREIGN KEY (user_account_id) REFERENCES user_account(id) ON DELETE CASCADE,
 FOREIGN KEY (artwork_id) REFERENCES artwork(id) ON DELETE CASCADE
 );
 INSERT INTO favorite (user_account_id, artwork_id)
@@ -137,10 +139,43 @@ date TIMESTAMP NOT NULL DEFAULT NOW(),
 means_of_payment VARCHAR(55) NOT NULL,
 payment_validated BOOLEAN DEFAULT FALSE,
 PRIMARY KEY (user_account_id, artwork_id),
-FOREIGN KEY (user_account_id) REFERENCES user_account(id),
+FOREIGN KEY (user_account_id) REFERENCES user_account(id) ON DELETE CASCADE,
 FOREIGN KEY (artwork_id) REFERENCES artwork(id) ON DELETE CASCADE
 );
 INSERT INTO purchase (user_account_id, artwork_id, means_of_payment, payment_validated)
 VALUES
 (4, 1, "Credit Card", TRUE),
 (6, 5, "Credit card", TRUE);
+
+CREATE TABLE news (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(255),
+  image VARCHAR(500),
+  text VARCHAR(3000) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  created_by INT NOT NULL,
+  FOREIGN KEY (created_by) REFERENCES user_account(id) ON DELETE CASCADE
+);
+
+CREATE TABLE event (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  image VARCHAR(500),
+  text VARCHAR(3000) NOT NULL,
+  date VARCHAR(100) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  created_by INT NOT NULL,
+  FOREIGN KEY (created_by) REFERENCES user_account(id) ON DELETE CASCADE
+);
+
+INSERT INTO news (title, image, text, created_by)
+VALUES (
+  "Actualité", "http://localhost:3310/new-marche-nocturne.webp",
+  "Le 27 octobre 2025, venez découvrir notre exposition d'aquarelle sur les marchés nocturnes de Lyon.",
+  8
+);
+
+INSERT INTO event (title, image, text, date, created_by)
+VALUES
+  ("Rencontre avec M. Brioul", "http://localhost:3310/rencontre.webp", "Venez à la rencontre de M. Brioul pour échanger sur les techniques d'utilisations.", "2025-09-28", 8),
+  ("Atelier découverte photo", "http://localhost:3310/event-photo.webp", "Un atelier découverte, pour apprendre les techniques de base de la photographie.", "2025-09-05", 8);
