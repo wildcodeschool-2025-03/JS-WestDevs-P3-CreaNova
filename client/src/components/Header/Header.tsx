@@ -30,7 +30,9 @@ const Header = () => {
   };
 
   useEffect(() => {
-    dialogRef.current?.close();
+    if (location) {
+      dialogRef.current?.hidePopover();
+    }
   }, [location]);
 
   return (
