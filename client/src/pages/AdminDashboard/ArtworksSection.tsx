@@ -54,7 +54,10 @@ function ArtworksSection() {
             <tr key={artwork.id}>
               <td>{artwork.title}</td>
               <td>
-                <img src={artwork.image} alt={artwork.title} />
+                <img
+                  src={`http://localhost:3310/${artwork.image}`}
+                  alt={artwork.title}
+                />
               </td>
               <td>{artwork.price}</td>
               {artwork.sold ? <td>Vendu</td> : <td>Disponible</td>}

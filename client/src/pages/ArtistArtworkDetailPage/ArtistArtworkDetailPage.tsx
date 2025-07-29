@@ -53,7 +53,10 @@ function ArtistArtworkDetailPage() {
     <main className="artist-artwork-detail-main">
       <h1>{artwork.title}</h1>
       <figure>
-        <img src={artwork.image} alt={artwork.title} />
+        <img
+          src={`http://localhost:3310/${artwork.image}`}
+          alt={artwork.title}
+        />
         <figcaption>{artwork.title}</figcaption>
       </figure>
       <article>

@@ -36,7 +36,10 @@ function Carousel({ title, category }: CarouselProps) {
         <ul className="carousel" ref={carouselRef}>
           {carousel.map((el) => (
             <li key={el.id}>
-              <img src={el.image} alt={el.sub_category_name} />
+              <img
+                src={`http://localhost:3310/${el.image}`}
+                alt={el.sub_category_name}
+              />
               <figcaption>{el.sub_category_name}</figcaption>
             </li>
           ))}

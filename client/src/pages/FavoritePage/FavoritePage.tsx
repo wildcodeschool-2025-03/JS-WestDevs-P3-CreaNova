@@ -46,7 +46,7 @@ function FavoritePage() {
             >
               <img src="/img/favorite.png" alt="favorite" />
             </button>
-            <img src={item.image} alt={item.title} />
+            <img src={`http://localhost:3310/${item.image}`} alt={item.title} />
             <figcaption>
               <div className="container">
                 <span>{item.title}</span>
