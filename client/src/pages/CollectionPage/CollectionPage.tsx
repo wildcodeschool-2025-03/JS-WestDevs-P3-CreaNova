@@ -34,6 +34,9 @@ function CollectionPage() {
   if (!Array.isArray(artwork) || artwork.length === 0) {
     return (
       <main className="place-items">
+        <Link to={`/artist/${id}/add-artwork`} className="add-artwork-link">
+          Ajouter
+        </Link>
         <h1>
           Vous n'avez aucune oeuvre ou vous n'avez pas accès à cette collection
         </h1>
