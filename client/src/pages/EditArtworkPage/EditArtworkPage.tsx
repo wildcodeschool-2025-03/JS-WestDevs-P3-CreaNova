@@ -89,7 +89,7 @@ function EditArtworkPage() {
           </form>
         </section>
       </main>
-      <ToastContainer />
+      <ToastContainer position="bottom-right" autoClose={3000} />
     </>
   );
 }

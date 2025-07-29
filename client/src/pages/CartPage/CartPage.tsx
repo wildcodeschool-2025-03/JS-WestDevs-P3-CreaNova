@@ -183,7 +183,7 @@ function CartPage() {
           </div>
         )}
       </main>
-      <ToastContainer />
+      <ToastContainer position="bottom-right" autoClose={3000} />
     </>
   );
 }

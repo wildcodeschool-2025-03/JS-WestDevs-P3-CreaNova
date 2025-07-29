@@ -58,7 +58,7 @@ function LoginPage() {
           </form>
         </section>
       </main>
-      <ToastContainer position="top-right" />
+      <ToastContainer position="bottom-right" autoClose={3000} />
     </>
   );
 }
