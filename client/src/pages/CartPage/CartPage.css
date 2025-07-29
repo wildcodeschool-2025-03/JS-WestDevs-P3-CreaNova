@@ -1,5 +1,10 @@
 .cart-page-main {
+  min-height: calc(100vh - 98px - 100px);
+
   h1 {
+    text-align: center;
+  }
+  h2 {
     text-align: center;
   }
   section {
