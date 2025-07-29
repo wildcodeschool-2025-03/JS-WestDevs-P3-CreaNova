@@ -60,7 +60,10 @@ function EventsSection() {
               <td>{event.date}</td>
               <td>{event.text}</td>
               <td>
-                <img src={event.image} alt={event.title} />
+                <img
+                  src={`http://localhost:3310/${event.image}`}
+                  alt={event.title}
+                />
               </td>
               <td>
                 <button type="button" onClick={() => openModal(event)}>

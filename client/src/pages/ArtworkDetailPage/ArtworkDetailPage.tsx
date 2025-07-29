@@ -30,7 +30,10 @@ function ArtworkDetailPage() {
         <figure>
           <Link to={`/artwork/${artwork.id}`}>
             <img className="favorite" src="/img/favorite.png" alt="favorite" />
-            <img src={artwork.image} alt={artwork.title} />
+            <img
+              src={`http://localhost:3310/${artwork.image}`}
+              alt={artwork.title}
+            />
 
             <figcaption>
               <div className="artwork-details">
@@ -54,7 +57,7 @@ function ArtworkDetailPage() {
       <figure className="artist">
         <Link to={`/artist/${artwork.user_account_id}`}>
           <img
-            src={artwork.artist_image}
+            src={`http://localhost:3310/${artwork.artist_image}`}
             alt={`${artwork.firstname} ${artwork.lastname}`}
           />
           <figcaption>

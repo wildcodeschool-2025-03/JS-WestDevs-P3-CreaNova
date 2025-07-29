@@ -16,7 +16,7 @@ function ArtistPage() {
         <figure key={artist.id}>
           <Link to={`/artist/${artist.id}`}>
             <img
-              src={`${artist.image}`}
+              src={`http://localhost:3310/${artist.image}`}
               alt={`${artist.firstname} ${artist.lastname}`}
             />
             <figcaption>
