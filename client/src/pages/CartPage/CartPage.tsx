@@ -75,6 +75,7 @@ function CartPage() {
     <>
       <main className="cart-page-main">
         <h1>Votre panier({numberItem})</h1>
+        {cart.length === 0 && <h2>Votre panier est vide...</h2>}
         <section>
           {cart.map((artwork) => (
             <figure key={artwork.id}>
