@@ -66,16 +66,17 @@ function AddArtworkPage() {
             <select name="mainCategory" id="mainCategory">
               <option value="">Sélectionner une catégorie</option>
               <option value="peinture">Peinture</option>
-              <option value="sculpture">Sculpture</option>
+              <option value="Dessin">Dessin</option>
               <option value="photographie">Photographie</option>
             </select>
-
-            <label htmlFor="tag1"> Tag 1</label>
-            <input type="text" name="tag1" id="tag1" />
-            <label htmlFor="tag2"> Tag 2</label>
-            <input type="text" name="tag2" id="tag2" />
-            <label htmlFor="tag3"> Tag 3</label>
-            <input type="text" name="tag3" id="tag3" />
+            <div>
+              <label htmlFor="tag1"> Tag 1</label>
+              <input type="text" name="tag1" id="tag1" />
+              <label htmlFor="tag2"> Tag 2</label>
+              <input type="text" name="tag2" id="tag2" />
+              <label htmlFor="tag3"> Tag 3</label>
+              <input type="text" name="tag3" id="tag3" />
+            </div>
 
             <button type="submit">Ajouter</button>
           </form>

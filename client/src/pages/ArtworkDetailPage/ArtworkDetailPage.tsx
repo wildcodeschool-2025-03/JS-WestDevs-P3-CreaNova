@@ -35,6 +35,7 @@ function ArtworkDetailPage() {
             <figcaption>
               <div className="artwork-details">
                 <span>{artwork.title}</span>
+                <span className="tags">{artwork.tags}</span>
               </div>
               <span className="price">{artwork.price}€</span>
               <button
