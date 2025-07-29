@@ -21,7 +21,11 @@ function ArtistDetailsPage() {
   }));
 
   if (!artist || !artworks) {
-    return <h1>Il n'y a pas d'artiste</h1>;
+    return (
+      <main className="no-data">
+        <h1>Il n'y a pas d'artiste</h1>
+      </main>
+    );
   }
 
   return (
