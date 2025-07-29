@@ -1,12 +1,15 @@
 import { slide as Menu } from "react-burger-menu";
 import "./Header.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import { toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
+import { useLocation } from "react-router";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const { isLogged, setIsLogged, user } = useAuth();
   const handleLogout = () => {
     fetch("http://localhost:3310/api/logout", {
@@ -25,6 +28,11 @@ const Header = () => {
   const handleCloseMenu = () => {
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    dialogRef.current?.close();
+  }, [location]);
+
   return (
     <header>
       <Menu isOpen={isOpen} onOpen={handleOpenMenu} onClose={handleCloseMenu}>
@@ -144,7 +152,7 @@ const Header = () => {
               <img src="/img/contact.png" alt="contact" />
             </button>
           )}
-          <dialog popover="auto" id="contact-modal">
+          <dialog ref={dialogRef} popover="auto" id="contact-modal">
             <nav>
               <Link to="/user-form" id="contact_logo">
                 <img src="/img/contact.png" alt="contact" />
