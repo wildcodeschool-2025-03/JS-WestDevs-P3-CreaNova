@@ -3,11 +3,12 @@ import "./UserFormPage.css";
 import { Link } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
+import type { UserFormData } from "../../types/user";
 
 function UserFormPage() {
   const { user, isLogged } = useAuth();
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<UserFormData>({
     lastname: "",
     firstname: "",
     email: "",
@@ -52,17 +53,16 @@ function UserFormPage() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value, type, files } = e.target as HTMLInputElement;
+    const { name, type, files } = e.target as HTMLInputElement;
     if (type === "file" && files) {
+      if (files[0].size > 500 * 1024) {
+        toast.error("La photo doit faire 500ko !");
+      }
       setFormData((prevFormData) => ({
         ...prevFormData,
         [name]: files[0],
       }));
     }
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -141,6 +141,7 @@ function UserFormPage() {
               value={formData.email}
               onChange={handleChange}
             />
+
             <input
               type="file"
               name="image"
@@ -151,6 +152,14 @@ function UserFormPage() {
             <label htmlFor="user-image" className="file-label">
               Choisir une image
             </label>
+            <img
+              src={
+                formData.image instanceof File
+                  ? URL.createObjectURL(formData.image)
+                  : `http://localhost:3310/${formData.image}`
+              }
+              alt="Illustration"
+            />
 
             <label htmlFor="description">Description</label>
             <textarea
