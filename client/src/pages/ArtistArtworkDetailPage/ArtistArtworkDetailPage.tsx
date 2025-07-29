@@ -1,8 +1,8 @@
 import { Link, useNavigate, useParams } from "react-router";
 import "./ArtistArtworkDetailPage.css";
 import { useEffect, useRef, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
-import { toast, ToastContainer } from "react-toastify";
 
 function ArtistArtworkDetailPage() {
   const [artwork, setArtwork] = useState<Artwork>();
