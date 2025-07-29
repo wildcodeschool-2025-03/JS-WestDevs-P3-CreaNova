@@ -7,20 +7,28 @@ import { useAuth } from "../../hooks/useAuth";
 function LoginPage() {
   const { setIsLogged, setUser } = useAuth();
   const [second, setSecond] = useState(3);
+  const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
+  const toastId = "redirect-toast";
+
   useEffect(() => {
-    const countdown = setInterval(() => {
-      setSecond((sec) => {
-        toast.info(`Redirection dans ${second}`);
-        if (sec <= 1) {
-          clearInterval(countdown);
-          navigate("/");
-        }
-        return sec - 1;
-      });
-    }, 1000);
-    return () => clearInterval(countdown);
-  }, [navigate, second]);
+    if (redirect) {
+      toast.info(`Redirection dans ${second}`, { toastId, autoClose: false });
+      const countdown = setInterval(() => {
+        setSecond((sec) => {
+          if (sec <= 1) {
+            clearInterval(countdown);
+            toast.dismiss(toastId);
+            navigate("/");
+            return 0;
+          }
+          toast.update(toastId, { render: `Redirection dans ${sec - 1}` });
+          return sec - 1;
+        });
+      }, 1000);
+      return () => clearInterval(countdown);
+    }
+  }, [navigate, redirect, second]);
 
   const handleSubmit = (data: FormData) => {
     const values = Object.fromEntries(data);
@@ -44,7 +52,7 @@ function LoginPage() {
         toast.success("Vous êtes connecté");
         setIsLogged(true);
         setUser(data);
-        navigate("/");
+        setRedirect(true);
       });
   };
   return (
