@@ -93,7 +93,26 @@ const readArtworkUserById: RequestHandler = async (req, res, next) => {
 };
 const createArtwork: RequestHandler = async (req, res, next) => {
   try {
-    const createArtwork = await artworkRepository.createArtwork(req.body);
+    const { tags, mainCategory } = req.body;
+    const filteredTags = Array.from(
+      new Set(
+        (typeof tags === "string"
+          ? tags.split(",").map((tag) => tag.trim())
+          : []
+        ).filter(
+          (tag) =>
+            tag &&
+            (!mainCategory || tag.toLowerCase() !== mainCategory.toLowerCase()),
+        ),
+      ),
+    );
+
+    const artworkData = {
+      ...req.body,
+      tags: filteredTags,
+    };
+
+    const createArtwork = await artworkRepository.createArtwork(artworkData);
     if (createArtwork) {
       res.status(200).json("The work is added 🎊");
     } else {
