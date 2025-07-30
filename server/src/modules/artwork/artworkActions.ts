@@ -141,18 +141,23 @@ const edit: RequestHandler = async (req, res, next) => {
       res.status(404).json("Artwork not found");
       return;
     }
-    if (artwork[0].user_account_id !== req.body.user_account_id) {
+    if (artwork[0].user_account_id !== req.user?.id) {
       res
         .status(403)
         .json("Unauthorized: You are not the owner of this artwork");
       return;
     }
 
+    let image = req.body.image;
+    if (!image || image === "" || typeof image !== "string") {
+      image = artwork[0].image;
+    }
+
     const newArtwork = {
       id: Number(req.params.id),
       title: req.body.title,
       description: req.body.description,
-      image: req.body.image,
+      image,
       price: req.body.price,
     };
     const result = await artworkRepository.update(newArtwork);
