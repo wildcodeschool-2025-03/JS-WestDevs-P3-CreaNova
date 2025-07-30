@@ -62,7 +62,12 @@ router.delete(
   auth.authenticateUser,
   artworkActions.deleteArtwork,
 );
-router.post("/api/artworks", artworkActions.createArtwork);
+router.post(
+  "/api/artworks",
+  file.imageUpload,
+  file.appImage,
+  artworkActions.createArtwork,
+);
 
 router.get("/api/artist/:id", userActions.browseArtistArtworks);
 
