@@ -1,14 +1,15 @@
-import { Link, useParams } from "react-router";
-import "./AddArtworkPage.css";
-import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
+import { useState } from "react";
+import { Link, useParams } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
+import "./AddArtworkPage.css";
 
 function AddArtworkPage() {
   const { userId } = useParams();
   const { isLogged } = useAuth();
   const [file, setFile] = useState<File | undefined>();
+  const [previewImage, setPreviewImage] = useState<string>();
 
   const handleFile = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
@@ -17,9 +18,11 @@ function AddArtworkPage() {
         toast.error("La taille de l'image ne doit pas être supérieur à 500ko");
         e.target.value = "";
         setFile(undefined);
+        setPreviewImage(undefined);
         return;
       }
       setFile(selectedFile);
+      setPreviewImage(URL.createObjectURL(selectedFile));
     }
   };
 
@@ -84,6 +87,9 @@ function AddArtworkPage() {
               <section>
                 <p>Nom : {file.name}</p>
                 <p>Taille : {file.size} bytes</p>
+                {previewImage && (
+                  <img src={previewImage} alt="Prévisualisation" />
+                )}
               </section>
             )}
 

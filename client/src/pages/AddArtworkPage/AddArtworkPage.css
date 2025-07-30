@@ -38,7 +38,9 @@
         background: #388e3c;
       }
     }
-
+    section {
+      text-align: center;
+    }
     select {
       margin: 8px 5px 18px 5px;
       border-radius: 8px;
