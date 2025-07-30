@@ -10,7 +10,7 @@ function EditArtworkPage() {
   const { userId, artworkId } = useParams();
   const navigate = useNavigate();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
+  // const [file, setFile] = useState<File | undefined>();
   useEffect(() => {
     fetch(`http://localhost:3310/api/artist/${userId}/artworks/${artworkId}`)
       .then((res) => res.json())
@@ -96,8 +96,15 @@ function EditArtworkPage() {
             />
             <label htmlFor="price"> Tarif:</label>
             <input type="text" name="price" defaultValue={artwork.price} />
-            <label htmlFor="image"> Image URL:</label>
-            <input type="text" name="image" defaultValue={artwork.image} />
+            <input
+              type="file"
+              name="image"
+              id="artwork-image"
+              accept="image/png, image/jpeg, image/jpg"
+            />
+            <label htmlFor="artwork-image" className="file-label">
+              Choisir une image
+            </label>
             <button type="submit">Modifier</button>
           </form>
         </section>
