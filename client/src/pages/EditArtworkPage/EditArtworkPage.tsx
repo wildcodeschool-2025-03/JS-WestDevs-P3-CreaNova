@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { useEffect, useRef, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
 import "./EditArtworkPage.css";
@@ -7,8 +7,9 @@ import "./EditArtworkPage.css";
 function EditArtworkPage() {
   const [artwork, setArtwork] = useState<Artwork>();
   const { isLogged } = useAuth();
-
   const { userId, artworkId } = useParams();
+  const navigate = useNavigate();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     fetch(`http://localhost:3310/api/artist/${userId}/artworks/${artworkId}`)
@@ -33,6 +34,18 @@ function EditArtworkPage() {
       .then((res) => res.json())
       .then(() => {
         toast.success("Oeuvre modifiée !");
+        timeoutRef.current = setTimeout(() => {
+          navigate(`/collection/${userId}`);
+        }, 2000);
+
+        useEffect(() => {
+          return () => {
+            if (timeoutRef.current) {
+              clearTimeout(timeoutRef.current);
+            }
+          };
+        }, []);
+
         fetch(
           `http://localhost:3310/api/artist/${userId}/artworks/${artworkId}`,
           {

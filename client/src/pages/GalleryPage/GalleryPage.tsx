@@ -76,7 +76,10 @@ function GalleryPage() {
             </button>
 
             <Link to={`/artwork/${artwork.id}`}>
-              <img src={artwork.image} alt={artwork.title} />
+              <img
+                src={`http://localhost:3310/${artwork.image}`}
+                alt={artwork.title}
+              />
             </Link>
 
             <figcaption>
