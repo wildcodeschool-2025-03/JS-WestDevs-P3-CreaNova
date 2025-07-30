@@ -66,7 +66,11 @@ function EventsSection() {
                 />
               </td>
               <td>
-                <button type="button" onClick={() => openModal(event)}>
+                <button
+                  type="button"
+                  className="not-delete-cancel-button"
+                  onClick={() => openModal(event)}
+                >
                   Editer
                 </button>
               </td>
@@ -85,7 +89,9 @@ function EventsSection() {
             <textarea name="text" defaultValue={selectedEvent.text} />
             <label htmlFor="date">Date:</label>
             <input name="date" defaultValue={selectedEvent.date} />
-            <button type="submit">Enregistrer</button>
+            <button type="submit" className="not-delete-cancel-button">
+              Enregistrer
+            </button>
             <button type="button" onClick={() => setModalOpen(false)}>
               Annuler
             </button>

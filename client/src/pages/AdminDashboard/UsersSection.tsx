@@ -7,6 +7,9 @@ interface Users {
 }
 function UsersSection() {
   const [users, setUsers] = useState<Users[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [search, setSearch] = useState("");
+  const usersPerPage = 10;
 
   useEffect(() => {
     fetch("http://localhost:3310/api/admin/users", {
@@ -36,8 +39,38 @@ function UsersSection() {
   if (!users) {
     return <h1>non</h1>;
   }
+
+  const filteredUsers = users.filter((user) => {
+    const query = search.toLowerCase();
+    return (
+      user.firstname.toLowerCase().includes(query) ||
+      user.lastname.toLowerCase().includes(query) ||
+      user.email.toLowerCase().includes(query)
+    );
+  });
+
+  const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
+  const startIdx = (currentPage - 1) * usersPerPage;
+  const paginatedUsers = filteredUsers.slice(startIdx, startIdx + usersPerPage);
+
+  const handlePrev = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 1));
+  };
+  const handleNext = () => {
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  };
+
   return (
     <section>
+      <input
+        type="text"
+        placeholder="Rechercher par prénom, nom ou email..."
+        value={search}
+        onChange={(e) => {
+          setSearch(e.target.value);
+          setCurrentPage(1);
+        }}
+      />
       <table>
         <thead>
           <tr>
@@ -48,7 +81,7 @@ function UsersSection() {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {paginatedUsers.map((user) => (
             <tr key={user.id}>
               <td>{user.firstname}</td>
               <td>{user.lastname}</td>
@@ -62,6 +95,27 @@ function UsersSection() {
           ))}
         </tbody>
       </table>
+      <div>
+        <button
+          type="button"
+          className="not-delete-cancel-button"
+          onClick={handlePrev}
+          disabled={currentPage === 1}
+        >
+          Précédent
+        </button>
+        <span>
+          Page {currentPage} / {totalPages}
+        </span>
+        <button
+          type="button"
+          className="not-delete-cancel-button"
+          onClick={handleNext}
+          disabled={currentPage === totalPages}
+        >
+          Suivant
+        </button>
+      </div>
     </section>
   );
 }

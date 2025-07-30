@@ -20,6 +20,8 @@
   --color-border: #bbbbbb;
   --text-color: #202020;
   --button-reg-log: #2d4a5c;
+  --red-button: rgb(179, 26, 26);
+  --red-button-hover: rgb(122, 0, 0);
 }
 
 /* Dark mode */
