@@ -40,7 +40,10 @@ function Carousel({ title, category }: CarouselProps) {
               <Link
                 to={`/gallery/${category}?search=${encodeURIComponent(el.sub_category_name)}`}
               >
-                <img src={el.image} alt={el.sub_category_name} />
+                <img
+                  src={`http://localhost:3310/${el.image}`}
+                  alt={el.sub_category_name}
+                />
                 <figcaption>{el.sub_category_name}</figcaption>
               </Link>
             </li>
