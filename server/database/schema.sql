@@ -17,17 +17,17 @@ confidentiality BOOLEAN NOT NULL DEFAULT TRUE
 );
 INSERT INTO user_account (firstname, lastname, email, password, street, city, zip_code, country, image, description, is_artist, is_admin, confidentiality)
 VALUES 
-("Abolfazl", "Eslami", "abolfazl@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "10 rue des Arts", "Paris", "75001", "France", "/abolfazl-eslami.webp", "Artiste peintre contemporain, Abolfazl Eslami explore les émotions humaines à travers des toiles vibrantes et colorées. Son travail, influencé par la dualité des tons chauds et froids, invite le spectateur à une réflexion profonde sur la condition humaine et la beauté de l'instant présent. Passionné par l'expérimentation, il mêle techniques traditionnelles et approches modernes pour créer des œuvres uniques et expressives.
+("Abolfazl", "Eslami", "abolfazl@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "10 rue des Arts", "Paris", "75001", "France", "abolfazl-eslami.webp", "Artiste peintre contemporain, Abolfazl Eslami explore les émotions humaines à travers des toiles vibrantes et colorées. Son travail, influencé par la dualité des tons chauds et froids, invite le spectateur à une réflexion profonde sur la condition humaine et la beauté de l'instant présent. Passionné par l'expérimentation, il mêle techniques traditionnelles et approches modernes pour créer des œuvres uniques et expressives.
 ", TRUE, FALSE, TRUE),
-("Charles", "Chen", "charles@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "22 avenue du Louvre", "Lyon", "69000", "France", "/charles-chen.webp", "Photographe passionné, Charles Chen capture la poésie du quotidien à travers son objectif. Il aime jouer avec la lumière et les contrastes pour révéler la beauté cachée des scènes urbaines et naturelles. Son regard sensible et sa maîtrise technique lui permettent de transmettre des émotions fortes, faisant de chaque cliché une invitation au voyage et à la contemplation.
+("Charles", "Chen", "charles@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "22 avenue du Louvre", "Lyon", "69000", "France", "charles-chen.webp", "Photographe passionné, Charles Chen capture la poésie du quotidien à travers son objectif. Il aime jouer avec la lumière et les contrastes pour révéler la beauté cachée des scènes urbaines et naturelles. Son regard sensible et sa maîtrise technique lui permettent de transmettre des émotions fortes, faisant de chaque cliché une invitation au voyage et à la contemplation.
 ", TRUE, FALSE, TRUE),
-("Georges", "Wells", "georges@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "5 place Bellecour", "Lille", "59000", "France", "/georges-wells.webp", "Peintre dans l'âme, Georges Wells s'inspire de ses rêveries et de ses réflexions sur le monde pour créer des œuvres empreintes de douceur et de profondeur. Son univers artistique, à la fois onirique et réaliste, explore les thèmes de la solitude, de la pensée et de l'introspection. Il cherche à toucher le spectateur en dévoilant la richesse de l'intériorité humaine à travers des portraits et des scènes évocatrices.
+("Georges", "Wells", "georges@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "5 place Bellecour", "Lille", "59000", "France", "georges-wells.webp", "Peintre dans l'âme, Georges Wells s'inspire de ses rêveries et de ses réflexions sur le monde pour créer des œuvres empreintes de douceur et de profondeur. Son univers artistique, à la fois onirique et réaliste, explore les thèmes de la solitude, de la pensée et de l'introspection. Il cherche à toucher le spectateur en dévoilant la richesse de l'intériorité humaine à travers des portraits et des scènes évocatrices.
 ", TRUE, FALSE, TRUE),
-("Jakob", "Owens", "jakob@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "8 rue des Bouquinistes", "Marseille", "13000", "France", "/jakob-owens.webp", "Photographe totalement impressionnant, Jakob Owens immortalise des instants de vie avec une sensibilité rare. Ses photographies, souvent prises lors de voyages ou de balades en pleine nature, témoignent de son amour pour les paysages grandioses et les ambiances lumineuses. Il excelle dans l'art de saisir la magie d'un moment fugace, offrant ainsi des images puissantes et inspirantes.
+("Jakob", "Owens", "jakob@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "8 rue des Bouquinistes", "Marseille", "13000", "France", "jakob-owens.webp", "Photographe totalement impressionnant, Jakob Owens immortalise des instants de vie avec une sensibilité rare. Ses photographies, souvent prises lors de voyages ou de balades en pleine nature, témoignent de son amour pour les paysages grandioses et les ambiances lumineuses. Il excelle dans l'art de saisir la magie d'un moment fugace, offrant ainsi des images puissantes et inspirantes.
 ", TRUE, FALSE, TRUE),
-("Mahdi", "Mad", "mahdi@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "12 chemin des Dunes", "Nantes", "44000", "France", "/mad-mahdi.webp", "Photographe hors pair, Mahdi Mad se distingue par son approche artistique audacieuse et sa recherche constante de nouveaux points de vue. Il aime explorer les contrastes, jouer avec les ombres et la lumière pour créer des compositions originales et percutantes. Son travail, à la fois technique et émotionnel, invite à porter un regard neuf sur le monde qui nous entoure.
+("Mahdi", "Mad", "mahdi@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "12 chemin des Dunes", "Nantes", "44000", "France", "mad-mahdi.webp", "Photographe hors pair, Mahdi Mad se distingue par son approche artistique audacieuse et sa recherche constante de nouveaux points de vue. Il aime explorer les contrastes, jouer avec les ombres et la lumière pour créer des compositions originales et percutantes. Son travail, à la fois technique et émotionnel, invite à porter un regard neuf sur le monde qui nous entoure.
 ", TRUE, FALSE, TRUE),
-("Sema", "Martin", "sema@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "7 allée des Cyprès", "Toulouse", "31000", "France", "/sema-martin.webp", "Dessin = ma passion. Sema Martin est une artiste dont le trait délicat et précis donne vie à des univers empreints de poésie. Inspirée par la nature et les émotions humaines, elle réalise des dessins qui racontent des histoires et suscitent l'imaginaire. Son style, à la fois doux et expressif, séduit par sa capacité à transmettre des sentiments profonds à travers la simplicité du crayon.
+("Sema", "Martin", "sema@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "7 allée des Cyprès", "Toulouse", "31000", "France", "sema-martin.webp", "Dessin = ma passion. Sema Martin est une artiste dont le trait délicat et précis donne vie à des univers empreints de poésie. Inspirée par la nature et les émotions humaines, elle réalise des dessins qui racontent des histoires et suscitent l'imaginaire. Son style, à la fois doux et expressif, séduit par sa capacité à transmettre des sentiments profonds à travers la simplicité du crayon.
 ", TRUE, FALSE, TRUE),
 ("Gisèle", "Thomas", "gisele@example.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "3 impasse des Érables", "Bordeaux", "33000", "France", NULL, NULL, FALSE, FALSE, TRUE),
 ("Admin", "User", "admin@creanova.com", "$argon2i$v=19$m=16,t=2,p=1$WlExTEVQNFpnSDFnbWFDSQ$H7cDIOY5G3T+cd/tQFYt+w", "1 rue de l'Admin", "Paris", "75000", "France", NULL, NULL, FALSE, TRUE, TRUE);
@@ -48,25 +48,25 @@ FOREIGN KEY (user_account_id) REFERENCES user_account(id) ON DELETE CASCADE
 );
 INSERT INTO artwork (title, description, price, image, is_validated, sold, user_account_id)
 VALUES 
-("Amour pluvieux", "Huile sur toile aux tons chauds/froids.", 250.00, "/illustrated-watercolor.webp", TRUE, FALSE, 1),
-("Soleil Sombre", "Les deux grands masques de l'humanité.", 180.00, "/abstract-painting.webp", TRUE, FALSE, 1),
-("Rainbow abstrait", "Composition sablée pure.", 210.00, "/abstract-rainbow.webp", TRUE, FALSE, 1),
-("Silence lourd", "Melancolie.", 150.00, "/pexels-jc.webp", TRUE, FALSE, 2),
-("Visage fleurie", "Photo prise de nuit à Paris.", 230.00, "/pexels-cihan.webp", TRUE, FALSE, 2),
-("Naissance", "Naissance nature.", 190.00, "/pexels-caiquethecreator.webp", TRUE, FALSE, 2),
-("Rêverie", "Personnage plongé dans ses pensées.", 170.00, "/240_F_1.webp", TRUE, FALSE, 3),
-("Pensive", "Personnage plongé dans l'abîme du sort de ce monde.", 140.00, "/240_F_12.webp", TRUE, FALSE, 3),
-("Ensoleillé", "Plongée dans des tonalités sombres et contrastées, L'Éclipse Intérieure explore le tumulte de l'âme face à ses propres zones d'ombre. Entre abstraction et figuration, cette œuvre invite à un voyage introspectif, où la lumière peine à percer un voile dense de matières texturées. Le cercle central, obscurci comme une lune cachée, symbolise le cœur de l'émotion humaine, partiellement voilé mais toujours vibrant. Une peinture qui questionne l'équilibre fragile entre clarté et obscurité, entre surface et profondeur.", 195.00, "/240_F2.webp", TRUE, FALSE, 3),
-("Perte de vue", "Immortalisation avec couché de soleil.", 260.00, "/pexels-christian.webp", TRUE, FALSE, 4),
-("Nature débordante", "Quand l'Homme est entouré de nature.", 300.00, "/pexels-freestockpro.webp", TRUE, FALSE, 4),
-("Silence bleu", "Solitude sublime.", 240.00, "/pexels-pixabay.webp", TRUE, FALSE, 4),
-("Contraste", "Jeu d'ombres et de lumière.", 160.00, "/pexels-souvenirpixels.webp", TRUE, FALSE, 5),
-("Éclosion", "Plaine.", 220.00, "/pexels-akos.webp", TRUE, FALSE, 5),
-("Naissance", "Capture Népalaise.", 180.00, "/img_5.webp", TRUE, FALSE, 5),
-("Brume du matin", "Hymne à la vie.", 210.00, "/claudio-schwarz.webp", TRUE, FALSE, 6),
-("Famille doré", "Rencontre pure.", 200.00, "/boston-public.webp", TRUE, FALSE, 6),
-("Portrait lumineux", "Sérénité de la nature.", 250.00, "/jakub-durian.webp", TRUE, FALSE, 6),
-("Oeil envoutant", "Regard profond.", 200.00, "/eyesdraw.webp", TRUE, FALSE, 6);
+("Amour pluvieux", "Huile sur toile aux tons chauds/froids.", 250.00, "illustrated-watercolor.webp", TRUE, FALSE, 1),
+("Soleil Sombre", "Les deux grands masques de l'humanité.", 180.00, "abstract-painting.webp", TRUE, FALSE, 1),
+("Rainbow abstrait", "Composition sablée pure.", 210.00, "abstract-rainbow.webp", TRUE, FALSE, 1),
+("Silence lourd", "Melancolie.", 150.00, "pexels-jc.webp", TRUE, FALSE, 2),
+("Visage fleurie", "Photo prise de nuit à Paris.", 230.00, "pexels-cihan.webp", TRUE, FALSE, 2),
+("Naissance", "Naissance nature.", 190.00, "pexels-caiquethecreator.webp", TRUE, FALSE, 2),
+("Rêverie", "Personnage plongé dans ses pensées.", 170.00, "240_F_1.webp", TRUE, FALSE, 3),
+("Pensive", "Personnage plongé dans l'abîme du sort de ce monde.", 140.00, "240_F_12.webp", TRUE, FALSE, 3),
+("Ensoleillé", "Plongée dans des tonalités sombres et contrastées, L'Éclipse Intérieure explore le tumulte de l'âme face à ses propres zones d'ombre. Entre abstraction et figuration, cette œuvre invite à un voyage introspectif, où la lumière peine à percer un voile dense de matières texturées. Le cercle central, obscurci comme une lune cachée, symbolise le cœur de l'émotion humaine, partiellement voilé mais toujours vibrant. Une peinture qui questionne l'équilibre fragile entre clarté et obscurité, entre surface et profondeur.", 195.00, "240_F2.webp", TRUE, FALSE, 3),
+("Perte de vue", "Immortalisation avec couché de soleil.", 260.00, "pexels-christian.webp", TRUE, FALSE, 4),
+("Nature débordante", "Quand l'Homme est entouré de nature.", 300.00, "pexels-freestockpro.webp", TRUE, FALSE, 4),
+("Silence bleu", "Solitude sublime.", 240.00, "pexels-pixabay.webp", TRUE, FALSE, 4),
+("Contraste", "Jeu d'ombres et de lumière.", 160.00, "pexels-souvenirpixels.webp", TRUE, FALSE, 5),
+("Éclosion", "Plaine.", 220.00, "pexels-akos.webp", TRUE, FALSE, 5),
+("Naissance", "Capture Népalaise.", 180.00, "img_5.webp", TRUE, FALSE, 5),
+("Brume du matin", "Hymne à la vie.", 210.00, "claudio-schwarz.webp", TRUE, FALSE, 6),
+("Famille doré", "Rencontre pure.", 200.00, "boston-public.webp", TRUE, FALSE, 6),
+("Portrait lumineux", "Sérénité de la nature.", 250.00, "jakub-durian.webp", TRUE, FALSE, 6),
+("Oeil envoutant", "Regard profond.", 200.00, "eyesdraw.webp", TRUE, FALSE, 6);
 
 
 CREATE TABLE category (
