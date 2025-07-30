@@ -56,7 +56,7 @@ function UserFormPage() {
     const { name, type, files } = e.target as HTMLInputElement;
     if (type === "file" && files) {
       if (files[0].size > 500 * 1024) {
-        toast.error("La photo doit faire 500ko !");
+        toast.error("La taille de l'image ne doit pas être supérieur à 500ko");
       }
       setFormData((prevFormData) => ({
         ...prevFormData,
