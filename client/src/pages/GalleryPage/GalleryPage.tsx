@@ -20,6 +20,16 @@ function GalleryPage() {
       });
   }, [categoryName]);
 
+  const { search } = location;
+
+  useEffect(() => {
+    const params = new URLSearchParams(search);
+    const query = params.get("search");
+    if (query) {
+      setSearchTerm(query);
+    }
+  }, [search]);
+
   const filteredArtwork = artwork.filter(
     (artwork) =>
       artwork.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

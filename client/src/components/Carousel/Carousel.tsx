@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./Carousel.css";
+import { Link } from "react-router";
 
 function Carousel({ title, category }: CarouselProps) {
   const carouselRef = useRef<HTMLUListElement | null>(null);
@@ -36,8 +37,12 @@ function Carousel({ title, category }: CarouselProps) {
         <ul className="carousel" ref={carouselRef}>
           {carousel.map((el) => (
             <li key={el.id}>
-              <img src={el.image} alt={el.sub_category_name} />
-              <figcaption>{el.sub_category_name}</figcaption>
+              <Link
+                to={`/gallery/${category}?search=${encodeURIComponent(el.sub_category_name)}`}
+              >
+                <img src={el.image} alt={el.sub_category_name} />
+                <figcaption>{el.sub_category_name}</figcaption>
+              </Link>
             </li>
           ))}
         </ul>
