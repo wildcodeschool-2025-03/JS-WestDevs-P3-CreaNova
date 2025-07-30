@@ -18,3 +18,15 @@ export interface Auth {
   isLoading: boolean;
   setIsLoading: (value: boolean) => void;
 }
+
+export interface UserFormData {
+  lastname: string;
+  firstname: string;
+  email: string;
+  street: string;
+  city: string;
+  zip_code: string;
+  country: string;
+  image: File | string;
+  description: string;
+}

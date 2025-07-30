@@ -3,11 +3,12 @@ import "./UserFormPage.css";
 import { Link } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
+import type { UserFormData } from "../../types/user";
 
 function UserFormPage() {
   const { user, isLogged } = useAuth();
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<UserFormData>({
     lastname: "",
     firstname: "",
     email: "",
@@ -52,23 +53,29 @@ function UserFormPage() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
+    const { name, type, files } = e.target as HTMLInputElement;
+    if (type === "file" && files) {
+      if (files[0].size > 500 * 1024) {
+        toast.error("La taille de l'image ne doit pas être supérieur à 500ko");
+      }
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: files[0],
+      }));
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!user) return;
+    const data = new FormData();
+    for (const [key, value] of Object.entries(formData)) {
+      if (value !== "") data.append(key, value as string);
+    }
     fetch(`http://localhost:3310/api/user/${user.id}`, {
       method: "PUT",
       credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+      body: data,
     })
       .then((response) => {
         if (response.ok) {
@@ -134,14 +141,26 @@ function UserFormPage() {
               value={formData.email}
               onChange={handleChange}
             />
-            <label htmlFor="image">Image url</label>
+
             <input
-              type="text"
-              placeholder="ex: jean.dupont@example.com"
+              type="file"
               name="image"
-              value={formData.image}
+              accept="image/png, image/jpg, image/jpeg"
+              id="user-image"
               onChange={handleChange}
             />
+            <label htmlFor="user-image" className="file-label">
+              Choisir une image
+            </label>
+            <img
+              src={
+                formData.image instanceof File
+                  ? URL.createObjectURL(formData.image)
+                  : `http://localhost:3310/${formData.image}`
+              }
+              alt="Illustration"
+            />
+
             <label htmlFor="description">Description</label>
             <textarea
               rows={5}
