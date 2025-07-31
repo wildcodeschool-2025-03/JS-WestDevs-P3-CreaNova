@@ -47,7 +47,13 @@ router.get(
 );
 router.get("/api/artwork/:id", artworkActions.readArtworkById);
 router.get("/api/artwork/:id/artist", artworkActions.readArtworkWithArtistById);
-router.put("/api/artwork/:id", auth.authenticateUser, artworkActions.edit);
+router.put(
+  "/api/artwork/:id",
+  auth.authenticateUser,
+  file.imageUpload,
+  file.appImage,
+  artworkActions.edit,
+);
 router.get(
   "/api/artist/:id/artworks",
   auth.authenticateUser,

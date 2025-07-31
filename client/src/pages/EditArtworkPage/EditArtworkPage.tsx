@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { type ChangeEvent, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import { useAuth } from "../../hooks/useAuth";
@@ -10,6 +10,8 @@ function EditArtworkPage() {
   const { userId, artworkId } = useParams();
   const navigate = useNavigate();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [file, setFile] = useState<File | undefined>();
+  const [previewImage, setPreviewImage] = useState<string>();
 
   useEffect(() => {
     fetch(`http://localhost:3310/api/artist/${userId}/artworks/${artworkId}`)
@@ -19,17 +21,44 @@ function EditArtworkPage() {
       });
   }, [userId, artworkId]);
 
+  const handleFile = (e: ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0];
+    if (selectedFile) {
+      if (selectedFile.size > 500 * 1024) {
+        toast.error("La taille de l'image ne doit pas être supérieur à 500ko");
+        e.target.value = "";
+        setFile(undefined);
+        setPreviewImage(undefined);
+        return;
+      }
+      setFile(selectedFile);
+      setPreviewImage(URL.createObjectURL(selectedFile));
+    }
+  };
+
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const formObject = Object.fromEntries(formData.entries());
+    const formData = new FormData();
+    const target = e.currentTarget as HTMLFormElement;
+    formData.append(
+      "title",
+      (target.elements.namedItem("title") as HTMLInputElement).value,
+    );
+    formData.append(
+      "description",
+      (target.elements.namedItem("description") as HTMLTextAreaElement).value,
+    );
+    formData.append(
+      "price",
+      (target.elements.namedItem("price") as HTMLInputElement).value,
+    );
+    if (file) {
+      formData.append("image", file);
+    }
     fetch(`http://localhost:3310/api/artwork/${artworkId}`, {
       credentials: "include",
       method: "put",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formObject),
+      body: formData,
     })
       .then((res) => res.json())
       .then(() => {
@@ -37,14 +66,6 @@ function EditArtworkPage() {
         timeoutRef.current = setTimeout(() => {
           navigate(`/collection/${userId}`);
         }, 2000);
-
-        useEffect(() => {
-          return () => {
-            if (timeoutRef.current) {
-              clearTimeout(timeoutRef.current);
-            }
-          };
-        }, []);
 
         fetch(
           `http://localhost:3310/api/artist/${userId}/artworks/${artworkId}`,
@@ -58,6 +79,14 @@ function EditArtworkPage() {
           });
       });
   };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   if (!artwork) {
     return (
@@ -96,8 +125,33 @@ function EditArtworkPage() {
             />
             <label htmlFor="price"> Tarif:</label>
             <input type="text" name="price" defaultValue={artwork.price} />
-            <label htmlFor="image"> Image URL:</label>
-            <input type="text" name="image" defaultValue={artwork.image} />
+            <input
+              type="file"
+              name="image"
+              id="artwork-image"
+              accept="image/png, image/jpeg, image/jpg"
+              onChange={handleFile}
+            />
+            <label htmlFor="artwork-image" className="file-label">
+              Choisir une image
+            </label>
+            {file ? (
+              <section>
+                <p>Nom : {file.name}</p>
+                <p>Taille : {file.size} bytes</p>
+                <img src={previewImage} alt="Prévisualisation" />
+              </section>
+            ) : (
+              artwork?.image && (
+                <section>
+                  <p>Image actuelle :</p>
+                  <img
+                    src={`http://localhost:3310/${artwork.image}`}
+                    alt="Prévisualition fichier actuel"
+                  />
+                </section>
+              )
+            )}
             <button type="submit">Modifier</button>
           </form>
         </section>
