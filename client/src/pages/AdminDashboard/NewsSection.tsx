@@ -61,7 +61,11 @@ function NewsSection() {
                 )}
               </td>
               <td>
-                <button type="button" onClick={() => openModal(n)}>
+                <button
+                  type="button"
+                  className="not-delete-cancel-button"
+                  onClick={() => openModal(n)}
+                >
                   Editer
                 </button>
               </td>
@@ -78,7 +82,9 @@ function NewsSection() {
             <input name="image" defaultValue={selectedNews.image} />
             <label htmlFor="text">Description:</label>
             <textarea name="text" defaultValue={selectedNews.text} />
-            <button type="submit">Enregistrer</button>
+            <button type="submit" className="not-delete-cancel-button">
+              Enregistrer
+            </button>
             <button type="button" onClick={() => setModalOpen(false)}>
               Annuler
             </button>

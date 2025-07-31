@@ -8,6 +8,9 @@ interface Artwork {
 }
 function ArtworksSection() {
   const [artworks, setArtworks] = useState<Artwork[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [search, setSearch] = useState("");
+  const artworksPerPage = 10;
 
   useEffect(() => {
     fetch("http://localhost:3310/api/admin/artworks", {
@@ -36,9 +39,38 @@ function ArtworksSection() {
   if (!artworks) {
     return <h1>problem</h1>;
   }
+
+  const filteredArtworks = artworks.filter((artwork) =>
+    artwork.title.toLowerCase().includes(search.toLowerCase()),
+  );
+
+  const totalPages = Math.ceil(filteredArtworks.length / artworksPerPage);
+  const startIdx = (currentPage - 1) * artworksPerPage;
+  const paginatedArtworks = filteredArtworks.slice(
+    startIdx,
+    startIdx + artworksPerPage,
+  );
+
+  const handlePrev = () => {
+    setCurrentPage((page) => Math.max(page - 1, 1));
+  };
+  const handleNext = () => {
+    setCurrentPage((page) => Math.min(page + 1, totalPages));
+  };
+
   return (
     <section className="admin-dashboard-artwork-section">
       <h2>Oeuvre</h2>
+      <input
+        type="text"
+        placeholder="Rechercher par titre..."
+        className="input-search"
+        value={search}
+        onChange={(e) => {
+          setSearch(e.target.value);
+          setCurrentPage(1);
+        }}
+      />
       <table>
         <thead>
           <tr>
@@ -50,7 +82,7 @@ function ArtworksSection() {
           </tr>
         </thead>
         <tbody>
-          {artworks.map((artwork) => (
+          {paginatedArtworks.map((artwork) => (
             <tr key={artwork.id}>
               <td>{artwork.title}</td>
               <td>
@@ -70,6 +102,27 @@ function ArtworksSection() {
           ))}
         </tbody>
       </table>
+      <div>
+        <button
+          type="button"
+          className="not-delete-cancel-button"
+          onClick={handlePrev}
+          disabled={currentPage === 1}
+        >
+          Précédent
+        </button>
+        <span>
+          Page {currentPage} / {totalPages}
+        </span>
+        <button
+          type="button"
+          onClick={handleNext}
+          className="not-delete-cancel-button"
+          disabled={currentPage === totalPages}
+        >
+          Suivant
+        </button>
+      </div>
     </section>
   );
 }
