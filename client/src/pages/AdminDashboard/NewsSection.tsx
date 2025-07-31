@@ -1,10 +1,23 @@
-import { useEffect, useState } from "react";
+import { type ChangeEvent, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 function NewsSection() {
   const [news, setNews] = useState<New[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedNews, setSelectedNews] = useState<New | null>(null);
-
+  const [file, setFile] = useState<File | undefined>();
+  const handleFile = (e: ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0];
+    if (selectedFile) {
+      if (selectedFile.size > 500 * 1024) {
+        toast.error("La taille de l'image ne doit pas être supérieur à 500ko");
+        e.target.value = "";
+        setFile(undefined);
+        return;
+      }
+      setFile(selectedFile);
+    }
+  };
   useEffect(() => {
     fetch("http://localhost:3310/api/admin/news", {
       credentials: "include",
@@ -23,14 +36,12 @@ function NewsSection() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const formObject = Object.fromEntries(formData);
+
     fetch(`http://localhost:3310/api/admin/new/${selectedNews?.id}`, {
       method: "PUT",
       credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formObject),
+
+      body: formData,
     });
     setModalOpen(false);
   };
@@ -79,7 +90,13 @@ function NewsSection() {
             <label htmlFor="title">Titre:</label>
             <input name="title" defaultValue={selectedNews.title} />
             <label htmlFor="image">Image:</label>
-            <input name="image" defaultValue={selectedNews.image} />
+            <input name="image" type="file" onChange={handleFile} />
+            {file && (
+              <>
+                <p> Nom : {file.name}</p>
+                <p>Taille : {file.size} bytes</p>
+              </>
+            )}
             <label htmlFor="text">Description:</label>
             <textarea name="text" defaultValue={selectedNews.text} />
             <button type="submit" className="not-delete-cancel-button">

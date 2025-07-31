@@ -145,6 +145,8 @@ router.put(
   "/api/admin/event/:id",
   auth.authenticateUser,
   admin.adminAuth,
+  file.imageUpload,
+  file.appImage,
   adminActions.editEvent,
 );
 router.get(
@@ -157,6 +159,8 @@ router.put(
   "/api/admin/new/:id",
   auth.authenticateUser,
   admin.adminAuth,
+  file.imageUpload,
+  file.appImage,
   adminActions.editNews,
 );
 export default router;
