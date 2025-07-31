@@ -10,4 +10,5 @@ interface Artwork {
   artist_image: string;
   user_account_id: number;
   tags: string;
+  sold?: boolean;
 }

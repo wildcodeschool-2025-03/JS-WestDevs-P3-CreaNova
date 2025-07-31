@@ -54,7 +54,10 @@ function CollectionPage() {
         <figure key={item.id}>
           <Link to={`/artist/${id}/artwork/${item.id}`}>
             <img src={`http://localhost:3310/${item.image}`} alt={item.title} />
-            <figcaption>{item.title}</figcaption>
+            <figcaption>
+              {item.title}
+              {item.sold ? <span>Vendu</span> : ""}
+            </figcaption>
           </Link>
         </figure>
       ))}

@@ -110,6 +110,9 @@
       display: block;
     }
   }
+  .is-sold {
+    justify-self: end;
+  }
 }
 
 /*DESKTOP*/

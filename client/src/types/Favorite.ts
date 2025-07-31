@@ -6,4 +6,5 @@ interface Favorite {
   firstname: string;
   lastname: string;
   artwork_id: number;
+  sold: boolean;
 }
