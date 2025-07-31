@@ -119,7 +119,9 @@
       display: block;
     }
   }
-
+  .is-sold {
+    justify-self: end;
+  }
   h2 {
     text-align: center;
     font-size: 2rem;

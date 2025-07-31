@@ -22,6 +22,7 @@ class ArtworkRepository {
       a.image,
       a.title,
       a.price,
+      a.sold,
       CONCAT(ua.firstname, ' ', ua.lastname) AS artist_name,
       GROUP_CONCAT(DISTINCT CASE WHEN c.name <> ? THEN c.name END SEPARATOR ' - ') AS tags
    FROM artwork AS a

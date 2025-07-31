@@ -55,13 +55,17 @@ function FavoritePage() {
                 </p>
               </div>
               <span className="price">{item.price}€</span>
-              <button
-                className="add-to-cart"
-                type="button"
-                aria-label="Ajouter au panier"
-              >
-                <img src="/img/shopping-cart-white-icon.png" alt="shop" />
-              </button>
+              {item.sold ? (
+                <span className="is-sold">Vendu</span>
+              ) : (
+                <button
+                  className="add-to-cart"
+                  type="button"
+                  aria-label="Ajouter au panier"
+                >
+                  <img src="/img/shopping-cart-white-icon.png" alt="" />
+                </button>
+              )}
             </figcaption>
           </figure>
         ))}

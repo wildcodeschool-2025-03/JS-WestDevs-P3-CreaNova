@@ -41,13 +41,17 @@ function ArtworkDetailPage() {
                 <span className="tags">{artwork.tags}</span>
               </div>
               <span className="price">{artwork.price}€</span>
-              <button
-                className="add-to-cart"
-                type="button"
-                aria-label="Ajouter au panier"
-              >
-                <img src="/img/shopping-cart-white-icon.png" alt="" />
-              </button>
+              {artwork.sold ? (
+                <span className="is-sold">Vendu</span>
+              ) : (
+                <button
+                  className="add-to-cart"
+                  type="button"
+                  aria-label="Ajouter au panier"
+                >
+                  <img src="/img/shopping-cart-white-icon.png" alt="" />
+                </button>
+              )}
             </figcaption>
           </Link>
         </figure>
