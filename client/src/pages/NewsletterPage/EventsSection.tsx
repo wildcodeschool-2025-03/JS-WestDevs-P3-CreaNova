@@ -18,6 +18,7 @@ function EventsSection() {
         <section key={event.id}>
           <article>
             <h3>{event.title}</h3>
+            <p>{event.date}</p>
             <p>{event.text}</p>
           </article>
 
