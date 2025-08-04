@@ -37,10 +37,15 @@ function NewsSection() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
 
+    if (!file && selectedNews?.image) {
+      formData.set("image", selectedNews.image);
+    } else if (file) {
+      formData.set("image", file);
+    }
+
     fetch(`http://localhost:3310/api/admin/new/${selectedNews?.id}`, {
       method: "PUT",
       credentials: "include",
-
       body: formData,
     });
     setModalOpen(false);
