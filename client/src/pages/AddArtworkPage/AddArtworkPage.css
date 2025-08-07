@@ -40,6 +40,9 @@
     }
     section {
       text-align: center;
+      img {
+        width: 200px;
+      }
     }
     select {
       margin: 8px 5px 18px 5px;
