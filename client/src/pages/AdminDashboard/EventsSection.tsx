@@ -37,10 +37,15 @@ function EventsSection() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
 
+    if (!file && selectedEvent?.image) {
+      formData.set("image", selectedEvent.image);
+    } else if (file) {
+      formData.set("image", file);
+    }
+
     fetch(`http://localhost:3310/api/admin/event/${selectedEvent?.id}`, {
       method: "PUT",
       credentials: "include",
-
       body: formData,
     });
     setModalOpen(false);
