@@ -53,14 +53,20 @@ function UserFormPage() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, type, files } = e.target as HTMLInputElement;
+    const { name, type, value, files } = e.target as HTMLInputElement;
     if (type === "file" && files) {
       if (files[0].size > 500 * 1024) {
         toast.error("La taille de l'image ne doit pas être supérieur à 500ko");
+        return;
       }
       setFormData((prevFormData) => ({
         ...prevFormData,
-        [name]: files[0],
+        image: files[0],
+      }));
+    } else {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
       }));
     }
   };
@@ -70,7 +76,13 @@ function UserFormPage() {
     if (!user) return;
     const data = new FormData();
     for (const [key, value] of Object.entries(formData)) {
-      if (value !== "") data.append(key, value as string);
+      if (key === "image" && value instanceof File) {
+        data.append("image", value);
+      } else if (key !== "image" && value !== "") {
+        data.append(key, value as string);
+      } else if (key === "image" && typeof value === "string" && value !== "") {
+        data.append("image", value);
+      }
     }
     fetch(`http://localhost:3310/api/user/${user.id}`, {
       method: "PUT",
